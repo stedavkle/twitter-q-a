@@ -1,0 +1,26 @@
+MainGameLoop:
+
+while True:
+	newFollowers = twitter.checkFollower()
+	for follower in newFollowers:
+		follower.send(welcomeMsg)
+		follower.send(initTestInfo)
+		players.add(follower)
+		follower.changeGame(init)
+	
+	newTweets = twitter.getNewMentions()
+	for tweet in newTweets:
+		if tweet.user not in players:
+			continue
+		elif tweet.timeStamp - players[tweet.user].timeStamp > players[tweet.user].currentGame.limit:
+			twitter.send(tweet.user, timeoutMsg)
+			players[tweet.user].changeGame(on_timeout)
+		elif tweet.position != players[tweet.user].currentGame.position:
+			twitter.send(tweet.user, wrongLocMsg)
+			#? players[tweet.user].trials -= 1
+		elif tweet.text in players[tweet.user].currentGame.answers:
+			twitter.send(tweet.user, congratsMsg)
+			players[tweet.user].changeGame(success)
+		elif:
+			players[tweet.user].trials -= 1
+			players[tweet.user].sendHint()
