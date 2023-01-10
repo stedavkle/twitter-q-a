@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="TwitterQAModel" nsURI="TwitterQA/model/TwitterQA.ecore" nsPrefix="TwitterQA">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Twitter_QA">
     <eStructuralFeatures xsi:type="ecore:EReference" name="games" upperBound="-1"
         eType="#//Game" containment="true"/>
@@ -8,13 +16,21 @@
         upperBound="-1" eType="#//Player" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Game">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="initial_test final_test"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="initial_test" value="tests->one(t | t.is_initial)"/>
+      <details key="final_test" value="tests->one(t | t.is_final)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="welcome_msg" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="players" lowerBound="1"
         upperBound="-1" eType="#//Player"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
-        upperBound="-1" eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tests" lowerBound="1" upperBound="-1"
+        eType="#//Test" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Player">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -29,11 +45,14 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="latitude" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initial" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tests" eType="#//Test"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Test">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="initial_test"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="initial_test" value="&#xA;&#x9;&#x9;&#x9;if is_final then&#xA;&#x9;&#x9;&#x9;&#x9;on_correct.oclIsUndefined() and on_fail.oclIsUndefined()&#xA;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#x9;on_correct.oclIsTypeOf(Test)&#xA;&#x9;&#x9;&#x9;endif"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="t_limit" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -47,10 +66,14 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="answers" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="on_correct" lowerBound="1"
-        eType="#//Test"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="on_fail" lowerBound="1"
-        eType="#//Test"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="on_correct" eType="#//Test"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="on_fail" eType="#//Test"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="on_timeout" eType="#//Test"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
+        eType="#//Location" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="is_initial" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="is_final" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
 </ecore:EPackage>

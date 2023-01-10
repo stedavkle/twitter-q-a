@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/TwitterQA/src" modelPluginID="TwitterQA" modelName="TwitterQA"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>TwitterQA.ecore</foreignModel>
+  <genPackages prefix="TwitterQAModel" disposableProviderFactory="true" ecorePackage="TwitterQA.ecore#/">
+    <genClasses ecoreClass="TwitterQA.ecore#//Twitter_QA">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Twitter_QA/games"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Twitter_QA/players"/>
+    </genClasses>
+    <genClasses ecoreClass="TwitterQA.ecore#//Game">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/welcome_msg"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/players"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/city"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/tests"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/id"/>
+    </genClasses>
+    <genClasses ecoreClass="TwitterQA.ecore#//Player">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Player/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Player/points"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Player/current_test"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Player/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TwitterQA.ecore#//Location">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Location/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Location/langitude"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Location/latitude"/>
+    </genClasses>
+    <genClasses ecoreClass="TwitterQA.ecore#//Test">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/t_limit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/attempts"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/hints"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/points"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/answers"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_correct"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_fail"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_timeout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/is_initial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/is_final"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
