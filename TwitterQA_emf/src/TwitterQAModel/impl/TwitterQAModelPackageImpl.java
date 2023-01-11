@@ -9,11 +9,15 @@ import TwitterQAModel.TwitterQA;
 import TwitterQAModel.TwitterQAModelFactory;
 import TwitterQAModel.TwitterQAModelPackage;
 
+import TwitterQAModel.util.TwitterQAModelValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -103,6 +107,15 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		// Initialize created meta-data
 		theTwitterQAModelPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theTwitterQAModelPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return TwitterQAModelValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theTwitterQAModelPackage.freeze();
 
@@ -125,7 +138,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTwitterQA_ConsumerKey() {
+	public EAttribute getTwitterQA_Consumer_key() {
 		return (EAttribute)twitterQAEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -134,7 +147,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTwitterQA_ConsumerSecret() {
+	public EAttribute getTwitterQA_Consumer_secret() {
 		return (EAttribute)twitterQAEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -143,7 +156,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTwitterQA_AccessToken() {
+	public EAttribute getTwitterQA_Access_token() {
 		return (EAttribute)twitterQAEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -152,7 +165,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTwitterQA_AccessTokenSecret() {
+	public EAttribute getTwitterQA_Access_token_secret() {
 		return (EAttribute)twitterQAEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -179,7 +192,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTwitterQA_WelcomeMsg() {
+	public EAttribute getTwitterQA_Welcome_msg() {
 		return (EAttribute)twitterQAEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -215,7 +228,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getGame_InitialTest() {
+	public EReference getGame_Initial_test() {
 		return (EReference)gameEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -226,6 +239,24 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 */
 	public EReference getGame_Tests() {
 		return (EReference)gameEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGame_City() {
+		return (EAttribute)gameEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getGame__Initial_onsuccess_notnull__DiagnosticChain_Map() {
+		return gameEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -323,7 +354,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTest_On_wrong() {
+	public EReference getTest_On_timeout() {
 		return (EReference)testEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -332,8 +363,35 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTest_On_failure() {
+	public EReference getTest_On_fail() {
 		return (EReference)testEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTest__Reward_positive__DiagnosticChain_Map() {
+		return testEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTest__Time_positive__DiagnosticChain_Map() {
+		return testEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getTest__Attempts_positive__DiagnosticChain_Map() {
+		return testEClass.getEOperations().get(2);
 	}
 
 	/**
@@ -414,6 +472,8 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		createEAttribute(gameEClass, GAME__DESCRIPTION);
 		createEReference(gameEClass, GAME__INITIAL_TEST);
 		createEReference(gameEClass, GAME__TESTS);
+		createEAttribute(gameEClass, GAME__CITY);
+		createEOperation(gameEClass, GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP);
 
 		testEClass = createEClass(TEST);
 		createEAttribute(testEClass, TEST__ID);
@@ -425,8 +485,11 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		createEAttribute(testEClass, TEST__ATTEMPTS);
 		createEAttribute(testEClass, TEST__REWARD);
 		createEReference(testEClass, TEST__ON_CORRECT);
-		createEReference(testEClass, TEST__ON_WRONG);
-		createEReference(testEClass, TEST__ON_FAILURE);
+		createEReference(testEClass, TEST__ON_TIMEOUT);
+		createEReference(testEClass, TEST__ON_FAIL);
+		createEOperation(testEClass, TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(testEClass, TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP);
+		createEOperation(testEClass, TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP);
 
 		locationEClass = createEClass(LOCATION);
 		createEAttribute(locationEClass, LOCATION__NAME);
@@ -465,19 +528,29 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(twitterQAEClass, TwitterQA.class, "TwitterQA", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTwitterQA_ConsumerKey(), ecorePackage.getEString(), "consumerKey", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTwitterQA_ConsumerSecret(), ecorePackage.getEString(), "consumerSecret", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTwitterQA_AccessToken(), ecorePackage.getEString(), "accessToken", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTwitterQA_AccessTokenSecret(), ecorePackage.getEString(), "accessTokenSecret", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwitterQA_Consumer_key(), ecorePackage.getEString(), "consumer_key", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwitterQA_Consumer_secret(), ecorePackage.getEString(), "consumer_secret", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwitterQA_Access_token(), ecorePackage.getEString(), "access_token", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwitterQA_Access_token_secret(), ecorePackage.getEString(), "access_token_secret", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTwitterQA_Games(), this.getGame(), null, "games", null, 1, -1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTwitterQA_Locations(), this.getLocation(), null, "locations", null, 0, -1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTwitterQA_WelcomeMsg(), ecorePackage.getEString(), "welcomeMsg", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTwitterQA_Locations(), this.getLocation(), null, "locations", null, 1, -1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTwitterQA_Welcome_msg(), ecorePackage.getEString(), "welcome_msg", null, 1, 1, TwitterQA.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gameEClass, Game.class, "Game", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGame_Id(), ecorePackage.getEString(), "id", null, 1, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGame_Description(), ecorePackage.getEString(), "description", null, 1, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGame_InitialTest(), this.getTest(), null, "initialTest", null, 1, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGame_Tests(), this.getTest(), null, "tests", null, 0, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_Initial_test(), this.getTest(), null, "initial_test", null, 1, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGame_Tests(), this.getTest(), null, "tests", null, 1, -1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGame_City(), ecorePackage.getEString(), "city", null, 1, 1, Game.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getGame__Initial_onsuccess_notnull__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "initial_onsuccess_notnull", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(testEClass, Test.class, "Test", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTest_Id(), ecorePackage.getEString(), "id", null, 1, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -489,8 +562,35 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		initEAttribute(getTest_Attempts(), ecorePackage.getEInt(), "attempts", null, 1, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTest_Reward(), ecorePackage.getEInt(), "reward", null, 1, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTest_On_correct(), this.getTest(), null, "on_correct", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTest_On_wrong(), this.getTest(), null, "on_wrong", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTest_On_failure(), this.getTest(), null, "on_failure", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTest_On_timeout(), this.getTest(), null, "on_timeout", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTest_On_fail(), this.getTest(), null, "on_fail", null, 0, 1, Test.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getTest__Reward_positive__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "reward_positive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTest__Time_positive__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "time_positive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getTest__Attempts_positive__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "attempts_positive", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(locationEClass, Location.class, "Location", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLocation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Location.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -499,6 +599,73 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (gameEClass,
+		   source,
+		   new String[] {
+			   "constraints", "initial_onsuccess_notnull"
+		   });
+		addAnnotation
+		  (testEClass,
+		   source,
+		   new String[] {
+			   "constraints", "attempts_positive"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation
+		  (getGame__Initial_onsuccess_notnull__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "not initial_test.on_correct.oclIsUndefined()"
+		   });
+		addAnnotation
+		  (getTest__Reward_positive__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "reward > 0"
+		   });
+		addAnnotation
+		  (getTest__Time_positive__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "timelimit > 0"
+		   });
+		addAnnotation
+		  (getTest__Attempts_positive__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "attempts > 0"
+		   });
 	}
 
 } //TwitterQAModelPackageImpl

@@ -6,10 +6,14 @@ import TwitterQAModel.Location;
 import TwitterQAModel.Test;
 import TwitterQAModel.TwitterQAModelPackage;
 
+import TwitterQAModel.TwitterQAModelTables;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -19,6 +23,15 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableGreaterThanOperation;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,8 +50,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link TwitterQAModel.impl.TestImpl#getAttempts <em>Attempts</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getReward <em>Reward</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_correct <em>On correct</em>}</li>
- *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_wrong <em>On wrong</em>}</li>
- *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_failure <em>On failure</em>}</li>
+ *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_timeout <em>On timeout</em>}</li>
+ *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_fail <em>On fail</em>}</li>
  * </ul>
  *
  * @generated
@@ -185,24 +198,24 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	protected Test on_correct;
 
 	/**
-	 * The cached value of the '{@link #getOn_wrong() <em>On wrong</em>}' reference.
+	 * The cached value of the '{@link #getOn_timeout() <em>On timeout</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOn_wrong()
+	 * @see #getOn_timeout()
 	 * @generated
 	 * @ordered
 	 */
-	protected Test on_wrong;
+	protected Test on_timeout;
 
 	/**
-	 * The cached value of the '{@link #getOn_failure() <em>On failure</em>}' reference.
+	 * The cached value of the '{@link #getOn_fail() <em>On fail</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOn_failure()
+	 * @see #getOn_fail()
 	 * @generated
 	 * @ordered
 	 */
-	protected Test on_failure;
+	protected Test on_fail;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -433,16 +446,16 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Test getOn_wrong() {
-		if (on_wrong != null && on_wrong.eIsProxy()) {
-			InternalEObject oldOn_wrong = (InternalEObject)on_wrong;
-			on_wrong = (Test)eResolveProxy(oldOn_wrong);
-			if (on_wrong != oldOn_wrong) {
+	public Test getOn_timeout() {
+		if (on_timeout != null && on_timeout.eIsProxy()) {
+			InternalEObject oldOn_timeout = (InternalEObject)on_timeout;
+			on_timeout = (Test)eResolveProxy(oldOn_timeout);
+			if (on_timeout != oldOn_timeout) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TwitterQAModelPackage.TEST__ON_WRONG, oldOn_wrong, on_wrong));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TwitterQAModelPackage.TEST__ON_TIMEOUT, oldOn_timeout, on_timeout));
 			}
 		}
-		return on_wrong;
+		return on_timeout;
 	}
 
 	/**
@@ -450,8 +463,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Test basicGetOn_wrong() {
-		return on_wrong;
+	public Test basicGetOn_timeout() {
+		return on_timeout;
 	}
 
 	/**
@@ -459,11 +472,11 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOn_wrong(Test newOn_wrong) {
-		Test oldOn_wrong = on_wrong;
-		on_wrong = newOn_wrong;
+	public void setOn_timeout(Test newOn_timeout) {
+		Test oldOn_timeout = on_timeout;
+		on_timeout = newOn_timeout;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__ON_WRONG, oldOn_wrong, on_wrong));
+			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__ON_TIMEOUT, oldOn_timeout, on_timeout));
 	}
 
 	/**
@@ -471,16 +484,16 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Test getOn_failure() {
-		if (on_failure != null && on_failure.eIsProxy()) {
-			InternalEObject oldOn_failure = (InternalEObject)on_failure;
-			on_failure = (Test)eResolveProxy(oldOn_failure);
-			if (on_failure != oldOn_failure) {
+	public Test getOn_fail() {
+		if (on_fail != null && on_fail.eIsProxy()) {
+			InternalEObject oldOn_fail = (InternalEObject)on_fail;
+			on_fail = (Test)eResolveProxy(oldOn_fail);
+			if (on_fail != oldOn_fail) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TwitterQAModelPackage.TEST__ON_FAILURE, oldOn_failure, on_failure));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TwitterQAModelPackage.TEST__ON_FAIL, oldOn_fail, on_fail));
 			}
 		}
-		return on_failure;
+		return on_fail;
 	}
 
 	/**
@@ -488,8 +501,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Test basicGetOn_failure() {
-		return on_failure;
+	public Test basicGetOn_fail() {
+		return on_fail;
 	}
 
 	/**
@@ -497,11 +510,137 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOn_failure(Test newOn_failure) {
-		Test oldOn_failure = on_failure;
-		on_failure = newOn_failure;
+	public void setOn_fail(Test newOn_fail) {
+		Test oldOn_fail = on_fail;
+		on_fail = newOn_fail;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__ON_FAILURE, oldOn_failure, on_failure));
+			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__ON_FAIL, oldOn_fail, on_fail));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean reward_positive(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Test::reward_positive";
+		try {
+			/**
+			 *
+			 * inv reward_positive:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = reward > 0
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ int reward = this.getReward();
+				final /*@NonInvalid*/ IntegerValue BOXED_reward = ValueUtil.integerValueOf(reward);
+				final /*@NonInvalid*/ boolean result = OclComparableGreaterThanOperation.INSTANCE.evaluate(executor, BOXED_reward, TwitterQAModelTables.INT_0).booleanValue();
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean time_positive(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Test::time_positive";
+		try {
+			/**
+			 *
+			 * inv time_positive:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = timelimit > 0
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ int timelimit = this.getTimelimit();
+				final /*@NonInvalid*/ IntegerValue BOXED_timelimit = ValueUtil.integerValueOf(timelimit);
+				final /*@NonInvalid*/ boolean result = OclComparableGreaterThanOperation.INSTANCE.evaluate(executor, BOXED_timelimit, TwitterQAModelTables.INT_0).booleanValue();
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean attempts_positive(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Test::attempts_positive";
+		try {
+			/**
+			 *
+			 * inv attempts_positive:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = attempts > 0
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ int attempts = this.getAttempts();
+				final /*@NonInvalid*/ IntegerValue BOXED_attempts = ValueUtil.integerValueOf(attempts);
+				final /*@NonInvalid*/ boolean result = OclComparableGreaterThanOperation.INSTANCE.evaluate(executor, BOXED_attempts, TwitterQAModelTables.INT_0).booleanValue();
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
 	}
 
 	/**
@@ -532,12 +671,12 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case TwitterQAModelPackage.TEST__ON_CORRECT:
 				if (resolve) return getOn_correct();
 				return basicGetOn_correct();
-			case TwitterQAModelPackage.TEST__ON_WRONG:
-				if (resolve) return getOn_wrong();
-				return basicGetOn_wrong();
-			case TwitterQAModelPackage.TEST__ON_FAILURE:
-				if (resolve) return getOn_failure();
-				return basicGetOn_failure();
+			case TwitterQAModelPackage.TEST__ON_TIMEOUT:
+				if (resolve) return getOn_timeout();
+				return basicGetOn_timeout();
+			case TwitterQAModelPackage.TEST__ON_FAIL:
+				if (resolve) return getOn_fail();
+				return basicGetOn_fail();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -580,11 +719,11 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case TwitterQAModelPackage.TEST__ON_CORRECT:
 				setOn_correct((Test)newValue);
 				return;
-			case TwitterQAModelPackage.TEST__ON_WRONG:
-				setOn_wrong((Test)newValue);
+			case TwitterQAModelPackage.TEST__ON_TIMEOUT:
+				setOn_timeout((Test)newValue);
 				return;
-			case TwitterQAModelPackage.TEST__ON_FAILURE:
-				setOn_failure((Test)newValue);
+			case TwitterQAModelPackage.TEST__ON_FAIL:
+				setOn_fail((Test)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -625,11 +764,11 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case TwitterQAModelPackage.TEST__ON_CORRECT:
 				setOn_correct((Test)null);
 				return;
-			case TwitterQAModelPackage.TEST__ON_WRONG:
-				setOn_wrong((Test)null);
+			case TwitterQAModelPackage.TEST__ON_TIMEOUT:
+				setOn_timeout((Test)null);
 				return;
-			case TwitterQAModelPackage.TEST__ON_FAILURE:
-				setOn_failure((Test)null);
+			case TwitterQAModelPackage.TEST__ON_FAIL:
+				setOn_fail((Test)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -661,12 +800,31 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return reward != REWARD_EDEFAULT;
 			case TwitterQAModelPackage.TEST__ON_CORRECT:
 				return on_correct != null;
-			case TwitterQAModelPackage.TEST__ON_WRONG:
-				return on_wrong != null;
-			case TwitterQAModelPackage.TEST__ON_FAILURE:
-				return on_failure != null;
+			case TwitterQAModelPackage.TEST__ON_TIMEOUT:
+				return on_timeout != null;
+			case TwitterQAModelPackage.TEST__ON_FAIL:
+				return on_fail != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case TwitterQAModelPackage.TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP:
+				return reward_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case TwitterQAModelPackage.TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP:
+				return time_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case TwitterQAModelPackage.TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP:
+				return attempts_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

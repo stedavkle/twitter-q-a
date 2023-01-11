@@ -6,11 +6,15 @@ import TwitterQAModel.Game;
 import TwitterQAModel.Test;
 import TwitterQAModel.TwitterQAModelPackage;
 
+import TwitterQAModel.TwitterQAModelTables;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -21,6 +25,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
+import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,8 +44,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link TwitterQAModel.impl.GameImpl#getId <em>Id</em>}</li>
  *   <li>{@link TwitterQAModel.impl.GameImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link TwitterQAModel.impl.GameImpl#getInitialTest <em>Initial Test</em>}</li>
+ *   <li>{@link TwitterQAModel.impl.GameImpl#getInitial_test <em>Initial test</em>}</li>
  *   <li>{@link TwitterQAModel.impl.GameImpl#getTests <em>Tests</em>}</li>
+ *   <li>{@link TwitterQAModel.impl.GameImpl#getCity <em>City</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,14 +93,14 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getInitialTest() <em>Initial Test</em>}' containment reference.
+	 * The cached value of the '{@link #getInitial_test() <em>Initial test</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInitialTest()
+	 * @see #getInitial_test()
 	 * @generated
 	 * @ordered
 	 */
-	protected Test initialTest;
+	protected Test initial_test;
 
 	/**
 	 * The cached value of the '{@link #getTests() <em>Tests</em>}' containment reference list.
@@ -98,6 +111,26 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * @ordered
 	 */
 	protected EList<Test> tests;
+
+	/**
+	 * The default value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCity()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CITY_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCity() <em>City</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCity()
+	 * @generated
+	 * @ordered
+	 */
+	protected String city = CITY_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -165,8 +198,8 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Test getInitialTest() {
-		return initialTest;
+	public Test getInitial_test() {
+		return initial_test;
 	}
 
 	/**
@@ -174,11 +207,11 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInitialTest(Test newInitialTest, NotificationChain msgs) {
-		Test oldInitialTest = initialTest;
-		initialTest = newInitialTest;
+	public NotificationChain basicSetInitial_test(Test newInitial_test, NotificationChain msgs) {
+		Test oldInitial_test = initial_test;
+		initial_test = newInitial_test;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.GAME__INITIAL_TEST, oldInitialTest, newInitialTest);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.GAME__INITIAL_TEST, oldInitial_test, newInitial_test);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -189,18 +222,18 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setInitialTest(Test newInitialTest) {
-		if (newInitialTest != initialTest) {
+	public void setInitial_test(Test newInitial_test) {
+		if (newInitial_test != initial_test) {
 			NotificationChain msgs = null;
-			if (initialTest != null)
-				msgs = ((InternalEObject)initialTest).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TwitterQAModelPackage.GAME__INITIAL_TEST, null, msgs);
-			if (newInitialTest != null)
-				msgs = ((InternalEObject)newInitialTest).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TwitterQAModelPackage.GAME__INITIAL_TEST, null, msgs);
-			msgs = basicSetInitialTest(newInitialTest, msgs);
+			if (initial_test != null)
+				msgs = ((InternalEObject)initial_test).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TwitterQAModelPackage.GAME__INITIAL_TEST, null, msgs);
+			if (newInitial_test != null)
+				msgs = ((InternalEObject)newInitial_test).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TwitterQAModelPackage.GAME__INITIAL_TEST, null, msgs);
+			msgs = basicSetInitial_test(newInitial_test, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.GAME__INITIAL_TEST, newInitialTest, newInitialTest));
+			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.GAME__INITIAL_TEST, newInitial_test, newInitial_test));
 	}
 
 	/**
@@ -220,11 +253,86 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getCity() {
+		return city;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCity(String newCity) {
+		String oldCity = city;
+		city = newCity;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.GAME__CITY, oldCity, city));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean initial_onsuccess_notnull(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Game::initial_onsuccess_notnull";
+		try {
+			/**
+			 *
+			 * inv initial_onsuccess_notnull:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[?] = not initial_test.on_correct.oclIsUndefined()
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ Test initial_test = this.getInitial_test();
+				final /*@NonInvalid*/ Test on_correct = initial_test.getOn_correct();
+				final /*@NonInvalid*/ boolean oclIsUndefined = on_correct == null;
+				final /*@NonInvalid*/ Boolean result;
+				if (!oclIsUndefined) {
+					result = ValueUtil.TRUE_VALUE;
+				}
+				else {
+					if (oclIsUndefined) {
+						result = ValueUtil.FALSE_VALUE;
+					}
+					else {
+						result = null;
+					}
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TwitterQAModelPackage.GAME__INITIAL_TEST:
-				return basicSetInitialTest(null, msgs);
+				return basicSetInitial_test(null, msgs);
 			case TwitterQAModelPackage.GAME__TESTS:
 				return ((InternalEList<?>)getTests()).basicRemove(otherEnd, msgs);
 		}
@@ -244,9 +352,11 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 			case TwitterQAModelPackage.GAME__DESCRIPTION:
 				return getDescription();
 			case TwitterQAModelPackage.GAME__INITIAL_TEST:
-				return getInitialTest();
+				return getInitial_test();
 			case TwitterQAModelPackage.GAME__TESTS:
 				return getTests();
+			case TwitterQAModelPackage.GAME__CITY:
+				return getCity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,11 +377,14 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 				setDescription((String)newValue);
 				return;
 			case TwitterQAModelPackage.GAME__INITIAL_TEST:
-				setInitialTest((Test)newValue);
+				setInitial_test((Test)newValue);
 				return;
 			case TwitterQAModelPackage.GAME__TESTS:
 				getTests().clear();
 				getTests().addAll((Collection<? extends Test>)newValue);
+				return;
+			case TwitterQAModelPackage.GAME__CITY:
+				setCity((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -292,10 +405,13 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case TwitterQAModelPackage.GAME__INITIAL_TEST:
-				setInitialTest((Test)null);
+				setInitial_test((Test)null);
 				return;
 			case TwitterQAModelPackage.GAME__TESTS:
 				getTests().clear();
+				return;
+			case TwitterQAModelPackage.GAME__CITY:
+				setCity(CITY_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -314,11 +430,28 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 			case TwitterQAModelPackage.GAME__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case TwitterQAModelPackage.GAME__INITIAL_TEST:
-				return initialTest != null;
+				return initial_test != null;
 			case TwitterQAModelPackage.GAME__TESTS:
 				return tests != null && !tests.isEmpty();
+			case TwitterQAModelPackage.GAME__CITY:
+				return CITY_EDEFAULT == null ? city != null : !CITY_EDEFAULT.equals(city);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case TwitterQAModelPackage.GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP:
+				return initial_onsuccess_notnull((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -335,6 +468,8 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 		result.append(id);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", city: ");
+		result.append(city);
 		result.append(')');
 		return result.toString();
 	}

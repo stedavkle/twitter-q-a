@@ -2,6 +2,8 @@
  */
 package TwitterQAModel;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -24,12 +26,12 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link TwitterQAModel.Test#getAttempts <em>Attempts</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getReward <em>Reward</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getOn_correct <em>On correct</em>}</li>
- *   <li>{@link TwitterQAModel.Test#getOn_wrong <em>On wrong</em>}</li>
- *   <li>{@link TwitterQAModel.Test#getOn_failure <em>On failure</em>}</li>
+ *   <li>{@link TwitterQAModel.Test#getOn_timeout <em>On timeout</em>}</li>
+ *   <li>{@link TwitterQAModel.Test#getOn_fail <em>On fail</em>}</li>
  * </ul>
  *
  * @see TwitterQAModel.TwitterQAModelPackage#getTest()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attempts_positive'"
  * @generated
  */
 public interface Test extends EObject {
@@ -212,47 +214,71 @@ public interface Test extends EObject {
 	void setOn_correct(Test value);
 
 	/**
-	 * Returns the value of the '<em><b>On wrong</b></em>' reference.
+	 * Returns the value of the '<em><b>On timeout</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On wrong</em>' reference.
-	 * @see #setOn_wrong(Test)
-	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_On_wrong()
+	 * @return the value of the '<em>On timeout</em>' reference.
+	 * @see #setOn_timeout(Test)
+	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_On_timeout()
 	 * @model
 	 * @generated
 	 */
-	Test getOn_wrong();
+	Test getOn_timeout();
 
 	/**
-	 * Sets the value of the '{@link TwitterQAModel.Test#getOn_wrong <em>On wrong</em>}' reference.
+	 * Sets the value of the '{@link TwitterQAModel.Test#getOn_timeout <em>On timeout</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On wrong</em>' reference.
-	 * @see #getOn_wrong()
+	 * @param value the new value of the '<em>On timeout</em>' reference.
+	 * @see #getOn_timeout()
 	 * @generated
 	 */
-	void setOn_wrong(Test value);
+	void setOn_timeout(Test value);
 
 	/**
-	 * Returns the value of the '<em><b>On failure</b></em>' reference.
+	 * Returns the value of the '<em><b>On fail</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>On failure</em>' reference.
-	 * @see #setOn_failure(Test)
-	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_On_failure()
+	 * @return the value of the '<em>On fail</em>' reference.
+	 * @see #setOn_fail(Test)
+	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_On_fail()
 	 * @model
 	 * @generated
 	 */
-	Test getOn_failure();
+	Test getOn_fail();
 
 	/**
-	 * Sets the value of the '{@link TwitterQAModel.Test#getOn_failure <em>On failure</em>}' reference.
+	 * Sets the value of the '{@link TwitterQAModel.Test#getOn_fail <em>On fail</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>On failure</em>' reference.
-	 * @see #getOn_failure()
+	 * @param value the new value of the '<em>On fail</em>' reference.
+	 * @see #getOn_fail()
 	 * @generated
 	 */
-	void setOn_failure(Test value);
+	void setOn_fail(Test value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='reward &gt; 0'"
+	 * @generated
+	 */
+	boolean reward_positive(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='timelimit &gt; 0'"
+	 * @generated
+	 */
+	boolean time_positive(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='attempts &gt; 0'"
+	 * @generated
+	 */
+	boolean attempts_positive(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Test

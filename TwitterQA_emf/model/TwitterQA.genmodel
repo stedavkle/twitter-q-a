@@ -7,19 +7,20 @@
   <foreignModel>TwitterQA.ecore</foreignModel>
   <genPackages prefix="TwitterQAModel" disposableProviderFactory="true" ecorePackage="TwitterQA.ecore#/">
     <genClasses ecoreClass="TwitterQA.ecore#//TwitterQA">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/consumerKey"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/consumerSecret"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/accessToken"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/accessTokenSecret"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/consumer_key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/consumer_secret"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/access_token"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/access_token_secret"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//TwitterQA/games"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//TwitterQA/locations"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/welcomeMsg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/welcome_msg"/>
     </genClasses>
     <genClasses ecoreClass="TwitterQA.ecore#//Game">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/initialTest"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/initial_test"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/tests"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/city"/>
     </genClasses>
     <genClasses ecoreClass="TwitterQA.ecore#//Test">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/id"/>
@@ -31,8 +32,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/attempts"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/reward"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_correct"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_wrong"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_timeout"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_fail"/>
     </genClasses>
     <genClasses ecoreClass="TwitterQA.ecore#//Location">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Location/name"/>

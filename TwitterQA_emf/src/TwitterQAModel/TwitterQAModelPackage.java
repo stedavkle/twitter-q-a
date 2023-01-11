@@ -4,6 +4,7 @@ package TwitterQAModel;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see TwitterQAModel.TwitterQAModelFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface TwitterQAModelPackage extends EPackage {
@@ -67,7 +69,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TWITTER_QA = 0;
 
 	/**
-	 * The feature id for the '<em><b>Consumer Key</b></em>' attribute.
+	 * The feature id for the '<em><b>Consumer key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -76,7 +78,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TWITTER_QA__CONSUMER_KEY = 0;
 
 	/**
-	 * The feature id for the '<em><b>Consumer Secret</b></em>' attribute.
+	 * The feature id for the '<em><b>Consumer secret</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -85,7 +87,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TWITTER_QA__CONSUMER_SECRET = 1;
 
 	/**
-	 * The feature id for the '<em><b>Access Token</b></em>' attribute.
+	 * The feature id for the '<em><b>Access token</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -94,7 +96,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TWITTER_QA__ACCESS_TOKEN = 2;
 
 	/**
-	 * The feature id for the '<em><b>Access Token Secret</b></em>' attribute.
+	 * The feature id for the '<em><b>Access token secret</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -121,7 +123,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TWITTER_QA__LOCATIONS = 5;
 
 	/**
-	 * The feature id for the '<em><b>Welcome Msg</b></em>' attribute.
+	 * The feature id for the '<em><b>Welcome msg</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -176,7 +178,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	int GAME__DESCRIPTION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Initial Test</b></em>' containment reference.
+	 * The feature id for the '<em><b>Initial test</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -194,13 +196,31 @@ public interface TwitterQAModelPackage extends EPackage {
 	int GAME__TESTS = 3;
 
 	/**
+	 * The feature id for the '<em><b>City</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME__CITY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Game</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_FEATURE_COUNT = 4;
+	int GAME_FEATURE_COUNT = 5;
+
+	/**
+	 * The operation id for the '<em>Initial onsuccess notnull</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = 0;
 
 	/**
 	 * The number of operations of the '<em>Game</em>' class.
@@ -209,7 +229,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_OPERATION_COUNT = 0;
+	int GAME_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link TwitterQAModel.impl.TestImpl <em>Test</em>}' class.
@@ -303,22 +323,22 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TEST__ON_CORRECT = 8;
 
 	/**
-	 * The feature id for the '<em><b>On wrong</b></em>' reference.
+	 * The feature id for the '<em><b>On timeout</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST__ON_WRONG = 9;
+	int TEST__ON_TIMEOUT = 9;
 
 	/**
-	 * The feature id for the '<em><b>On failure</b></em>' reference.
+	 * The feature id for the '<em><b>On fail</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST__ON_FAILURE = 10;
+	int TEST__ON_FAIL = 10;
 
 	/**
 	 * The number of structural features of the '<em>Test</em>' class.
@@ -330,13 +350,40 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TEST_FEATURE_COUNT = 11;
 
 	/**
+	 * The operation id for the '<em>Reward positive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP = 0;
+
+	/**
+	 * The operation id for the '<em>Time positive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
+	 * The operation id for the '<em>Attempts positive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP = 2;
+
+	/**
 	 * The number of operations of the '<em>Test</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_OPERATION_COUNT = 0;
+	int TEST_OPERATION_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link TwitterQAModel.impl.LocationImpl <em>Location</em>}' class.
@@ -405,48 +452,48 @@ public interface TwitterQAModelPackage extends EPackage {
 	EClass getTwitterQA();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getConsumerKey <em>Consumer Key</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getConsumer_key <em>Consumer key</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Consumer Key</em>'.
-	 * @see TwitterQAModel.TwitterQA#getConsumerKey()
+	 * @return the meta object for the attribute '<em>Consumer key</em>'.
+	 * @see TwitterQAModel.TwitterQA#getConsumer_key()
 	 * @see #getTwitterQA()
 	 * @generated
 	 */
-	EAttribute getTwitterQA_ConsumerKey();
+	EAttribute getTwitterQA_Consumer_key();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getConsumerSecret <em>Consumer Secret</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getConsumer_secret <em>Consumer secret</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Consumer Secret</em>'.
-	 * @see TwitterQAModel.TwitterQA#getConsumerSecret()
+	 * @return the meta object for the attribute '<em>Consumer secret</em>'.
+	 * @see TwitterQAModel.TwitterQA#getConsumer_secret()
 	 * @see #getTwitterQA()
 	 * @generated
 	 */
-	EAttribute getTwitterQA_ConsumerSecret();
+	EAttribute getTwitterQA_Consumer_secret();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getAccessToken <em>Access Token</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getAccess_token <em>Access token</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Access Token</em>'.
-	 * @see TwitterQAModel.TwitterQA#getAccessToken()
+	 * @return the meta object for the attribute '<em>Access token</em>'.
+	 * @see TwitterQAModel.TwitterQA#getAccess_token()
 	 * @see #getTwitterQA()
 	 * @generated
 	 */
-	EAttribute getTwitterQA_AccessToken();
+	EAttribute getTwitterQA_Access_token();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getAccessTokenSecret <em>Access Token Secret</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getAccess_token_secret <em>Access token secret</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Access Token Secret</em>'.
-	 * @see TwitterQAModel.TwitterQA#getAccessTokenSecret()
+	 * @return the meta object for the attribute '<em>Access token secret</em>'.
+	 * @see TwitterQAModel.TwitterQA#getAccess_token_secret()
 	 * @see #getTwitterQA()
 	 * @generated
 	 */
-	EAttribute getTwitterQA_AccessTokenSecret();
+	EAttribute getTwitterQA_Access_token_secret();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link TwitterQAModel.TwitterQA#getGames <em>Games</em>}'.
@@ -471,15 +518,15 @@ public interface TwitterQAModelPackage extends EPackage {
 	EReference getTwitterQA_Locations();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getWelcomeMsg <em>Welcome Msg</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.TwitterQA#getWelcome_msg <em>Welcome msg</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Welcome Msg</em>'.
-	 * @see TwitterQAModel.TwitterQA#getWelcomeMsg()
+	 * @return the meta object for the attribute '<em>Welcome msg</em>'.
+	 * @see TwitterQAModel.TwitterQA#getWelcome_msg()
 	 * @see #getTwitterQA()
 	 * @generated
 	 */
-	EAttribute getTwitterQA_WelcomeMsg();
+	EAttribute getTwitterQA_Welcome_msg();
 
 	/**
 	 * Returns the meta object for class '{@link TwitterQAModel.Game <em>Game</em>}'.
@@ -514,15 +561,15 @@ public interface TwitterQAModelPackage extends EPackage {
 	EAttribute getGame_Description();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link TwitterQAModel.Game#getInitialTest <em>Initial Test</em>}'.
+	 * Returns the meta object for the containment reference '{@link TwitterQAModel.Game#getInitial_test <em>Initial test</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Initial Test</em>'.
-	 * @see TwitterQAModel.Game#getInitialTest()
+	 * @return the meta object for the containment reference '<em>Initial test</em>'.
+	 * @see TwitterQAModel.Game#getInitial_test()
 	 * @see #getGame()
 	 * @generated
 	 */
-	EReference getGame_InitialTest();
+	EReference getGame_Initial_test();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link TwitterQAModel.Game#getTests <em>Tests</em>}'.
@@ -534,6 +581,27 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGame_Tests();
+
+	/**
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.Game#getCity <em>City</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>City</em>'.
+	 * @see TwitterQAModel.Game#getCity()
+	 * @see #getGame()
+	 * @generated
+	 */
+	EAttribute getGame_City();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#initial_onsuccess_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Initial onsuccess notnull</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initial onsuccess notnull</em>' operation.
+	 * @see TwitterQAModel.Game#initial_onsuccess_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__Initial_onsuccess_notnull__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link TwitterQAModel.Test <em>Test</em>}'.
@@ -645,26 +713,56 @@ public interface TwitterQAModelPackage extends EPackage {
 	EReference getTest_On_correct();
 
 	/**
-	 * Returns the meta object for the reference '{@link TwitterQAModel.Test#getOn_wrong <em>On wrong</em>}'.
+	 * Returns the meta object for the reference '{@link TwitterQAModel.Test#getOn_timeout <em>On timeout</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>On wrong</em>'.
-	 * @see TwitterQAModel.Test#getOn_wrong()
+	 * @return the meta object for the reference '<em>On timeout</em>'.
+	 * @see TwitterQAModel.Test#getOn_timeout()
 	 * @see #getTest()
 	 * @generated
 	 */
-	EReference getTest_On_wrong();
+	EReference getTest_On_timeout();
 
 	/**
-	 * Returns the meta object for the reference '{@link TwitterQAModel.Test#getOn_failure <em>On failure</em>}'.
+	 * Returns the meta object for the reference '{@link TwitterQAModel.Test#getOn_fail <em>On fail</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>On failure</em>'.
-	 * @see TwitterQAModel.Test#getOn_failure()
+	 * @return the meta object for the reference '<em>On fail</em>'.
+	 * @see TwitterQAModel.Test#getOn_fail()
 	 * @see #getTest()
 	 * @generated
 	 */
-	EReference getTest_On_failure();
+	EReference getTest_On_fail();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Test#reward_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Reward positive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Reward positive</em>' operation.
+	 * @see TwitterQAModel.Test#reward_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getTest__Reward_positive__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Test#time_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Time positive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Time positive</em>' operation.
+	 * @see TwitterQAModel.Test#time_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getTest__Time_positive__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Test#attempts_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Attempts positive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Attempts positive</em>' operation.
+	 * @see TwitterQAModel.Test#attempts_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getTest__Attempts_positive__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link TwitterQAModel.Location <em>Location</em>}'.
@@ -743,36 +841,36 @@ public interface TwitterQAModelPackage extends EPackage {
 		EClass TWITTER_QA = eINSTANCE.getTwitterQA();
 
 		/**
-		 * The meta object literal for the '<em><b>Consumer Key</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Consumer key</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TWITTER_QA__CONSUMER_KEY = eINSTANCE.getTwitterQA_ConsumerKey();
+		EAttribute TWITTER_QA__CONSUMER_KEY = eINSTANCE.getTwitterQA_Consumer_key();
 
 		/**
-		 * The meta object literal for the '<em><b>Consumer Secret</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Consumer secret</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TWITTER_QA__CONSUMER_SECRET = eINSTANCE.getTwitterQA_ConsumerSecret();
+		EAttribute TWITTER_QA__CONSUMER_SECRET = eINSTANCE.getTwitterQA_Consumer_secret();
 
 		/**
-		 * The meta object literal for the '<em><b>Access Token</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Access token</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TWITTER_QA__ACCESS_TOKEN = eINSTANCE.getTwitterQA_AccessToken();
+		EAttribute TWITTER_QA__ACCESS_TOKEN = eINSTANCE.getTwitterQA_Access_token();
 
 		/**
-		 * The meta object literal for the '<em><b>Access Token Secret</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Access token secret</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TWITTER_QA__ACCESS_TOKEN_SECRET = eINSTANCE.getTwitterQA_AccessTokenSecret();
+		EAttribute TWITTER_QA__ACCESS_TOKEN_SECRET = eINSTANCE.getTwitterQA_Access_token_secret();
 
 		/**
 		 * The meta object literal for the '<em><b>Games</b></em>' containment reference list feature.
@@ -791,12 +889,12 @@ public interface TwitterQAModelPackage extends EPackage {
 		EReference TWITTER_QA__LOCATIONS = eINSTANCE.getTwitterQA_Locations();
 
 		/**
-		 * The meta object literal for the '<em><b>Welcome Msg</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Welcome msg</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TWITTER_QA__WELCOME_MSG = eINSTANCE.getTwitterQA_WelcomeMsg();
+		EAttribute TWITTER_QA__WELCOME_MSG = eINSTANCE.getTwitterQA_Welcome_msg();
 
 		/**
 		 * The meta object literal for the '{@link TwitterQAModel.impl.GameImpl <em>Game</em>}' class.
@@ -825,12 +923,12 @@ public interface TwitterQAModelPackage extends EPackage {
 		EAttribute GAME__DESCRIPTION = eINSTANCE.getGame_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial Test</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Initial test</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GAME__INITIAL_TEST = eINSTANCE.getGame_InitialTest();
+		EReference GAME__INITIAL_TEST = eINSTANCE.getGame_Initial_test();
 
 		/**
 		 * The meta object literal for the '<em><b>Tests</b></em>' containment reference list feature.
@@ -839,6 +937,22 @@ public interface TwitterQAModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GAME__TESTS = eINSTANCE.getGame_Tests();
+
+		/**
+		 * The meta object literal for the '<em><b>City</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GAME__CITY = eINSTANCE.getGame_City();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial onsuccess notnull</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__Initial_onsuccess_notnull__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link TwitterQAModel.impl.TestImpl <em>Test</em>}' class.
@@ -923,20 +1037,44 @@ public interface TwitterQAModelPackage extends EPackage {
 		EReference TEST__ON_CORRECT = eINSTANCE.getTest_On_correct();
 
 		/**
-		 * The meta object literal for the '<em><b>On wrong</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>On timeout</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEST__ON_WRONG = eINSTANCE.getTest_On_wrong();
+		EReference TEST__ON_TIMEOUT = eINSTANCE.getTest_On_timeout();
 
 		/**
-		 * The meta object literal for the '<em><b>On failure</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>On fail</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TEST__ON_FAILURE = eINSTANCE.getTest_On_failure();
+		EReference TEST__ON_FAIL = eINSTANCE.getTest_On_fail();
+
+		/**
+		 * The meta object literal for the '<em><b>Reward positive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTest__Reward_positive__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Time positive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTest__Time_positive__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Attempts positive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTest__Attempts_positive__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link TwitterQAModel.impl.LocationImpl <em>Location</em>}' class.
