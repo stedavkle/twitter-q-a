@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Twitter_QA -->
+      <package
+            uri="TwitterQA_emf/model/TwitterQA.ecore"
+            class="TwitterQA.TwitterQAPackage"
+            genModel="model/Twitter_QA.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated TwitterQA -->
+      <package
+            uri="TwitterQA_emf/model/TwitterQA.ecore"
+            class="TwitterQAModel.TwitterQAModelPackage"
+            genModel="model/TwitterQA.genmodel"/>
+   </extension>
+
+</plugin>
