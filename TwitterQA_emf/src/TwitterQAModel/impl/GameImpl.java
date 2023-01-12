@@ -570,60 +570,6 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean initial_onsuccess_notnull(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-		final String constraintName = "Game::initial_onsuccess_notnull";
-		try {
-			/**
-			 *
-			 * inv initial_onsuccess_notnull:
-			 *   let severity : Integer[1] = constraintName.getSeverity()
-			 *   in
-			 *     if severity <= 0
-			 *     then true
-			 *     else
-			 *       let result : Boolean[?] = not initial_test.on_correct.oclIsUndefined()
-			 *       in
-			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
-			 *     endif
-			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
-			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP);
-			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
-			if (le) {
-				local_0 = true;
-			}
-			else {
-				final /*@NonInvalid*/ Test initial_test = this.getInitial_test();
-				final /*@NonInvalid*/ Test on_correct = initial_test.getOn_correct();
-				final /*@NonInvalid*/ boolean oclIsUndefined = on_correct == null;
-				final /*@NonInvalid*/ Boolean result;
-				if (!oclIsUndefined) {
-					result = ValueUtil.TRUE_VALUE;
-				}
-				else {
-					if (oclIsUndefined) {
-						result = ValueUtil.FALSE_VALUE;
-					}
-					else {
-						result = null;
-					}
-				}
-				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
-				local_0 = logDiagnostic;
-			}
-			return local_0;
-		}
-		catch (Throwable e) {
-			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean no_jump_back_timeout(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		final String constraintName = "Game::no_jump_back_timeout";
 		try {
@@ -868,6 +814,60 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean initial_on_correct_notnull(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Game::initial_on_correct_notnull";
+		try {
+			/**
+			 *
+			 * inv initial_on_correct_notnull:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[?] = not initial_test.on_correct.oclIsUndefined()
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.GAME___INITIAL_ON_CORRECT_NOTNULL__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ Test initial_test = this.getInitial_test();
+				final /*@NonInvalid*/ Test on_correct = initial_test.getOn_correct();
+				final /*@NonInvalid*/ boolean oclIsUndefined = on_correct == null;
+				final /*@NonInvalid*/ Boolean result;
+				if (!oclIsUndefined) {
+					result = ValueUtil.TRUE_VALUE;
+				}
+				else {
+					if (oclIsUndefined) {
+						result = ValueUtil.FALSE_VALUE;
+					}
+					else {
+						result = null;
+					}
+				}
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -994,12 +994,12 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 				return no_jump_back_correct((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case TwitterQAModelPackage.GAME___INITIAL_ORDER_ZERO__DIAGNOSTICCHAIN_MAP:
 				return initial_order_zero((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case TwitterQAModelPackage.GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP:
-				return initial_onsuccess_notnull((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case TwitterQAModelPackage.GAME___NO_JUMP_BACK_TIMEOUT__DIAGNOSTICCHAIN_MAP:
 				return no_jump_back_timeout((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case TwitterQAModelPackage.GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP:
 				return no_jump_back_fail((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case TwitterQAModelPackage.GAME___INITIAL_ON_CORRECT_NOTNULL__DIAGNOSTICCHAIN_MAP:
+				return initial_on_correct_notnull((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

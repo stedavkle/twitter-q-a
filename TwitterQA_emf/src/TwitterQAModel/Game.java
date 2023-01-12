@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see TwitterQAModel.TwitterQAModelPackage#getGame()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='no_jump_back_fail'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='initial_on_correct_notnull'"
  * @generated
  */
 public interface Game extends EObject {
@@ -156,14 +156,6 @@ public interface Game extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not initial_test.on_correct.oclIsUndefined()'"
-	 * @generated
-	 */
-	boolean initial_onsuccess_notnull(DiagnosticChain diagnostics, Map<Object, Object> context);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='\n\t\t\tlet not_final_tests = tests-&gt;select(t | t.on_timeout.oclIsUndefined() = false) in\n\t\t\t\tnot_final_tests-&gt;forAll(t | t.on_timeout.order &gt; t.order)'"
 	 * @generated
 	 */
@@ -176,5 +168,13 @@ public interface Game extends EObject {
 	 * @generated
 	 */
 	boolean no_jump_back_fail(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not initial_test.on_correct.oclIsUndefined()'"
+	 * @generated
+	 */
+	boolean initial_on_correct_notnull(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Game

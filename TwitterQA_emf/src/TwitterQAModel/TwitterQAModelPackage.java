@@ -241,22 +241,13 @@ public interface TwitterQAModelPackage extends EPackage {
 	int GAME___INITIAL_ORDER_ZERO__DIAGNOSTICCHAIN_MAP = 2;
 
 	/**
-	 * The operation id for the '<em>Initial onsuccess notnull</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = 3;
-
-	/**
 	 * The operation id for the '<em>No jump back timeout</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME___NO_JUMP_BACK_TIMEOUT__DIAGNOSTICCHAIN_MAP = 4;
+	int GAME___NO_JUMP_BACK_TIMEOUT__DIAGNOSTICCHAIN_MAP = 3;
 
 	/**
 	 * The operation id for the '<em>No jump back fail</em>' operation.
@@ -265,7 +256,16 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP = 5;
+	int GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP = 4;
+
+	/**
+	 * The operation id for the '<em>Initial on correct notnull</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___INITIAL_ON_CORRECT_NOTNULL__DIAGNOSTICCHAIN_MAP = 5;
 
 	/**
 	 * The number of operations of the '<em>Game</em>' class.
@@ -687,16 +687,6 @@ public interface TwitterQAModelPackage extends EPackage {
 	EOperation getGame__Initial_order_zero__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for the '{@link TwitterQAModel.Game#initial_onsuccess_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Initial onsuccess notnull</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Initial onsuccess notnull</em>' operation.
-	 * @see TwitterQAModel.Game#initial_onsuccess_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getGame__Initial_onsuccess_notnull__DiagnosticChain_Map();
-
-	/**
 	 * Returns the meta object for the '{@link TwitterQAModel.Game#no_jump_back_timeout(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No jump back timeout</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -715,6 +705,16 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGame__No_jump_back_fail__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#initial_on_correct_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Initial on correct notnull</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initial on correct notnull</em>' operation.
+	 * @see TwitterQAModel.Game#initial_on_correct_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__Initial_on_correct_notnull__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link TwitterQAModel.Test <em>Test</em>}'.
@@ -1105,14 +1105,6 @@ public interface TwitterQAModelPackage extends EPackage {
 		EOperation GAME___INITIAL_ORDER_ZERO__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__Initial_order_zero__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '<em><b>Initial onsuccess notnull</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__Initial_onsuccess_notnull__DiagnosticChain_Map();
-
-		/**
 		 * The meta object literal for the '<em><b>No jump back timeout</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1127,6 +1119,14 @@ public interface TwitterQAModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__No_jump_back_fail__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial on correct notnull</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___INITIAL_ON_CORRECT_NOTNULL__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__Initial_on_correct_notnull__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link TwitterQAModel.impl.TestImpl <em>Test</em>}' class.

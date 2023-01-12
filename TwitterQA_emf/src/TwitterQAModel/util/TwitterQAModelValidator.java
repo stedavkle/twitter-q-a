@@ -64,20 +64,12 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	public static final int GAME__INITIAL_ORDER_ZERO = 3;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Initial onsuccess notnull' of 'Game'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int GAME__INITIAL_ONSUCCESS_NOTNULL = 4;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No jump back timeout' of 'Game'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int GAME__NO_JUMP_BACK_TIMEOUT = 5;
+	public static final int GAME__NO_JUMP_BACK_TIMEOUT = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No jump back fail' of 'Game'.
@@ -85,7 +77,15 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int GAME__NO_JUMP_BACK_FAIL = 6;
+	public static final int GAME__NO_JUMP_BACK_FAIL = 5;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Initial on correct notnull' of 'Game'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int GAME__INITIAL_ON_CORRECT_NOTNULL = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Reward positive' of 'Test'.
@@ -202,13 +202,23 @@ public class TwitterQAModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(game, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGame_no_jump_back_fail(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_initial_on_correct_notnull(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGame_no_order_twice(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGame_no_jump_back_correct(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGame_initial_order_zero(game, diagnostics, context);
-		if (result || diagnostics != null) result &= validateGame_initial_onsuccess_notnull(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGame_no_jump_back_timeout(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_no_jump_back_fail(game, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the initial_on_correct_notnull constraint of '<em>Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGame_initial_on_correct_notnull(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return game.initial_on_correct_notnull(diagnostics, context);
 	}
 
 	/**
@@ -249,16 +259,6 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 */
 	public boolean validateGame_initial_order_zero(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return game.initial_order_zero(diagnostics, context);
-	}
-
-	/**
-	 * Validates the initial_onsuccess_notnull constraint of '<em>Game</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGame_initial_onsuccess_notnull(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return game.initial_onsuccess_notnull(diagnostics, context);
 	}
 
 	/**

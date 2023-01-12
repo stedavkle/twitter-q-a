@@ -282,7 +282,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGame__Initial_onsuccess_notnull__DiagnosticChain_Map() {
+	public EOperation getGame__No_jump_back_timeout__DiagnosticChain_Map() {
 		return gameEClass.getEOperations().get(3);
 	}
 
@@ -291,7 +291,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGame__No_jump_back_timeout__DiagnosticChain_Map() {
+	public EOperation getGame__No_jump_back_fail__DiagnosticChain_Map() {
 		return gameEClass.getEOperations().get(4);
 	}
 
@@ -300,7 +300,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getGame__No_jump_back_fail__DiagnosticChain_Map() {
+	public EOperation getGame__Initial_on_correct_notnull__DiagnosticChain_Map() {
 		return gameEClass.getEOperations().get(5);
 	}
 
@@ -539,9 +539,9 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		createEOperation(gameEClass, GAME___NO_ORDER_TWICE__DIAGNOSTICCHAIN_MAP);
 		createEOperation(gameEClass, GAME___NO_JUMP_BACK_CORRECT__DIAGNOSTICCHAIN_MAP);
 		createEOperation(gameEClass, GAME___INITIAL_ORDER_ZERO__DIAGNOSTICCHAIN_MAP);
-		createEOperation(gameEClass, GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP);
 		createEOperation(gameEClass, GAME___NO_JUMP_BACK_TIMEOUT__DIAGNOSTICCHAIN_MAP);
 		createEOperation(gameEClass, GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP);
+		createEOperation(gameEClass, GAME___INITIAL_ON_CORRECT_NOTNULL__DIAGNOSTICCHAIN_MAP);
 
 		testEClass = createEClass(TEST);
 		createEAttribute(testEClass, TEST__NAME);
@@ -640,15 +640,6 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = initEOperation(getGame__Initial_onsuccess_notnull__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "initial_onsuccess_notnull", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		op = initEOperation(getGame__No_jump_back_timeout__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "no_jump_back_timeout", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
@@ -659,6 +650,15 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = initEOperation(getGame__No_jump_back_fail__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "no_jump_back_fail", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getGame__Initial_on_correct_notnull__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "initial_on_correct_notnull", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -749,7 +749,7 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		  (gameEClass,
 		   source,
 		   new String[] {
-			   "constraints", "no_jump_back_fail"
+			   "constraints", "initial_on_correct_notnull"
 		   });
 		addAnnotation
 		  (testEClass,
@@ -786,12 +786,6 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 			   "body", "initial_test.order = 0"
 		   });
 		addAnnotation
-		  (getGame__Initial_onsuccess_notnull__DiagnosticChain_Map(),
-		   source,
-		   new String[] {
-			   "body", "not initial_test.on_correct.oclIsUndefined()"
-		   });
-		addAnnotation
 		  (getGame__No_jump_back_timeout__DiagnosticChain_Map(),
 		   source,
 		   new String[] {
@@ -802,6 +796,12 @@ public class TwitterQAModelPackageImpl extends EPackageImpl implements TwitterQA
 		   source,
 		   new String[] {
 			   "body", "\n\t\t\tlet not_final_tests = tests->select(t | t.on_fail.oclIsUndefined() = false) in\n\t\t\t\tnot_final_tests->forAll(t | t.on_fail.order > t.order)"
+		   });
+		addAnnotation
+		  (getGame__Initial_on_correct_notnull__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "not initial_test.on_correct.oclIsUndefined()"
 		   });
 		addAnnotation
 		  (getTest__Attempts_positive__DiagnosticChain_Map(),

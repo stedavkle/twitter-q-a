@@ -28,11 +28,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Game">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="initial_order_zero initial_onsuccess_notnull no_order_twice no_jump_back_correct no_jump_back_fail no_jump_back_timeout"/>
+      <details key="constraints" value="initial_order_zero initial_on_correct_notnull no_order_twice no_jump_back_correct no_jump_back_fail no_jump_back_timeout"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="initial_order_zero" value="initial_test.order = 0"/>
-      <details key="initial_onsuccess_notnull" value="not initial_test.on_correct.oclIsUndefined()"/>
+      <details key="initial_on_correct_notnull" value="not initial_test.on_correct.oclIsUndefined()"/>
       <details key="no_order_twice" value="tests->isUnique(t | t.order) and tests->forAll(t | t.order > 0)"/>
       <details key="no_jump_back_correct" value="&#xA;&#x9;&#x9;&#x9;let not_final_tests = tests->select(t | t.on_correct.oclIsUndefined() = false) in&#xA;&#x9;&#x9;&#x9;&#x9;not_final_tests->forAll(t | t.on_correct.order > t.order)"/>
       <details key="no_jump_back_fail" value="&#xA;&#x9;&#x9;&#x9;let not_final_tests = tests->select(t | t.on_fail.oclIsUndefined() = false) in&#xA;&#x9;&#x9;&#x9;&#x9;not_final_tests->forAll(t | t.on_fail.order > t.order)"/>
