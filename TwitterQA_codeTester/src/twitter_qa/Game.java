@@ -1,28 +1,29 @@
 package twitter_qa;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Game {
-	  private String id;
+	  private String name;
 	  private Test initialTest;
-	  private List<Test> tests;
+	  private HashMap<String, Test> tests;
 	  private String city;
 	  private String description;
 
-	  public Game(String id, Test initialTest, List<Test> tests, String city, String description) {
-	    this.id = id;
+	  public Game(String name, Test initialTest, HashMap<String, Test> tests, String city, String description) {
+	    this.name = name;
 	    this.initialTest = initialTest;
 	    this.tests = tests;
 	    this.city = city;
 	    this.description = description;
 	  }
 	  public String getID() {
-	    return id;
+	    return name;
 	  }
 	  public Test getInitialTest() {
 	    return initialTest;
 	  }
-	  public List<Test> getTests() {
+	  public HashMap<String, Test> getTests() {
 	    return tests;
 	  }
 	  public String getCity() {

@@ -3,7 +3,7 @@ package twitter_qa;
 import java.util.List;
 
 public class Test {
-	  private String id;
+	  private String name;
 	  private Location location;
 	  private String question;
 	  private List<String> answers;
@@ -15,8 +15,8 @@ public class Test {
 	  private Test on_timeout;
 	  private Test on_fail;
 
-	  public Test(String id, Location location, String question, List<String> answers, List<String> hints, int timelimit, int attempts, int reward, Test on_correct, Test on_timeout, Test on_fail) {
-	    this.id = id;
+	  public Test(String name, Location location, String question, List<String> answers, List<String> hints, int timelimit, int attempts, int reward, Test on_correct, Test on_timeout, Test on_fail) {
+	    this.name = name;
 	    this.location = location;
 	    this.question = question;
 	    this.answers = answers;
@@ -29,7 +29,7 @@ public class Test {
 	    this.on_fail = on_fail;
 	  }
 	  public String getID() {
-	    return id;
+	    return name;
 	  }
 	  public Location getLocation() {
 	      return location;
