@@ -50,6 +50,9 @@ public class main {
 			  case "sti":
 				  twitter_qa.sendTestInstruction();
 				  break;
+			  case "ga":
+				  twitter_qa.getAnswer();
+				  break;
 			  case "cc":
 				  System.out.println("Stop\n");
 				  System.exit(0);

@@ -74,7 +74,7 @@ public class TwitterQA {
 		
 		for (Long userID : tweets.keySet()) {
 			Tweet tweet = tweets.get(userID);
-			System.out.println(tweet.screenname + " : " + Arrays.toString(tweet.location) + " : " + tweet.timestamp + " : " + tweet.text);			
+			System.out.println(tweet.screenname + " : " + tweet.location.latitude + ", " + tweet.location.longitude + " : " + tweet.timestamp + " : " + tweet.text);			
 		}
 		System.out.println("-----\n");
 	}
@@ -187,7 +187,7 @@ public class TwitterQA {
 		
 		Long firstPlayer = queueGetGameSelection.peek().getID();
 		Boolean alldone = false;
-		while (!queueGetGameSelection.isEmpty() || !alldone) {
+		while (!queueGetGameSelection.isEmpty() && !alldone) {
 			Player player = queueGetGameSelection.poll();
 			
 			if (playersToDelete.contains(player)) {
@@ -200,8 +200,8 @@ public class TwitterQA {
 				queueGetGameSelection.add(player);
 			}
 			else {
-				player.setGameID(selection);
-				twitter.v1().directMessages().sendDirectMessage(player.getID(), "You selected: " + player.getGameID());
+				player.setGame(games.get(selection));
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "You selected: " + player.getGame().getID());
 				queueSendTest.add(player);
 			}
 			
@@ -217,19 +217,9 @@ public class TwitterQA {
 			if (playersToDelete.contains(player)) {
 				continue;
 			}
-			DirectMessage message;
-			Test test;
-			if (player.getTestID().equals("")) {
-				test = games.get(player.getGameID()).getInitialTest();
-				message = twitter.v1().directMessages().sendDirectMessage(player.getID(), test.getQuestion());
-			}
-			else {
-				test = games.get(player.getGameID()).getTests().get(player.getTestID());
-				message = twitter.v1().directMessages().sendDirectMessage(player.getID(), test.getQuestion());
-			}
-			player.setTimestamp(message.getCreatedAt().plusSeconds((long)test.getTimelimit()));
-			player.setNextLocation(test.getLocation());
-			player.setAttempts(test.getAttempts());
+			DirectMessage message = twitter.v1().directMessages().sendDirectMessage(player.getID(), player.getTest().getQuestion());
+			player.setTimestamp(message.getCreatedAt().plusSeconds((long)player.getTest().getTimelimit()));
+			player.setAttempts(player.getTest().getAttempts());
 			queueGetGameSelection.add(player);
 		}
 	}
@@ -248,16 +238,41 @@ public class TwitterQA {
 				continue;
 			}
 			Tweet answer = answers.get(player.getID());
-			String nextTestID;
-			Boolean inTime = true;
-			Boolean atLocation;
-			Boolean correctAnswer;
 			
-			// check timestamp
-			if (answer.timestamp.isAfter(player.getTimestamp())) {
-				inTime = false;
+			Boolean inTime = answer.timestamp.isBefore(player.getTimestamp());
+			Boolean atLocation = nearLocation(player.getNextLocation(), answer.location);
+			Boolean correct = player.getTest().getAnswers().contains(answer.text.split(";")[0]);
+			
+			String message;
+			if (!inTime) {
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "You provided the answer to late.");
+				player.setTest(player.getTest().getTestOnTimeout());
+				queueSendTest.add(player);
 			}
-			
+			else if (!atLocation) {
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "You are not at the right location.");
+				queueGetAnswer.add(player);
+			}
+			else if (!correct) {
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Your answer is incorrect.\n");
+				player.setAttempts(player.getAttempts()-1);
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Remaining attempts: " + player.getAttempts());
+				if (player.getAttempts() == 0) {
+					player.setTest(player.getTest().getTestOnFail());
+					queueSendTest.add(player);
+				}
+				else {
+					queueGetAnswer.add(player);
+				}
+			}
+			else {
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Congratulations! Your answer is correct.\n");
+				player.setTest(player.getTest().getTestOnCorrect());
+				queueSendTest.add(player);
+			}
+			if (!queueGetGameSelection.isEmpty() && queueGetGameSelection.peek().getID() == firstPlayer) {
+				alldone = true;
+			}		
 		}
 	}
 	private Location extractLocation(String name, GeoLocation[][] boundingboxcoor) {

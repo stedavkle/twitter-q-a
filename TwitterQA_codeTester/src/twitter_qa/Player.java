@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 public class Player {
 	  private long id;
 	  private int points;
-	  private String gameID;
-	  private String test;
+	  private Game game;
+	  private Test test;
 	  private LocalDateTime timestamp;
 	  private Location nextLocation;
 	  private int attempts;
@@ -14,8 +14,6 @@ public class Player {
 	  public Player(long id) {
 	      this.id = id;
 	      this.points = 0;
-	      this.gameID = "";
-	      this.test = "";
 	  }
 
 	  public long getID() {
@@ -30,17 +28,18 @@ public class Player {
 	  public void setPoints(int points) {
 		  this.points = points;
 	  }
-	  public String getGameID() {
-		  return gameID;
+	  public Game getGame() {
+		  return game;
 	  }
-	  public void setGameID(String gameID) {
-		  this.gameID = gameID;
+	  public void setGame(Game game) {
+		  this.game = game;
+		  this.test = game.getInitialTest();
 	  }
-	  public String getTestID() {
+	  public Test getTest() {
 		  return test;
 	  }
-	  public void setTestID(String testID) {
-		  this.test = testID;
+	  public void setTest(Test test) {
+		  this.test = test;
 	  }
 	  public LocalDateTime getTimestamp() {
 		  return timestamp;
