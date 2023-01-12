@@ -88,12 +88,16 @@ ruleTwitterQA returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getTwitterQAAccess().getConsumer_keyKeyword_2());
 		}
+		otherlv_3='is'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getTwitterQAAccess().getIsKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getConsumer_keyEStringParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getConsumer_keyEStringParserRuleCall_4_0());
 				}
-				lv_consumer_key_3_0=ruleEString
+				lv_consumer_key_4_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
@@ -101,22 +105,26 @@ ruleTwitterQA returns [EObject current=null]
 					set(
 						$current,
 						"consumer_key",
-						lv_consumer_key_3_0,
+						lv_consumer_key_4_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4='consumer_secret'
+		otherlv_5='consumer_secret'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getTwitterQAAccess().getConsumer_secretKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getTwitterQAAccess().getConsumer_secretKeyword_5());
+		}
+		otherlv_6='is'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getTwitterQAAccess().getIsKeyword_6());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getConsumer_secretEStringParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getConsumer_secretEStringParserRuleCall_7_0());
 				}
-				lv_consumer_secret_5_0=ruleEString
+				lv_consumer_secret_7_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
@@ -124,22 +132,26 @@ ruleTwitterQA returns [EObject current=null]
 					set(
 						$current,
 						"consumer_secret",
-						lv_consumer_secret_5_0,
+						lv_consumer_secret_7_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_6='access_token'
+		otherlv_8='access_token'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getTwitterQAAccess().getAccess_tokenKeyword_6());
+			newLeafNode(otherlv_8, grammarAccess.getTwitterQAAccess().getAccess_tokenKeyword_8());
+		}
+		otherlv_9='is'
+		{
+			newLeafNode(otherlv_9, grammarAccess.getTwitterQAAccess().getIsKeyword_9());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getAccess_tokenEStringParserRuleCall_7_0());
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getAccess_tokenEStringParserRuleCall_10_0());
 				}
-				lv_access_token_7_0=ruleEString
+				lv_access_token_10_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
@@ -147,22 +159,26 @@ ruleTwitterQA returns [EObject current=null]
 					set(
 						$current,
 						"access_token",
-						lv_access_token_7_0,
+						lv_access_token_10_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_8='access_token_secret'
+		otherlv_11='access_token_secret'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getTwitterQAAccess().getAccess_token_secretKeyword_8());
+			newLeafNode(otherlv_11, grammarAccess.getTwitterQAAccess().getAccess_token_secretKeyword_11());
+		}
+		otherlv_12='is'
+		{
+			newLeafNode(otherlv_12, grammarAccess.getTwitterQAAccess().getIsKeyword_12());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getAccess_token_secretEStringParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getAccess_token_secretEStringParserRuleCall_13_0());
 				}
-				lv_access_token_secret_9_0=ruleEString
+				lv_access_token_secret_13_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
@@ -170,22 +186,26 @@ ruleTwitterQA returns [EObject current=null]
 					set(
 						$current,
 						"access_token_secret",
-						lv_access_token_secret_9_0,
+						lv_access_token_secret_13_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_10='welcome_msg'
+		otherlv_14='welcome_msg'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getTwitterQAAccess().getWelcome_msgKeyword_10());
+			newLeafNode(otherlv_14, grammarAccess.getTwitterQAAccess().getWelcome_msgKeyword_14());
+		}
+		otherlv_15='is'
+		{
+			newLeafNode(otherlv_15, grammarAccess.getTwitterQAAccess().getIsKeyword_15());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getWelcome_msgEStringParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getWelcome_msgEStringParserRuleCall_16_0());
 				}
-				lv_welcome_msg_11_0=ruleEString
+				lv_welcome_msg_16_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
@@ -193,26 +213,30 @@ ruleTwitterQA returns [EObject current=null]
 					set(
 						$current,
 						"welcome_msg",
-						lv_welcome_msg_11_0,
+						lv_welcome_msg_16_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_12='games'
+		otherlv_17='games'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getTwitterQAAccess().getGamesKeyword_12());
+			newLeafNode(otherlv_17, grammarAccess.getTwitterQAAccess().getGamesKeyword_17());
 		}
-		otherlv_13='['
+		otherlv_18='are'
 		{
-			newLeafNode(otherlv_13, grammarAccess.getTwitterQAAccess().getLeftSquareBracketKeyword_13());
+			newLeafNode(otherlv_18, grammarAccess.getTwitterQAAccess().getAreKeyword_18());
+		}
+		otherlv_19='['
+		{
+			newLeafNode(otherlv_19, grammarAccess.getTwitterQAAccess().getLeftSquareBracketKeyword_19());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getGamesGameParserRuleCall_14_0());
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getGamesGameParserRuleCall_20_0());
 				}
-				lv_games_14_0=ruleGame
+				lv_games_20_0=ruleGame
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
@@ -220,64 +244,8 @@ ruleTwitterQA returns [EObject current=null]
 					add(
 						$current,
 						"games",
-						lv_games_14_0,
+						lv_games_20_0,
 						"ddm.TwitterQA.Game");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_15=','
-			{
-				newLeafNode(otherlv_15, grammarAccess.getTwitterQAAccess().getCommaKeyword_15_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTwitterQAAccess().getGamesGameParserRuleCall_15_1_0());
-					}
-					lv_games_16_0=ruleGame
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getTwitterQARule());
-						}
-						add(
-							$current,
-							"games",
-							lv_games_16_0,
-							"ddm.TwitterQA.Game");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-		)*
-		otherlv_17=']'
-		{
-			newLeafNode(otherlv_17, grammarAccess.getTwitterQAAccess().getRightSquareBracketKeyword_16());
-		}
-		otherlv_18='locations'
-		{
-			newLeafNode(otherlv_18, grammarAccess.getTwitterQAAccess().getLocationsKeyword_17());
-		}
-		otherlv_19='['
-		{
-			newLeafNode(otherlv_19, grammarAccess.getTwitterQAAccess().getLeftSquareBracketKeyword_18());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTwitterQAAccess().getLocationsLocationParserRuleCall_19_0());
-				}
-				lv_locations_20_0=ruleLocation
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
-					}
-					add(
-						$current,
-						"locations",
-						lv_locations_20_0,
-						"ddm.TwitterQA.Location");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -285,23 +253,23 @@ ruleTwitterQA returns [EObject current=null]
 		(
 			otherlv_21=','
 			{
-				newLeafNode(otherlv_21, grammarAccess.getTwitterQAAccess().getCommaKeyword_20_0());
+				newLeafNode(otherlv_21, grammarAccess.getTwitterQAAccess().getCommaKeyword_21_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTwitterQAAccess().getLocationsLocationParserRuleCall_20_1_0());
+						newCompositeNode(grammarAccess.getTwitterQAAccess().getGamesGameParserRuleCall_21_1_0());
 					}
-					lv_locations_22_0=ruleLocation
+					lv_games_22_0=ruleGame
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTwitterQARule());
 						}
 						add(
 							$current,
-							"locations",
-							lv_locations_22_0,
-							"ddm.TwitterQA.Location");
+							"games",
+							lv_games_22_0,
+							"ddm.TwitterQA.Game");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -309,11 +277,71 @@ ruleTwitterQA returns [EObject current=null]
 		)*
 		otherlv_23=']'
 		{
-			newLeafNode(otherlv_23, grammarAccess.getTwitterQAAccess().getRightSquareBracketKeyword_21());
+			newLeafNode(otherlv_23, grammarAccess.getTwitterQAAccess().getRightSquareBracketKeyword_22());
 		}
-		otherlv_24='}'
+		otherlv_24='locations'
 		{
-			newLeafNode(otherlv_24, grammarAccess.getTwitterQAAccess().getRightCurlyBracketKeyword_22());
+			newLeafNode(otherlv_24, grammarAccess.getTwitterQAAccess().getLocationsKeyword_23());
+		}
+		otherlv_25='are'
+		{
+			newLeafNode(otherlv_25, grammarAccess.getTwitterQAAccess().getAreKeyword_24());
+		}
+		otherlv_26='['
+		{
+			newLeafNode(otherlv_26, grammarAccess.getTwitterQAAccess().getLeftSquareBracketKeyword_25());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTwitterQAAccess().getLocationsLocationParserRuleCall_26_0());
+				}
+				lv_locations_27_0=ruleLocation
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTwitterQARule());
+					}
+					add(
+						$current,
+						"locations",
+						lv_locations_27_0,
+						"ddm.TwitterQA.Location");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_28=','
+			{
+				newLeafNode(otherlv_28, grammarAccess.getTwitterQAAccess().getCommaKeyword_27_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTwitterQAAccess().getLocationsLocationParserRuleCall_27_1_0());
+					}
+					lv_locations_29_0=ruleLocation
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTwitterQARule());
+						}
+						add(
+							$current,
+							"locations",
+							lv_locations_29_0,
+							"ddm.TwitterQA.Location");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_30=']'
+		{
+			newLeafNode(otherlv_30, grammarAccess.getTwitterQAAccess().getRightSquareBracketKeyword_28());
+		}
+		otherlv_31='}'
+		{
+			newLeafNode(otherlv_31, grammarAccess.getTwitterQAAccess().getRightCurlyBracketKeyword_29());
 		}
 	)
 ;
@@ -399,12 +427,16 @@ ruleGame returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getGameAccess().getDescriptionKeyword_3());
 		}
+		otherlv_4='is'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getGameAccess().getIsKeyword_4());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getDescriptionEStringParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getGameAccess().getDescriptionEStringParserRuleCall_5_0());
 				}
-				lv_description_4_0=ruleEString
+				lv_description_5_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -412,22 +444,26 @@ ruleGame returns [EObject current=null]
 					set(
 						$current,
 						"description",
-						lv_description_4_0,
+						lv_description_5_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_5='city'
+		otherlv_6='city'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getGameAccess().getCityKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getGameAccess().getCityKeyword_6());
+		}
+		otherlv_7='is'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getGameAccess().getIsKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getCityEStringParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getGameAccess().getCityEStringParserRuleCall_8_0());
 				}
-				lv_city_6_0=ruleEString
+				lv_city_8_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -435,22 +471,26 @@ ruleGame returns [EObject current=null]
 					set(
 						$current,
 						"city",
-						lv_city_6_0,
+						lv_city_8_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_7='initial_test'
+		otherlv_9='initial_test'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getGameAccess().getInitial_testKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getGameAccess().getInitial_testKeyword_9());
+		}
+		otherlv_10='is'
+		{
+			newLeafNode(otherlv_10, grammarAccess.getGameAccess().getIsKeyword_10());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getInitial_testTestParserRuleCall_8_0());
+					newCompositeNode(grammarAccess.getGameAccess().getInitial_testTestParserRuleCall_11_0());
 				}
-				lv_initial_test_8_0=ruleTest
+				lv_initial_test_11_0=ruleTest
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -458,26 +498,30 @@ ruleGame returns [EObject current=null]
 					set(
 						$current,
 						"initial_test",
-						lv_initial_test_8_0,
+						lv_initial_test_11_0,
 						"ddm.TwitterQA.Test");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_9='tests'
+		otherlv_12='tests'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getGameAccess().getTestsKeyword_9());
+			newLeafNode(otherlv_12, grammarAccess.getGameAccess().getTestsKeyword_12());
 		}
-		otherlv_10='['
+		otherlv_13='are'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getGameAccess().getLeftSquareBracketKeyword_10());
+			newLeafNode(otherlv_13, grammarAccess.getGameAccess().getAreKeyword_13());
+		}
+		otherlv_14='['
+		{
+			newLeafNode(otherlv_14, grammarAccess.getGameAccess().getLeftSquareBracketKeyword_14());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getGameAccess().getTestsTestParserRuleCall_11_0());
+					newCompositeNode(grammarAccess.getGameAccess().getTestsTestParserRuleCall_15_0());
 				}
-				lv_tests_11_0=ruleTest
+				lv_tests_15_0=ruleTest
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -485,23 +529,23 @@ ruleGame returns [EObject current=null]
 					add(
 						$current,
 						"tests",
-						lv_tests_11_0,
+						lv_tests_15_0,
 						"ddm.TwitterQA.Test");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_12=','
+			otherlv_16=','
 			{
-				newLeafNode(otherlv_12, grammarAccess.getGameAccess().getCommaKeyword_12_0());
+				newLeafNode(otherlv_16, grammarAccess.getGameAccess().getCommaKeyword_16_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getGameAccess().getTestsTestParserRuleCall_12_1_0());
+						newCompositeNode(grammarAccess.getGameAccess().getTestsTestParserRuleCall_16_1_0());
 					}
-					lv_tests_13_0=ruleTest
+					lv_tests_17_0=ruleTest
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getGameRule());
@@ -509,20 +553,20 @@ ruleGame returns [EObject current=null]
 						add(
 							$current,
 							"tests",
-							lv_tests_13_0,
+							lv_tests_17_0,
 							"ddm.TwitterQA.Test");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_14=']'
+		otherlv_18=']'
 		{
-			newLeafNode(otherlv_14, grammarAccess.getGameAccess().getRightSquareBracketKeyword_13());
+			newLeafNode(otherlv_18, grammarAccess.getGameAccess().getRightSquareBracketKeyword_17());
 		}
-		otherlv_15='}'
+		otherlv_19='}'
 		{
-			newLeafNode(otherlv_15, grammarAccess.getGameAccess().getRightCurlyBracketKeyword_14());
+			newLeafNode(otherlv_19, grammarAccess.getGameAccess().getRightCurlyBracketKeyword_18());
 		}
 	)
 ;
@@ -574,12 +618,16 @@ ruleLocation returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getLocationAccess().getLatitudeKeyword_3());
 		}
+		otherlv_4='is'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLocationAccess().getIsKeyword_4());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLocationAccess().getLatitudeEDoubleParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getLocationAccess().getLatitudeEDoubleParserRuleCall_5_0());
 				}
-				lv_latitude_4_0=ruleEDouble
+				lv_latitude_5_0=ruleEDouble
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLocationRule());
@@ -587,22 +635,26 @@ ruleLocation returns [EObject current=null]
 					set(
 						$current,
 						"latitude",
-						lv_latitude_4_0,
+						lv_latitude_5_0,
 						"ddm.TwitterQA.EDouble");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_5='longitude'
+		otherlv_6='longitude'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getLocationAccess().getLongitudeKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getLocationAccess().getLongitudeKeyword_6());
+		}
+		otherlv_7='is'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getLocationAccess().getIsKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getLocationAccess().getLongitudeEDoubleParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getLocationAccess().getLongitudeEDoubleParserRuleCall_8_0());
 				}
-				lv_longitude_6_0=ruleEDouble
+				lv_longitude_8_0=ruleEDouble
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getLocationRule());
@@ -610,15 +662,15 @@ ruleLocation returns [EObject current=null]
 					set(
 						$current,
 						"longitude",
-						lv_longitude_6_0,
+						lv_longitude_8_0,
 						"ddm.TwitterQA.EDouble");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_7='}'
+		otherlv_9='}'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getLocationAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getLocationAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;
@@ -670,12 +722,16 @@ ruleTest returns [EObject current=null]
 		{
 			newLeafNode(otherlv_3, grammarAccess.getTestAccess().getQuestionKeyword_3());
 		}
+		otherlv_4='is'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getTestAccess().getIsKeyword_4());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getQuestionEStringParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getTestAccess().getQuestionEStringParserRuleCall_5_0());
 				}
-				lv_question_4_0=ruleEString
+				lv_question_5_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -683,22 +739,26 @@ ruleTest returns [EObject current=null]
 					set(
 						$current,
 						"question",
-						lv_question_4_0,
+						lv_question_5_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_5='order'
+		otherlv_6='order'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getTestAccess().getOrderKeyword_5());
+			newLeafNode(otherlv_6, grammarAccess.getTestAccess().getOrderKeyword_6());
+		}
+		otherlv_7='is'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getTestAccess().getIsKeyword_7());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getOrderEIntParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getTestAccess().getOrderEIntParserRuleCall_8_0());
 				}
-				lv_order_6_0=ruleEInt
+				lv_order_8_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -706,26 +766,30 @@ ruleTest returns [EObject current=null]
 					set(
 						$current,
 						"order",
-						lv_order_6_0,
+						lv_order_8_0,
 						"ddm.TwitterQA.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_7='answers'
+		otherlv_9='answers'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getTestAccess().getAnswersKeyword_7());
+			newLeafNode(otherlv_9, grammarAccess.getTestAccess().getAnswersKeyword_9());
 		}
-		otherlv_8='['
+		otherlv_10='are'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getTestAccess().getLeftSquareBracketKeyword_8());
+			newLeafNode(otherlv_10, grammarAccess.getTestAccess().getAreKeyword_10());
+		}
+		otherlv_11='['
+		{
+			newLeafNode(otherlv_11, grammarAccess.getTestAccess().getLeftSquareBracketKeyword_11());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getAnswersEStringParserRuleCall_9_0());
+					newCompositeNode(grammarAccess.getTestAccess().getAnswersEStringParserRuleCall_12_0());
 				}
-				lv_answers_9_0=ruleEString
+				lv_answers_12_0=ruleEString
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -733,23 +797,23 @@ ruleTest returns [EObject current=null]
 					add(
 						$current,
 						"answers",
-						lv_answers_9_0,
+						lv_answers_12_0,
 						"ddm.TwitterQA.EString");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_10=','
+			otherlv_13=','
 			{
-				newLeafNode(otherlv_10, grammarAccess.getTestAccess().getCommaKeyword_10_0());
+				newLeafNode(otherlv_13, grammarAccess.getTestAccess().getCommaKeyword_13_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTestAccess().getAnswersEStringParserRuleCall_10_1_0());
+						newCompositeNode(grammarAccess.getTestAccess().getAnswersEStringParserRuleCall_13_1_0());
 					}
-					lv_answers_11_0=ruleEString
+					lv_answers_14_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -757,32 +821,36 @@ ruleTest returns [EObject current=null]
 						add(
 							$current,
 							"answers",
-							lv_answers_11_0,
+							lv_answers_14_0,
 							"ddm.TwitterQA.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)*
-		otherlv_12=']'
+		otherlv_15=']'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getTestAccess().getRightSquareBracketKeyword_11());
+			newLeafNode(otherlv_15, grammarAccess.getTestAccess().getRightSquareBracketKeyword_14());
 		}
 		(
-			otherlv_13='hints'
+			otherlv_16='hints'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getTestAccess().getHintsKeyword_12_0());
+				newLeafNode(otherlv_16, grammarAccess.getTestAccess().getHintsKeyword_15_0());
 			}
-			otherlv_14='['
+			otherlv_17='are'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getTestAccess().getLeftSquareBracketKeyword_12_1());
+				newLeafNode(otherlv_17, grammarAccess.getTestAccess().getAreKeyword_15_1());
+			}
+			otherlv_18='['
+			{
+				newLeafNode(otherlv_18, grammarAccess.getTestAccess().getLeftSquareBracketKeyword_15_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTestAccess().getHintsEStringParserRuleCall_12_2_0());
+						newCompositeNode(grammarAccess.getTestAccess().getHintsEStringParserRuleCall_15_3_0());
 					}
-					lv_hints_15_0=ruleEString
+					lv_hints_19_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -790,23 +858,23 @@ ruleTest returns [EObject current=null]
 						add(
 							$current,
 							"hints",
-							lv_hints_15_0,
+							lv_hints_19_0,
 							"ddm.TwitterQA.EString");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_16=','
+				otherlv_20=','
 				{
-					newLeafNode(otherlv_16, grammarAccess.getTestAccess().getCommaKeyword_12_3_0());
+					newLeafNode(otherlv_20, grammarAccess.getTestAccess().getCommaKeyword_15_4_0());
 				}
 				(
 					(
 						{
-							newCompositeNode(grammarAccess.getTestAccess().getHintsEStringParserRuleCall_12_3_1_0());
+							newCompositeNode(grammarAccess.getTestAccess().getHintsEStringParserRuleCall_15_4_1_0());
 						}
-						lv_hints_17_0=ruleEString
+						lv_hints_21_0=ruleEString
 						{
 							if ($current==null) {
 								$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -814,28 +882,32 @@ ruleTest returns [EObject current=null]
 							add(
 								$current,
 								"hints",
-								lv_hints_17_0,
+								lv_hints_21_0,
 								"ddm.TwitterQA.EString");
 							afterParserOrEnumRuleCall();
 						}
 					)
 				)
 			)*
-			otherlv_18=']'
+			otherlv_22=']'
 			{
-				newLeafNode(otherlv_18, grammarAccess.getTestAccess().getRightSquareBracketKeyword_12_4());
+				newLeafNode(otherlv_22, grammarAccess.getTestAccess().getRightSquareBracketKeyword_15_5());
 			}
 		)?
-		otherlv_19='timelimit'
+		otherlv_23='timelimit'
 		{
-			newLeafNode(otherlv_19, grammarAccess.getTestAccess().getTimelimitKeyword_13());
+			newLeafNode(otherlv_23, grammarAccess.getTestAccess().getTimelimitKeyword_16());
+		}
+		otherlv_24='is'
+		{
+			newLeafNode(otherlv_24, grammarAccess.getTestAccess().getIsKeyword_17());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getTimelimitEIntParserRuleCall_14_0());
+					newCompositeNode(grammarAccess.getTestAccess().getTimelimitEIntParserRuleCall_18_0());
 				}
-				lv_timelimit_20_0=ruleEInt
+				lv_timelimit_25_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -843,22 +915,26 @@ ruleTest returns [EObject current=null]
 					set(
 						$current,
 						"timelimit",
-						lv_timelimit_20_0,
+						lv_timelimit_25_0,
 						"ddm.TwitterQA.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_21='attempts'
+		otherlv_26='attempts'
 		{
-			newLeafNode(otherlv_21, grammarAccess.getTestAccess().getAttemptsKeyword_15());
+			newLeafNode(otherlv_26, grammarAccess.getTestAccess().getAttemptsKeyword_19());
+		}
+		otherlv_27='is'
+		{
+			newLeafNode(otherlv_27, grammarAccess.getTestAccess().getIsKeyword_20());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getAttemptsEIntParserRuleCall_16_0());
+					newCompositeNode(grammarAccess.getTestAccess().getAttemptsEIntParserRuleCall_21_0());
 				}
-				lv_attempts_22_0=ruleEInt
+				lv_attempts_28_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -866,22 +942,26 @@ ruleTest returns [EObject current=null]
 					set(
 						$current,
 						"attempts",
-						lv_attempts_22_0,
+						lv_attempts_28_0,
 						"ddm.TwitterQA.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_23='reward'
+		otherlv_29='reward'
 		{
-			newLeafNode(otherlv_23, grammarAccess.getTestAccess().getRewardKeyword_17());
+			newLeafNode(otherlv_29, grammarAccess.getTestAccess().getRewardKeyword_22());
+		}
+		otherlv_30='is'
+		{
+			newLeafNode(otherlv_30, grammarAccess.getTestAccess().getIsKeyword_23());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getRewardEIntParserRuleCall_18_0());
+					newCompositeNode(grammarAccess.getTestAccess().getRewardEIntParserRuleCall_24_0());
 				}
-				lv_reward_24_0=ruleEInt
+				lv_reward_31_0=ruleEInt
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTestRule());
@@ -889,15 +969,19 @@ ruleTest returns [EObject current=null]
 					set(
 						$current,
 						"reward",
-						lv_reward_24_0,
+						lv_reward_31_0,
 						"ddm.TwitterQA.EInt");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_25='location'
+		otherlv_32='location'
 		{
-			newLeafNode(otherlv_25, grammarAccess.getTestAccess().getLocationKeyword_19());
+			newLeafNode(otherlv_32, grammarAccess.getTestAccess().getLocationKeyword_25());
+		}
+		otherlv_33='is'
+		{
+			newLeafNode(otherlv_33, grammarAccess.getTestAccess().getIsKeyword_26());
 		}
 		(
 			(
@@ -907,7 +991,7 @@ ruleTest returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getTestAccess().getLocationLocationCrossReference_20_0());
+					newCompositeNode(grammarAccess.getTestAccess().getLocationLocationCrossReference_27_0());
 				}
 				ruleEString
 				{
@@ -916,9 +1000,13 @@ ruleTest returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_27='on_correct'
+			otherlv_35='on_correct'
 			{
-				newLeafNode(otherlv_27, grammarAccess.getTestAccess().getOn_correctKeyword_21_0());
+				newLeafNode(otherlv_35, grammarAccess.getTestAccess().getOn_correctKeyword_28_0());
+			}
+			otherlv_36='is'
+			{
+				newLeafNode(otherlv_36, grammarAccess.getTestAccess().getIsKeyword_28_1());
 			}
 			(
 				(
@@ -928,7 +1016,7 @@ ruleTest returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTestAccess().getOn_correctTestCrossReference_21_1_0());
+						newCompositeNode(grammarAccess.getTestAccess().getOn_correctTestCrossReference_28_2_0());
 					}
 					ruleEString
 					{
@@ -938,9 +1026,13 @@ ruleTest returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_29='on_timeout'
+			otherlv_38='on_timeout'
 			{
-				newLeafNode(otherlv_29, grammarAccess.getTestAccess().getOn_timeoutKeyword_22_0());
+				newLeafNode(otherlv_38, grammarAccess.getTestAccess().getOn_timeoutKeyword_29_0());
+			}
+			otherlv_39='is'
+			{
+				newLeafNode(otherlv_39, grammarAccess.getTestAccess().getIsKeyword_29_1());
 			}
 			(
 				(
@@ -950,7 +1042,7 @@ ruleTest returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTestAccess().getOn_timeoutTestCrossReference_22_1_0());
+						newCompositeNode(grammarAccess.getTestAccess().getOn_timeoutTestCrossReference_29_2_0());
 					}
 					ruleEString
 					{
@@ -960,9 +1052,13 @@ ruleTest returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_31='on_fail'
+			otherlv_41='on_fail'
 			{
-				newLeafNode(otherlv_31, grammarAccess.getTestAccess().getOn_failKeyword_23_0());
+				newLeafNode(otherlv_41, grammarAccess.getTestAccess().getOn_failKeyword_30_0());
+			}
+			otherlv_42='is'
+			{
+				newLeafNode(otherlv_42, grammarAccess.getTestAccess().getIsKeyword_30_1());
 			}
 			(
 				(
@@ -972,7 +1068,7 @@ ruleTest returns [EObject current=null]
 						}
 					}
 					{
-						newCompositeNode(grammarAccess.getTestAccess().getOn_failTestCrossReference_23_1_0());
+						newCompositeNode(grammarAccess.getTestAccess().getOn_failTestCrossReference_30_2_0());
 					}
 					ruleEString
 					{
@@ -981,9 +1077,9 @@ ruleTest returns [EObject current=null]
 				)
 			)
 		)?
-		otherlv_33='}'
+		otherlv_44='}'
 		{
-			newLeafNode(otherlv_33, grammarAccess.getTestAccess().getRightCurlyBracketKeyword_24());
+			newLeafNode(otherlv_44, grammarAccess.getTestAccess().getRightCurlyBracketKeyword_31());
 		}
 	)
 ;

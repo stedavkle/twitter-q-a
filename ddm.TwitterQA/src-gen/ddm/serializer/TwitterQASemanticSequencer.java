@@ -93,8 +93,8 @@ public class TwitterQASemanticSequencer extends AbstractDelegatingSemanticSequen
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLocationAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getLocationAccess().getLatitudeEDoubleParserRuleCall_4_0(), semanticObject.getLatitude());
-		feeder.accept(grammarAccess.getLocationAccess().getLongitudeEDoubleParserRuleCall_6_0(), semanticObject.getLongitude());
+		feeder.accept(grammarAccess.getLocationAccess().getLatitudeEDoubleParserRuleCall_5_0(), semanticObject.getLatitude());
+		feeder.accept(grammarAccess.getLocationAccess().getLongitudeEDoubleParserRuleCall_8_0(), semanticObject.getLongitude());
 		feeder.finish();
 	}
 	

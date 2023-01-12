@@ -1,57 +1,56 @@
 TwitterQA {
-	
-	consumer_key 'key'
-	consumer_secret 'secret'
-	access_token 'token'
-	access_token_secret 'token_secret'
-	welcome_msg "Welcome to this game"
-	games [
+
+	consumer_key is 'key'
+	consumer_secret is 'secret'
+	access_token is 'token'
+	access_token_secret is 'token_secret'
+	welcome_msg is "Welcome to this game"
+	games are [
 		Game "Welcome to Hühnergeschrei" {
-			description "A quizz for arrivers"
-			city "Hühnergeschrei"
-			initial_test Test "Test One" {
-				question "How many chickens live here?"
-				order 0
-				answers ["0", "Zero"]
-				timelimit 30
-				attempts 3
-				reward 10
-				location "Center"
-				on_correct "Test Two"
+			description is "A quizz for arrivers"
+			city is "Hühnergeschrei"
+			initial_test is Test "Test One" {
+				question is"How many chickens live here?"
+				order is 0
+				answers are ["0", "Zero"]
+				timelimit is 30
+				attempts is 3
+				reward is 10
+				location is "Center"
+				on_correct is "Test Two"
 			}
-			tests [
+			tests are [
 				Test "Test Two" {
-					question "How often was the sign stolen?"
-					order 1
-					answers ["7", "seven"]
-					timelimit 20
-					attempts 3
-					reward 10
-					location "Entry"
-					on_correct "Test Three"
+					question is "How often was the sign stolen?"
+					order is 1
+					answers are ["7", "seven"]
+					timelimit is 20
+					attempts is 3
+					reward is 10
+					location is "Entry"
+					on_correct is "Test Three"
 				},
 				Test "Test Three" {
-					question "How many restaurants/bars/... exist?"
-					order 2
-					answers ["0", "Zero", "zero"]
-					timelimit 20
-					attempts 3
-					reward 10
-					location "Center"
-					
+					question is "How many restaurants/bars/... exist?"
+					order is 2
+					answers are ["0", "Zero", "zero"]
+					timelimit is 20
+					attempts is 3
+					reward is 10
+					location is"Center"
 				}
 			]
 			
 		}
 	]
-	locations [
-		Location "Center"{
-			latitude 283.2
-			longitude 1230.239
+	locations are [
+		Location "Center" {
+			latitude is 283.2
+			longitude is 1230.239
 		},
-		Location "Entry"{
-			latitude 283.221
-			longitude 1230.235
+		Location "Entry" {
+			latitude is 283.221
+			longitude is 1230.235
 		}
 	]
 }
