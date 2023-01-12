@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.ocl.pivot.evaluation.Executor;
 import org.eclipse.ocl.pivot.ids.TypeId;
+import org.eclipse.ocl.pivot.library.oclany.OclComparableGreaterThanEqualOperation;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableGreaterThanOperation;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
@@ -41,7 +42,7 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link TwitterQAModel.impl.TestImpl#getId <em>Id</em>}</li>
+ *   <li>{@link TwitterQAModel.impl.TestImpl#getName <em>Name</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getQuestion <em>Question</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getAnswers <em>Answers</em>}</li>
@@ -52,30 +53,31 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
  *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_correct <em>On correct</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_timeout <em>On timeout</em>}</li>
  *   <li>{@link TwitterQAModel.impl.TestImpl#getOn_fail <em>On fail</em>}</li>
+ *   <li>{@link TwitterQAModel.impl.TestImpl#getOrder <em>Order</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ID_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getId()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String id = ID_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' reference.
@@ -218,6 +220,26 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	protected Test on_fail;
 
 	/**
+	 * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ORDER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrder()
+	 * @generated
+	 * @ordered
+	 */
+	protected int order = ORDER_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -241,8 +263,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getId() {
-		return id;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -250,11 +272,11 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__ID, oldId, id));
+			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__NAME, oldName, name));
 	}
 
 	/**
@@ -522,6 +544,27 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getOrder() {
+		return order;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOrder(int newOrder) {
+		int oldOrder = order;
+		order = newOrder;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TwitterQAModelPackage.TEST__ORDER, oldOrder, order));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean reward_positive(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		final String constraintName = "Test::reward_positive";
 		try {
@@ -648,11 +691,53 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean order_positive(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+		final String constraintName = "Test::order_positive";
+		try {
+			/**
+			 *
+			 * inv order_positive:
+			 *   let severity : Integer[1] = constraintName.getSeverity()
+			 *   in
+			 *     if severity <= 0
+			 *     then true
+			 *     else
+			 *       let result : Boolean[1] = order >= 0
+			 *       in
+			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
+			 *     endif
+			 */
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor, TwitterQAModelPackage.Literals.TEST___ORDER_POSITIVE__DIAGNOSTICCHAIN_MAP);
+			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE.evaluate(executor, severity_0, TwitterQAModelTables.INT_0).booleanValue();
+			/*@NonInvalid*/ boolean local_0;
+			if (le) {
+				local_0 = true;
+			}
+			else {
+				final /*@NonInvalid*/ int order = this.getOrder();
+				final /*@NonInvalid*/ IntegerValue BOXED_order = ValueUtil.integerValueOf(order);
+				final /*@NonInvalid*/ boolean result = OclComparableGreaterThanEqualOperation.INSTANCE.evaluate(executor, BOXED_order, TwitterQAModelTables.INT_0).booleanValue();
+				final /*@NonInvalid*/ boolean logDiagnostic = CGStringLogDiagnosticOperation.INSTANCE.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object)null, diagnostics, context, (Object)null, severity_0, result, TwitterQAModelTables.INT_0).booleanValue();
+				local_0 = logDiagnostic;
+			}
+			return local_0;
+		}
+		catch (Throwable e) {
+			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TwitterQAModelPackage.TEST__ID:
-				return getId();
+			case TwitterQAModelPackage.TEST__NAME:
+				return getName();
 			case TwitterQAModelPackage.TEST__LOCATION:
 				if (resolve) return getLocation();
 				return basicGetLocation();
@@ -677,6 +762,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case TwitterQAModelPackage.TEST__ON_FAIL:
 				if (resolve) return getOn_fail();
 				return basicGetOn_fail();
+			case TwitterQAModelPackage.TEST__ORDER:
+				return getOrder();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -690,8 +777,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TwitterQAModelPackage.TEST__ID:
-				setId((String)newValue);
+			case TwitterQAModelPackage.TEST__NAME:
+				setName((String)newValue);
 				return;
 			case TwitterQAModelPackage.TEST__LOCATION:
 				setLocation((Location)newValue);
@@ -725,6 +812,9 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case TwitterQAModelPackage.TEST__ON_FAIL:
 				setOn_fail((Test)newValue);
 				return;
+			case TwitterQAModelPackage.TEST__ORDER:
+				setOrder((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -737,8 +827,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TwitterQAModelPackage.TEST__ID:
-				setId(ID_EDEFAULT);
+			case TwitterQAModelPackage.TEST__NAME:
+				setName(NAME_EDEFAULT);
 				return;
 			case TwitterQAModelPackage.TEST__LOCATION:
 				setLocation((Location)null);
@@ -770,6 +860,9 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 			case TwitterQAModelPackage.TEST__ON_FAIL:
 				setOn_fail((Test)null);
 				return;
+			case TwitterQAModelPackage.TEST__ORDER:
+				setOrder(ORDER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -782,8 +875,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TwitterQAModelPackage.TEST__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+			case TwitterQAModelPackage.TEST__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TwitterQAModelPackage.TEST__LOCATION:
 				return location != null;
 			case TwitterQAModelPackage.TEST__QUESTION:
@@ -804,6 +897,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 				return on_timeout != null;
 			case TwitterQAModelPackage.TEST__ON_FAIL:
 				return on_fail != null;
+			case TwitterQAModelPackage.TEST__ORDER:
+				return order != ORDER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -817,12 +912,14 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-			case TwitterQAModelPackage.TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP:
-				return reward_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
-			case TwitterQAModelPackage.TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP:
-				return time_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 			case TwitterQAModelPackage.TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP:
 				return attempts_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case TwitterQAModelPackage.TEST___ORDER_POSITIVE__DIAGNOSTICCHAIN_MAP:
+				return order_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case TwitterQAModelPackage.TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP:
+				return time_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
+			case TwitterQAModelPackage.TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP:
+				return reward_positive((DiagnosticChain)arguments.get(0), (Map<Object, Object>)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -837,8 +934,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: ");
-		result.append(id);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(", question: ");
 		result.append(question);
 		result.append(", answers: ");
@@ -851,6 +948,8 @@ public class TestImpl extends MinimalEObjectImpl.Container implements Test {
 		result.append(attempts);
 		result.append(", reward: ");
 		result.append(reward);
+		result.append(", order: ");
+		result.append(order);
 		result.append(')');
 		return result.toString();
 	}

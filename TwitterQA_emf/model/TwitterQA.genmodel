@@ -16,14 +16,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//TwitterQA/welcome_msg"/>
     </genClasses>
     <genClasses ecoreClass="TwitterQA.ecore#//Game">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/initial_test"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Game/tests"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Game/city"/>
     </genClasses>
     <genClasses ecoreClass="TwitterQA.ecore#//Test">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/location"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/question"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/answers"/>
@@ -34,6 +34,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_correct"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_timeout"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TwitterQA.ecore#//Test/on_fail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Test/order"/>
     </genClasses>
     <genClasses ecoreClass="TwitterQA.ecore#//Location">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TwitterQA.ecore#//Location/name"/>

@@ -40,12 +40,52 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "TwitterQAModel";
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No order twice' of 'Game'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int GAME__NO_ORDER_TWICE = 1;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No jump back correct' of 'Game'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int GAME__NO_JUMP_BACK_CORRECT = 2;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Initial order zero' of 'Game'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int GAME__INITIAL_ORDER_ZERO = 3;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Initial onsuccess notnull' of 'Game'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int GAME__INITIAL_ONSUCCESS_NOTNULL = 1;
+	public static final int GAME__INITIAL_ONSUCCESS_NOTNULL = 4;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No jump back timeout' of 'Game'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int GAME__NO_JUMP_BACK_TIMEOUT = 5;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No jump back fail' of 'Game'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int GAME__NO_JUMP_BACK_FAIL = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Reward positive' of 'Test'.
@@ -53,7 +93,7 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int TEST__REWARD_POSITIVE = 2;
+	public static final int TEST__REWARD_POSITIVE = 10;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Time positive' of 'Test'.
@@ -61,7 +101,7 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int TEST__TIME_POSITIVE = 3;
+	public static final int TEST__TIME_POSITIVE = 9;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Attempts positive' of 'Test'.
@@ -69,7 +109,15 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int TEST__ATTEMPTS_POSITIVE = 4;
+	public static final int TEST__ATTEMPTS_POSITIVE = 7;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Order positive' of 'Test'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int TEST__ORDER_POSITIVE = 8;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -77,7 +125,7 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 10;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -154,8 +202,53 @@ public class TwitterQAModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_no_jump_back_fail(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_no_order_twice(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_no_jump_back_correct(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_initial_order_zero(game, diagnostics, context);
 		if (result || diagnostics != null) result &= validateGame_initial_onsuccess_notnull(game, diagnostics, context);
+		if (result || diagnostics != null) result &= validateGame_no_jump_back_timeout(game, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the no_jump_back_fail constraint of '<em>Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGame_no_jump_back_fail(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return game.no_jump_back_fail(diagnostics, context);
+	}
+
+	/**
+	 * Validates the no_order_twice constraint of '<em>Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGame_no_order_twice(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return game.no_order_twice(diagnostics, context);
+	}
+
+	/**
+	 * Validates the no_jump_back_correct constraint of '<em>Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGame_no_jump_back_correct(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return game.no_jump_back_correct(diagnostics, context);
+	}
+
+	/**
+	 * Validates the initial_order_zero constraint of '<em>Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGame_initial_order_zero(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return game.initial_order_zero(diagnostics, context);
 	}
 
 	/**
@@ -166,6 +259,16 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 */
 	public boolean validateGame_initial_onsuccess_notnull(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return game.initial_onsuccess_notnull(diagnostics, context);
+	}
+
+	/**
+	 * Validates the no_jump_back_timeout constraint of '<em>Game</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateGame_no_jump_back_timeout(Game game, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return game.no_jump_back_timeout(diagnostics, context);
 	}
 
 	/**
@@ -183,8 +286,9 @@ public class TwitterQAModelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(test, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(test, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(test, diagnostics, context);
-		if (result || diagnostics != null) result &= validateTest_attempts_positive(test, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTest_reward_positive(test, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTest_attempts_positive(test, diagnostics, context);
+		if (result || diagnostics != null) result &= validateTest_order_positive(test, diagnostics, context);
 		if (result || diagnostics != null) result &= validateTest_time_positive(test, diagnostics, context);
 		return result;
 	}
@@ -197,6 +301,16 @@ public class TwitterQAModelValidator extends EObjectValidator {
 	 */
 	public boolean validateTest_attempts_positive(Test test, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return test.attempts_positive(diagnostics, context);
+	}
+
+	/**
+	 * Validates the order_positive constraint of '<em>Test</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateTest_order_positive(Test test, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return test.order_positive(diagnostics, context);
 	}
 
 	/**

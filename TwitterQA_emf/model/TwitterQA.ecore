@@ -28,12 +28,17 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Game">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="initial_onsuccess_notnull"/>
+      <details key="constraints" value="initial_order_zero initial_onsuccess_notnull no_order_twice no_jump_back_correct no_jump_back_fail no_jump_back_timeout"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="initial_order_zero" value="initial_test.order = 0"/>
       <details key="initial_onsuccess_notnull" value="not initial_test.on_correct.oclIsUndefined()"/>
+      <details key="no_order_twice" value="tests->isUnique(t | t.order) and tests->forAll(t | t.order > 0)"/>
+      <details key="no_jump_back_correct" value="&#xA;&#x9;&#x9;&#x9;let not_final_tests = tests->select(t | t.on_correct.oclIsUndefined() = false) in&#xA;&#x9;&#x9;&#x9;&#x9;not_final_tests->forAll(t | t.on_correct.order > t.order)"/>
+      <details key="no_jump_back_fail" value="&#xA;&#x9;&#x9;&#x9;let not_final_tests = tests->select(t | t.on_fail.oclIsUndefined() = false) in&#xA;&#x9;&#x9;&#x9;&#x9;not_final_tests->forAll(t | t.on_fail.order > t.order)"/>
+      <details key="no_jump_back_timeout" value="&#xA;&#x9;&#x9;&#x9;let not_final_tests = tests->select(t | t.on_timeout.oclIsUndefined() = false) in&#xA;&#x9;&#x9;&#x9;&#x9;not_final_tests->forAll(t | t.on_timeout.order > t.order)"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -45,14 +50,15 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Test">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="time_positive attempts_positive reward_positive"/>
+      <details key="constraints" value="time_positive attempts_positive reward_positive order_positive"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
       <details key="time_positive" value="timelimit > 0"/>
       <details key="attempts_positive" value="attempts > 0"/>
       <details key="reward_positive" value="reward > 0"/>
+      <details key="order_positive" value="order >= 0"/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="location" lowerBound="1"
         eType="#//Location"/>
@@ -71,6 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="on_correct" eType="#//Test"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="on_timeout" eType="#//Test"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="on_fail" eType="#//Test"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Location">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

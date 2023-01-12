@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link TwitterQAModel.Test#getId <em>Id</em>}</li>
+ *   <li>{@link TwitterQAModel.Test#getName <em>Name</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getLocation <em>Location</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getQuestion <em>Question</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getAnswers <em>Answers</em>}</li>
@@ -28,34 +28,35 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link TwitterQAModel.Test#getOn_correct <em>On correct</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getOn_timeout <em>On timeout</em>}</li>
  *   <li>{@link TwitterQAModel.Test#getOn_fail <em>On fail</em>}</li>
+ *   <li>{@link TwitterQAModel.Test#getOrder <em>Order</em>}</li>
  * </ul>
  *
  * @see TwitterQAModel.TwitterQAModelPackage#getTest()
- * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='attempts_positive'"
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='reward_positive'"
  * @generated
  */
 public interface Test extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(String)
-	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_Id()
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_Name()
 	 * @model id="true" required="true"
 	 * @generated
 	 */
-	String getId();
+	String getName();
 
 	/**
-	 * Sets the value of the '{@link TwitterQAModel.Test#getId <em>Id</em>}' attribute.
+	 * Sets the value of the '{@link TwitterQAModel.Test#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
 	 * @generated
 	 */
-	void setId(String value);
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' reference.
@@ -258,6 +259,28 @@ public interface Test extends EObject {
 	void setOn_fail(Test value);
 
 	/**
+	 * Returns the value of the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Order</em>' attribute.
+	 * @see #setOrder(int)
+	 * @see TwitterQAModel.TwitterQAModelPackage#getTest_Order()
+	 * @model required="true"
+	 * @generated
+	 */
+	int getOrder();
+
+	/**
+	 * Sets the value of the '{@link TwitterQAModel.Test#getOrder <em>Order</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Order</em>' attribute.
+	 * @see #getOrder()
+	 * @generated
+	 */
+	void setOrder(int value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='reward &gt; 0'"
@@ -280,5 +303,13 @@ public interface Test extends EObject {
 	 * @generated
 	 */
 	boolean attempts_positive(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='order &gt;= 0'"
+	 * @generated
+	 */
+	boolean order_positive(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Test

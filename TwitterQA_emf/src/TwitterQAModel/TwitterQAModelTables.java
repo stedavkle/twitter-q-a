@@ -225,8 +225,8 @@ public class TwitterQAModelTables extends AbstractTables
 
 		public static final ExecutorProperty _Game__city = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__CITY, Types._Game, 0);
 		public static final ExecutorProperty _Game__description = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__DESCRIPTION, Types._Game, 1);
-		public static final ExecutorProperty _Game__id = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__ID, Types._Game, 2);
-		public static final ExecutorProperty _Game__initial_test = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__INITIAL_TEST, Types._Game, 3);
+		public static final ExecutorProperty _Game__initial_test = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__INITIAL_TEST, Types._Game, 2);
+		public static final ExecutorProperty _Game__name = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__NAME, Types._Game, 3);
 		public static final ExecutorProperty _Game__tests = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.GAME__TESTS, Types._Game, 4);
 		public static final ExecutorProperty _Game__TwitterQA__games = new ExecutorPropertyWithImplementation("TwitterQA", Types._Game, 5, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TWITTER_QA__GAMES));
 
@@ -239,19 +239,20 @@ public class TwitterQAModelTables extends AbstractTables
 		public static final ExecutorProperty _Test__answers = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ANSWERS, Types._Test, 0);
 		public static final ExecutorProperty _Test__attempts = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ATTEMPTS, Types._Test, 1);
 		public static final ExecutorProperty _Test__hints = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__HINTS, Types._Test, 2);
-		public static final ExecutorProperty _Test__id = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ID, Types._Test, 3);
-		public static final ExecutorProperty _Test__location = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__LOCATION, Types._Test, 4);
+		public static final ExecutorProperty _Test__location = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__LOCATION, Types._Test, 3);
+		public static final ExecutorProperty _Test__name = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__NAME, Types._Test, 4);
 		public static final ExecutorProperty _Test__on_correct = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ON_CORRECT, Types._Test, 5);
 		public static final ExecutorProperty _Test__on_fail = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ON_FAIL, Types._Test, 6);
 		public static final ExecutorProperty _Test__on_timeout = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ON_TIMEOUT, Types._Test, 7);
-		public static final ExecutorProperty _Test__question = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__QUESTION, Types._Test, 8);
-		public static final ExecutorProperty _Test__reward = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__REWARD, Types._Test, 9);
-		public static final ExecutorProperty _Test__timelimit = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__TIMELIMIT, Types._Test, 10);
-		public static final ExecutorProperty _Test__Game__initial_test = new ExecutorPropertyWithImplementation("Game", Types._Test, 11, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.GAME__INITIAL_TEST));
-		public static final ExecutorProperty _Test__Game__tests = new ExecutorPropertyWithImplementation("Game", Types._Test, 12, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.GAME__TESTS));
-		public static final ExecutorProperty _Test__Test__on_correct = new ExecutorPropertyWithImplementation("Test", Types._Test, 13, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TEST__ON_CORRECT));
-		public static final ExecutorProperty _Test__Test__on_fail = new ExecutorPropertyWithImplementation("Test", Types._Test, 14, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TEST__ON_FAIL));
-		public static final ExecutorProperty _Test__Test__on_timeout = new ExecutorPropertyWithImplementation("Test", Types._Test, 15, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TEST__ON_TIMEOUT));
+		public static final ExecutorProperty _Test__order = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__ORDER, Types._Test, 8);
+		public static final ExecutorProperty _Test__question = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__QUESTION, Types._Test, 9);
+		public static final ExecutorProperty _Test__reward = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__REWARD, Types._Test, 10);
+		public static final ExecutorProperty _Test__timelimit = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TEST__TIMELIMIT, Types._Test, 11);
+		public static final ExecutorProperty _Test__Game__initial_test = new ExecutorPropertyWithImplementation("Game", Types._Test, 12, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.GAME__INITIAL_TEST));
+		public static final ExecutorProperty _Test__Game__tests = new ExecutorPropertyWithImplementation("Game", Types._Test, 13, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.GAME__TESTS));
+		public static final ExecutorProperty _Test__Test__on_correct = new ExecutorPropertyWithImplementation("Test", Types._Test, 14, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TEST__ON_CORRECT));
+		public static final ExecutorProperty _Test__Test__on_fail = new ExecutorPropertyWithImplementation("Test", Types._Test, 15, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TEST__ON_FAIL));
+		public static final ExecutorProperty _Test__Test__on_timeout = new ExecutorPropertyWithImplementation("Test", Types._Test, 16, new EcoreLibraryOppositeProperty(TwitterQAModelPackage.Literals.TEST__ON_TIMEOUT));
 
 		public static final ExecutorProperty _TwitterQA__access_token = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TWITTER_QA__ACCESS_TOKEN, Types._TwitterQA, 0);
 		public static final ExecutorProperty _TwitterQA__access_token_secret = new EcoreExecutorProperty(TwitterQAModelPackage.Literals.TWITTER_QA__ACCESS_TOKEN_SECRET, Types._TwitterQA, 1);
@@ -491,8 +492,8 @@ public class TwitterQAModelTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Game = {
 			TwitterQAModelTables.Properties._Game__city,
 			TwitterQAModelTables.Properties._Game__description,
-			TwitterQAModelTables.Properties._Game__id,
 			TwitterQAModelTables.Properties._Game__initial_test,
+			TwitterQAModelTables.Properties._Game__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			TwitterQAModelTables.Properties._Game__tests
@@ -510,13 +511,14 @@ public class TwitterQAModelTables extends AbstractTables
 			TwitterQAModelTables.Properties._Test__answers,
 			TwitterQAModelTables.Properties._Test__attempts,
 			TwitterQAModelTables.Properties._Test__hints,
-			TwitterQAModelTables.Properties._Test__id,
 			TwitterQAModelTables.Properties._Test__location,
+			TwitterQAModelTables.Properties._Test__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			TwitterQAModelTables.Properties._Test__on_correct,
 			TwitterQAModelTables.Properties._Test__on_fail,
 			TwitterQAModelTables.Properties._Test__on_timeout,
+			TwitterQAModelTables.Properties._Test__order,
 			TwitterQAModelTables.Properties._Test__question,
 			TwitterQAModelTables.Properties._Test__reward,
 			TwitterQAModelTables.Properties._Test__timelimit

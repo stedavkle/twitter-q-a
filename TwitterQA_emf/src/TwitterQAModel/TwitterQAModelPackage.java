@@ -160,13 +160,13 @@ public interface TwitterQAModelPackage extends EPackage {
 	int GAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME__ID = 0;
+	int GAME__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -214,13 +214,58 @@ public interface TwitterQAModelPackage extends EPackage {
 	int GAME_FEATURE_COUNT = 5;
 
 	/**
+	 * The operation id for the '<em>No order twice</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___NO_ORDER_TWICE__DIAGNOSTICCHAIN_MAP = 0;
+
+	/**
+	 * The operation id for the '<em>No jump back correct</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___NO_JUMP_BACK_CORRECT__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
+	 * The operation id for the '<em>Initial order zero</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___INITIAL_ORDER_ZERO__DIAGNOSTICCHAIN_MAP = 2;
+
+	/**
 	 * The operation id for the '<em>Initial onsuccess notnull</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = 0;
+	int GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = 3;
+
+	/**
+	 * The operation id for the '<em>No jump back timeout</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___NO_JUMP_BACK_TIMEOUT__DIAGNOSTICCHAIN_MAP = 4;
+
+	/**
+	 * The operation id for the '<em>No jump back fail</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP = 5;
 
 	/**
 	 * The number of operations of the '<em>Game</em>' class.
@@ -229,7 +274,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GAME_OPERATION_COUNT = 1;
+	int GAME_OPERATION_COUNT = 6;
 
 	/**
 	 * The meta object id for the '{@link TwitterQAModel.impl.TestImpl <em>Test</em>}' class.
@@ -242,13 +287,13 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TEST = 2;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST__ID = 0;
+	int TEST__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' reference.
@@ -341,31 +386,22 @@ public interface TwitterQAModelPackage extends EPackage {
 	int TEST__ON_FAIL = 10;
 
 	/**
+	 * The feature id for the '<em><b>Order</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST__ORDER = 11;
+
+	/**
 	 * The number of structural features of the '<em>Test</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_FEATURE_COUNT = 11;
-
-	/**
-	 * The operation id for the '<em>Reward positive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP = 0;
-
-	/**
-	 * The operation id for the '<em>Time positive</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP = 1;
+	int TEST_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Attempts positive</em>' operation.
@@ -374,7 +410,34 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP = 2;
+	int TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP = 0;
+
+	/**
+	 * The operation id for the '<em>Order positive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST___ORDER_POSITIVE__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
+	 * The operation id for the '<em>Time positive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST___TIME_POSITIVE__DIAGNOSTICCHAIN_MAP = 2;
+
+	/**
+	 * The operation id for the '<em>Reward positive</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEST___REWARD_POSITIVE__DIAGNOSTICCHAIN_MAP = 3;
 
 	/**
 	 * The number of operations of the '<em>Test</em>' class.
@@ -383,7 +446,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEST_OPERATION_COUNT = 3;
+	int TEST_OPERATION_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link TwitterQAModel.impl.LocationImpl <em>Location</em>}' class.
@@ -539,15 +602,15 @@ public interface TwitterQAModelPackage extends EPackage {
 	EClass getGame();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.Game#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.Game#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see TwitterQAModel.Game#getId()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see TwitterQAModel.Game#getName()
 	 * @see #getGame()
 	 * @generated
 	 */
-	EAttribute getGame_Id();
+	EAttribute getGame_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link TwitterQAModel.Game#getDescription <em>Description</em>}'.
@@ -594,6 +657,36 @@ public interface TwitterQAModelPackage extends EPackage {
 	EAttribute getGame_City();
 
 	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#no_order_twice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No order twice</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>No order twice</em>' operation.
+	 * @see TwitterQAModel.Game#no_order_twice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__No_order_twice__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#no_jump_back_correct(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No jump back correct</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>No jump back correct</em>' operation.
+	 * @see TwitterQAModel.Game#no_jump_back_correct(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__No_jump_back_correct__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#initial_order_zero(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Initial order zero</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Initial order zero</em>' operation.
+	 * @see TwitterQAModel.Game#initial_order_zero(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__Initial_order_zero__DiagnosticChain_Map();
+
+	/**
 	 * Returns the meta object for the '{@link TwitterQAModel.Game#initial_onsuccess_notnull(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Initial onsuccess notnull</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -602,6 +695,26 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getGame__Initial_onsuccess_notnull__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#no_jump_back_timeout(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No jump back timeout</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>No jump back timeout</em>' operation.
+	 * @see TwitterQAModel.Game#no_jump_back_timeout(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__No_jump_back_timeout__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Game#no_jump_back_fail(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No jump back fail</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>No jump back fail</em>' operation.
+	 * @see TwitterQAModel.Game#no_jump_back_fail(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getGame__No_jump_back_fail__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link TwitterQAModel.Test <em>Test</em>}'.
@@ -614,15 +727,15 @@ public interface TwitterQAModelPackage extends EPackage {
 	EClass getTest();
 
 	/**
-	 * Returns the meta object for the attribute '{@link TwitterQAModel.Test#getId <em>Id</em>}'.
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.Test#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see TwitterQAModel.Test#getId()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see TwitterQAModel.Test#getName()
 	 * @see #getTest()
 	 * @generated
 	 */
-	EAttribute getTest_Id();
+	EAttribute getTest_Name();
 
 	/**
 	 * Returns the meta object for the reference '{@link TwitterQAModel.Test#getLocation <em>Location</em>}'.
@@ -735,6 +848,17 @@ public interface TwitterQAModelPackage extends EPackage {
 	EReference getTest_On_fail();
 
 	/**
+	 * Returns the meta object for the attribute '{@link TwitterQAModel.Test#getOrder <em>Order</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Order</em>'.
+	 * @see TwitterQAModel.Test#getOrder()
+	 * @see #getTest()
+	 * @generated
+	 */
+	EAttribute getTest_Order();
+
+	/**
 	 * Returns the meta object for the '{@link TwitterQAModel.Test#reward_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Reward positive</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -763,6 +887,16 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getTest__Attempts_positive__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link TwitterQAModel.Test#order_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Order positive</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Order positive</em>' operation.
+	 * @see TwitterQAModel.Test#order_positive(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getTest__Order_positive__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link TwitterQAModel.Location <em>Location</em>}'.
@@ -907,12 +1041,12 @@ public interface TwitterQAModelPackage extends EPackage {
 		EClass GAME = eINSTANCE.getGame();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GAME__ID = eINSTANCE.getGame_Id();
+		EAttribute GAME__NAME = eINSTANCE.getGame_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -947,12 +1081,52 @@ public interface TwitterQAModelPackage extends EPackage {
 		EAttribute GAME__CITY = eINSTANCE.getGame_City();
 
 		/**
+		 * The meta object literal for the '<em><b>No order twice</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___NO_ORDER_TWICE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__No_order_twice__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>No jump back correct</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___NO_JUMP_BACK_CORRECT__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__No_jump_back_correct__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Initial order zero</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___INITIAL_ORDER_ZERO__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__Initial_order_zero__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '<em><b>Initial onsuccess notnull</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EOperation GAME___INITIAL_ONSUCCESS_NOTNULL__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__Initial_onsuccess_notnull__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>No jump back timeout</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___NO_JUMP_BACK_TIMEOUT__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__No_jump_back_timeout__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>No jump back fail</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation GAME___NO_JUMP_BACK_FAIL__DIAGNOSTICCHAIN_MAP = eINSTANCE.getGame__No_jump_back_fail__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link TwitterQAModel.impl.TestImpl <em>Test</em>}' class.
@@ -965,12 +1139,12 @@ public interface TwitterQAModelPackage extends EPackage {
 		EClass TEST = eINSTANCE.getTest();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEST__ID = eINSTANCE.getTest_Id();
+		EAttribute TEST__NAME = eINSTANCE.getTest_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Location</b></em>' reference feature.
@@ -1053,6 +1227,14 @@ public interface TwitterQAModelPackage extends EPackage {
 		EReference TEST__ON_FAIL = eINSTANCE.getTest_On_fail();
 
 		/**
+		 * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEST__ORDER = eINSTANCE.getTest_Order();
+
+		/**
 		 * The meta object literal for the '<em><b>Reward positive</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1075,6 +1257,14 @@ public interface TwitterQAModelPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation TEST___ATTEMPTS_POSITIVE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTest__Attempts_positive__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>Order positive</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation TEST___ORDER_POSITIVE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getTest__Order_positive__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link TwitterQAModel.impl.LocationImpl <em>Location</em>}' class.

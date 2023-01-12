@@ -5,7 +5,7 @@
     <semanticResources>TwitterQA.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_7V0pAJG_Ee2O-6uiExlYfw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7rjBYJG_Ee2O-6uiExlYfw" name="TwitterQAModel class diagram" repPath="#_7rhMMJG_Ee2O-6uiExlYfw" changeId="513fcdee-da19-4229-a1b8-b581decacd95">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_7rjBYJG_Ee2O-6uiExlYfw" name="TwitterQAModel class diagram" repPath="#_7rhMMJG_Ee2O-6uiExlYfw" changeId="29bdc627-d806-4d6f-95b3-c3632049f410">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="TwitterQA.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -55,9 +55,9 @@
         <children xmi:type="notation:Node" xmi:id="_8Hevd5G_Ee2O-6uiExlYfw" type="2003" element="_8HO30JG_Ee2O-6uiExlYfw">
           <children xmi:type="notation:Node" xmi:id="_8HfWgJG_Ee2O-6uiExlYfw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_8HfWgZG_Ee2O-6uiExlYfw" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_8HgkpZG_Ee2O-6uiExlYfw" type="3010" element="_8HU-cJG_Ee2O-6uiExlYfw">
-              <styles xmi:type="notation:FontStyle" xmi:id="_8HgkppG_Ee2O-6uiExlYfw" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_8Hgkp5G_Ee2O-6uiExlYfw"/>
+            <children xmi:type="notation:Node" xmi:id="_3vcTwJJlEe2M5pVFcucbIQ" type="3010" element="_3vEgUJJlEe2M5pVFcucbIQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_3vcTwZJlEe2M5pVFcucbIQ" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_3vcTwpJlEe2M5pVFcucbIQ"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_8HgkqJG_Ee2O-6uiExlYfw" type="3010" element="_8HU-cpG_Ee2O-6uiExlYfw">
               <styles xmi:type="notation:FontStyle" xmi:id="_8HgkqZG_Ee2O-6uiExlYfw" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
@@ -76,9 +76,9 @@
         <children xmi:type="notation:Node" xmi:id="_8HfWhJG_Ee2O-6uiExlYfw" type="2003" element="_8HPe4JG_Ee2O-6uiExlYfw">
           <children xmi:type="notation:Node" xmi:id="_8HfWh5G_Ee2O-6uiExlYfw" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_8HfWiJG_Ee2O-6uiExlYfw" type="7004">
-            <children xmi:type="notation:Node" xmi:id="_8Hgkq5G_Ee2O-6uiExlYfw" type="3010" element="_8HVlgZG_Ee2O-6uiExlYfw">
-              <styles xmi:type="notation:FontStyle" xmi:id="_8HgkrJG_Ee2O-6uiExlYfw" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_8HgkrZG_Ee2O-6uiExlYfw"/>
+            <children xmi:type="notation:Node" xmi:id="_3vjBcJJlEe2M5pVFcucbIQ" type="3010" element="_3vHjoJJlEe2M5pVFcucbIQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_3vjBcZJlEe2M5pVFcucbIQ" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_3vjBcpJlEe2M5pVFcucbIQ"/>
             </children>
             <children xmi:type="notation:Node" xmi:id="_8HhLsJG_Ee2O-6uiExlYfw" type="3010" element="_8HWMkZG_Ee2O-6uiExlYfw">
               <styles xmi:type="notation:FontStyle" xmi:id="_8HhLsZG_Ee2O-6uiExlYfw" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
@@ -103,6 +103,10 @@
             <children xmi:type="notation:Node" xmi:id="_8HhywJG_Ee2O-6uiExlYfw" type="3010" element="_8HXas5G_Ee2O-6uiExlYfw">
               <styles xmi:type="notation:FontStyle" xmi:id="_8HhywZG_Ee2O-6uiExlYfw" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_8HhywpG_Ee2O-6uiExlYfw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_4eOrYJJwEe2M5pVFcucbIQ" type="3010" element="_4eH9spJwEe2M5pVFcucbIQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_4eOrYZJwEe2M5pVFcucbIQ" fontName=".AppleSystemUIFont" fontHeight="8" bold="true"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_4eOrYpJwEe2M5pVFcucbIQ"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_8HfWiZG_Ee2O-6uiExlYfw"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_8HfWipG_Ee2O-6uiExlYfw"/>
@@ -353,10 +357,10 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8HU-cJG_Ee2O-6uiExlYfw" name="id : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Game/id"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Game/id"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_8HU-cZG_Ee2O-6uiExlYfw" labelAlignment="LEFT" description="_8HTJQZG_Ee2O-6uiExlYfw">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_3vEgUJJlEe2M5pVFcucbIQ" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Game/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Game/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_3vFHYJJlEe2M5pVFcucbIQ" labelAlignment="LEFT" description="_8HTJQZG_Ee2O-6uiExlYfw">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -385,10 +389,10 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_8HVlgZG_Ee2O-6uiExlYfw" name="id : EString" tooltipText="">
-        <target xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/id"/>
-        <semanticElements xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/id"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_8HWMkJG_Ee2O-6uiExlYfw" labelAlignment="LEFT" description="_8HTJQZG_Ee2O-6uiExlYfw">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_3vHjoJJlEe2M5pVFcucbIQ" name="name : EString" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/name"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/name"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_3vHjoZJlEe2M5pVFcucbIQ" labelAlignment="LEFT" description="_8HTJQZG_Ee2O-6uiExlYfw">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -437,6 +441,14 @@
         <target xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/reward"/>
         <semanticElements xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/reward"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_8HYBwJG_Ee2O-6uiExlYfw" labelAlignment="LEFT" description="_8HTJQZG_Ee2O-6uiExlYfw">
+          <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_4eH9spJwEe2M5pVFcucbIQ" name="order : EInt" tooltipText="">
+        <target xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/order"/>
+        <semanticElements xmi:type="ecore:EAttribute" href="TwitterQA.ecore#//Test/order"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_4eIkwJJwEe2M5pVFcucbIQ" labelAlignment="LEFT" description="_8HTJQZG_Ee2O-6uiExlYfw">
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
@@ -544,6 +556,7 @@
       <ownedStyle xmi:type="diagram:EdgeStyle" uid="_5JmgsJHNEe2O-6uiExlYfw" description="_8HZ28ZG_Ee2O-6uiExlYfw" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_5JmgspHNEe2O-6uiExlYfw" showIcon="false">
           <customFeatures>labelSize</customFeatures>
+          <labelFormat>bold</labelFormat>
         </centerLabelStyle>
         <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_5JmgsZHNEe2O-6uiExlYfw" showIcon="false" labelColor="39,76,114">
           <customFeatures>labelSize</customFeatures>
