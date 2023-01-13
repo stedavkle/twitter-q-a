@@ -7,15 +7,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Queue;
-import java.util.Set;
+import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.TimeUnit;
 
 import twitter4j.*;
 import twitter4j.v1.*;
 
 public class TwitterQA {
-	@SuppressWarnings("unused")
-	
 	private Twitter twitter;
 	private long userID;
 	private String userName;
@@ -42,6 +41,63 @@ public class TwitterQA {
 		System.out.println(this.userName + " : " + userID);
 		createGames();
 	}
+	public void run() throws TwitterException, InterruptedException {
+		while (true) {
+			updatePlayers();
+			sendWelcomeMsg();
+			getGameSelection();
+			sendTestInstruction();
+			getAnswer();
+			TimeUnit.SECONDS.sleep(60);
+		}
+	}
+	public void debug() throws TwitterException {
+		Scanner console = new Scanner(System.in);
+		String input;
+		while (true) {			
+			input = console.nextLine();
+			switch(input) {
+			  case "t":
+				  GeoLocation test = GeoLocation.of(40.52477105, -3.7707802235079573);
+				  System.out.println(test);
+				  System.out.println(test.latitude + test.longitude);
+			  case "pf":
+			      printFollowers();
+			      break;
+			  case "pp":
+				  printPlayers();
+				  break;
+			  case "pm":
+				  printMessages();
+				  break;
+			  case "pt":
+				  printTweets();
+				  break;
+			  case "up":
+				  updatePlayers();
+				  printPlayers();
+				  break;
+			  case "swm":
+				  sendWelcomeMsg();
+				  break;
+			  case "ggs":
+				  getGameSelection();
+				  break;
+			  case "sti":
+				  sendTestInstruction();
+				  break;
+			  case "ga":
+				  getAnswer();
+				  break;
+			  case "cc":
+				  System.out.println("Stop\n");
+				  console.close();
+				  System.exit(0);
+			  default:
+				  System.out.println("INPUT");
+			}
+		}
+	}
 	
 	public void printFollowers() throws TwitterException {
 		System.out.println("FOLLOWERS");
@@ -54,9 +110,9 @@ public class TwitterQA {
 	}
 	public void printMessages() throws TwitterException {
 		System.out.println("MESSAGES");
-		HashMap<Long, String> messages = getNewDirectMessages();
+		HashMap<Long, DirectMessage> messages = getNewDirectMessages();
 		for (Long senderID : messages.keySet()) {
-			System.out.println(senderID + " : " + messages.get(senderID));
+			System.out.println(senderID + " : " + messages.get(senderID).getText());
 		}
 		System.out.println("-----\n");
 	}
@@ -70,11 +126,12 @@ public class TwitterQA {
 	}
 	public void printTweets() throws TwitterException {
 		System.out.println("TWEETS");
-		HashMap<Long, Tweet> tweets = getMentionTweets();
+		HashMap<Long, Status> tweets = getMentionTweets();
 		
 		for (Long userID : tweets.keySet()) {
-			Tweet tweet = tweets.get(userID);
-			System.out.println(tweet.screenname + " : " + tweet.location.latitude + ", " + tweet.location.longitude + " : " + tweet.timestamp + " : " + tweet.text);			
+			Status tweet = tweets.get(userID);
+			Location loc = extractLocation(tweet.getPlace().getFullName(), tweet.getPlace().getBoundingBoxCoordinates());
+			System.out.println(tweet.getUser() + " : " + loc.latitude + ", " + loc.longitude + " : " + tweet.getCreatedAt() + " : " + tweet.getText());			
 		}
 		System.out.println("-----\n");
 	}
@@ -92,10 +149,13 @@ public class TwitterQA {
 		
 		return idArray;
 	}	
-	private HashMap<Long, String> getNewDirectMessages() throws TwitterException {
+	private HashMap<Long, DirectMessage> getNewDirectMessages() throws TwitterException {
 		  DirectMessageList messagesBatch;
 		  DirectMessageList messages = twitter.v1().directMessages().getDirectMessages(20);
-		  if (messages.isEmpty()) {return new HashMap<Long, String>();}
+		  if (messages.isEmpty()) {
+			  System.out.println("\t-API no msg");
+			  return new HashMap<Long, DirectMessage>();
+		  }
 		  //System.out.println("limit : " + messages.getRateLimitStatus());
 		  String cursor = messages.getNextCursor();
 		  String prev_cursor = null;
@@ -109,29 +169,26 @@ public class TwitterQA {
 	        //System.out.println(cursor + " : " + prev_cursor);
 	      }
 	      
-	      HashMap<Long, String> messages_map = new HashMap<Long, String>();
+	      HashMap<Long, DirectMessage> messages_map = new HashMap<Long, DirectMessage>();
 	      // loop in reverse to get newest message of user
+	      System.out.printf("\t-API %d messages\n", messages.size());
 	      for (int i=messages.size()-1; i>=0; i--) {
 	    	  DirectMessage message = messages.get(i);
-	    	  //System.out.print(message.getText() + ", ");
+	    	  //System.out.println("\t-msg from: " + twitter.v1().users().showUser(message.getSenderId()).getScreenName());
 	    	  if (message.getCreatedAt().isAfter(msgTimestamp))
-	    	  messages_map.put(message.getSenderId(), message.getText());
+	    	  messages_map.put(message.getSenderId(), message);
 	      }
 	      msgTimestamp = messages.get(0).getCreatedAt();
 	      return messages_map;
 		}
-	private HashMap<Long, Tweet> getMentionTweets() throws TwitterException {
+	private HashMap<Long, Status> getMentionTweets() throws TwitterException {
 		ResponseList<Status> tweets = twitter.v1().timelines().getMentionsTimeline();
-		System.out.println(tweets.size());
-		HashMap<Long, Tweet> tweets_map = new HashMap<Long, Tweet>();
+		//System.out.println(tweets.size() + " Tweets with mentions.");
+		HashMap<Long, Status> tweets_map = new HashMap<Long, Status>();
 		// iterate backwards to get newest tweet
 		for (int i=tweets.size()-1; i>=0; i--) {
 			Status tweet = tweets.get(i);
-			tweets_map.put(tweet.getUser().getId(),
-							new Tweet(tweet.getUser().getScreenName(),
-										extractLocation(tweet.getPlace().getFullName(), tweet.getPlace().getBoundingBoxCoordinates()),
-										tweet.getCreatedAt(),
-										tweet.getText()));
+			tweets_map.put(tweet.getUser().getId(), tweet);
 		}
 		return tweets_map;		
 	}
@@ -141,9 +198,9 @@ public class TwitterQA {
 		Location tuebingen_stadt = new Location("Tübingen", 48.521637, 9.057645);
 		
 		HashMap<String, Test> tests = new HashMap<String, Test>();
-		Test tuebingen00 = new Test("0", tuebingen_stadt, "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"), null, 360, 3, 100, null, null, null);
+		
 		Test tuebingen01 = new Test("1", tuebingen_stadt, "What is the main bridge through Tübingen called?", Arrays.asList("Neckarbrücke", "Neckarbruecke"), null, 360, 3, 100, null, null, null);
-
+		Test tuebingen00 = new Test("0", tuebingen_stadt, "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"), null, 360, 3, 100, tuebingen01, null, null);
 		tests.put(tuebingen01.getID(), tuebingen01);
 		
 		Game game = new Game("0", tuebingen00, tests, "Tübingen", "The first game in a small city in the south of germany");
@@ -152,13 +209,14 @@ public class TwitterQA {
 		welcomeMessage = sb.toString();
 	}
 	public void updatePlayers() throws TwitterException {
+		System.out.println("PU");
 		ArrayList<Long> followers = getFollowerIDs(userID);
 		for (Long followerID : followers) {
 			if (!players.containsKey(followerID)) {
 				Player player = new Player(followerID);
 				players.put(followerID, player);
 		        queueSendWelcomeMsg.add(player);
-		        //twitter.v1().directMessages().sendDirectMessage(followerID, welcomeMessage);
+		        System.out.println("\t-" + twitter.v1().users().showUser(followerID).getScreenName());
 			}
 		}
 		for (Long player : players.keySet()) {
@@ -168,21 +226,31 @@ public class TwitterQA {
 		}
 	}	
 	public void sendWelcomeMsg() throws TwitterException {
+		System.out.println("WM");
 		while (!queueSendWelcomeMsg.isEmpty()) {
 			
 			Player player = queueSendWelcomeMsg.poll();
 			if (playersToDelete.contains(player)) {
-				playersToDelete.remove(player);
 				continue;
 			}
 			twitter.v1().directMessages().sendDirectMessage(player.getID(), welcomeMessage);
+			System.out.println("\t-" + twitter.v1().users().showUser(player.getID()).getScreenName());
 			queueGetGameSelection.add(player);
 		}
 	}
 	public void getGameSelection() throws TwitterException {
-		HashMap<Long, String> messages = getNewDirectMessages();
-		System.out.println(messages.toString());
+		System.out.println("GS");
+		if (queueGetGameSelection.isEmpty()) {
+			System.out.println("\t-queue empty");
+			return;
+		}
 		
+		HashMap<Long, DirectMessage> messages = getNewDirectMessages();
+		
+//		for (Long mID : messages.keySet()) {
+//			System.out.printf("%d, %d%n", mID, messages.get(mID).getRecipientId());
+//		}
+		//System.out.printf("\t- %d messages\n", messages.size());
 		if (messages.isEmpty()){return;}
 		
 		Long firstPlayer = queueGetGameSelection.peek().getID();
@@ -190,13 +258,21 @@ public class TwitterQA {
 		while (!queueGetGameSelection.isEmpty() && !alldone) {
 			Player player = queueGetGameSelection.poll();
 			
-			if (playersToDelete.contains(player)) {
+			if (playersToDelete.contains(player)) {continue;}
+			DirectMessage message = messages.get(player.getID());
+			//System.out.println("\t-" + twitter.v1().users().showUser(player.getID()).getScreenName() + " : " + message);
+			if (message == null || player.latestMessage == message.getId()) {
+				queueGetGameSelection.add(player);
+				alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);
 				continue;
 			}
-			String selection = messages.get(player.getID());
-			//System.out.println("SELECTION" + selection + " : " + games.keySet().toString());
+			
+			String selection = message.getText();
+			player.latestMessage = message.getId();
+			
+			System.out.println("\t-answer: " + selection + " : " + twitter.v1().users().showUser(player.getID()).getScreenName());
 			if (!games.containsKey(selection)) {
-				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Please send a correct selction.");
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Please send a correct selection.");
 				queueGetGameSelection.add(player);
 			}
 			else {
@@ -205,58 +281,99 @@ public class TwitterQA {
 				queueSendTest.add(player);
 			}
 			
-			if (!queueGetGameSelection.isEmpty() && queueGetGameSelection.peek().getID() == firstPlayer) {
-				alldone = true;
-			}
+			alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);
 		}
 	}
 	public void sendTestInstruction() throws TwitterException {
-		while (!queueSendTest.isEmpty()) {
-			
+		System.out.println("TI");
+		while (!queueSendTest.isEmpty()) {			
 			Player player = queueSendTest.poll();
+			
+			if (player.getTest() == null) {
+				player.getGame().setHighscore(player.getPoints());
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Congratulation, you finished the game with " + player.getPoints() + " points.\n" + "The highscore of this game is: " + player.getGame().getHighscore());
+				player.setPoints(0);
+				System.out.println("\t-done " + twitter.v1().users().showUser(player.getID()).getScreenName());
+				queueSendWelcomeMsg.add(player);
+				continue;
+			}
+			
 			if (playersToDelete.contains(player)) {
 				continue;
 			}
 			DirectMessage message = twitter.v1().directMessages().sendDirectMessage(player.getID(), player.getTest().getQuestion());
 			player.setTimestamp(message.getCreatedAt().plusSeconds((long)player.getTest().getTimelimit()));
 			player.setAttempts(player.getTest().getAttempts());
-			queueGetGameSelection.add(player);
+			System.out.println("\t-sent " + player.getGame().getID() + ":" + player.getTest().getID() + " " + twitter.v1().users().showUser(player.getID()).getScreenName());
+			queueGetAnswer.add(player);
 		}
 	}
-	
 	public void getAnswer() throws TwitterException {
-		HashMap<Long, Tweet> answers = getMentionTweets();
+		System.out.println("GA");
+		if (queueGetAnswer.isEmpty()) {
+			System.out.println("\t-queue empty");
+			return;
+			}
+		
+		HashMap<Long, Status> answers = getMentionTweets();
 		
 		if (answers.isEmpty()){return;}
 		
 		Long firstPlayer = queueGetAnswer.peek().getID();
 		Boolean alldone = false;
-		while (!queueGetAnswer.isEmpty() || !alldone) {
-			Player player = queueGetGameSelection.poll();
+		while (!queueGetAnswer.isEmpty() && !alldone) {
+			Player player = queueGetAnswer.poll();
 			
 			if (playersToDelete.contains(player)) {
 				continue;
 			}
-			Tweet answer = answers.get(player.getID());
 			
-			Boolean inTime = answer.timestamp.isBefore(player.getTimestamp());
-			Boolean atLocation = nearLocation(player.getNextLocation(), answer.location);
-			Boolean correct = player.getTest().getAnswers().contains(answer.text.split(";")[0]);
+			Status answer = answers.get(player.getID());
+			if (player.latestTweet == answer.getId()) {
+				System.out.println("\t-no answer " + twitter.v1().users().showUser(player.getID()).getScreenName());
+				queueGetAnswer.add(player);
+				alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);
+				continue;
+			}
 			
-			String message;
+			if (answer.getPlace() == null) {
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "No location specified in tweet.");
+				queueGetAnswer.add(player);
+				alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);
+				continue;
+			}
+			
+			System.out.println(answer.getId() + " : " + answer.getText());
+			player.latestTweet = answer.getId();
+			
+			Boolean inTime = answer.getCreatedAt().isBefore(player.getTimestamp());
+			Boolean atLocation = nearLocation(player.getTest().getLocation(), extractLocation(answer.getPlace().getFullName(), answer.getPlace().getBoundingBoxCoordinates()));
+			Boolean correct = player.getTest().getAnswers().contains(answer.getText().split(";")[0]);
+		
 			if (!inTime) {
+				System.out.println("M-Timeout");
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "You provided the answer to late.");
 				player.setTest(player.getTest().getTestOnTimeout());
 				queueSendTest.add(player);
 			}
 			else if (!atLocation) {
+				System.out.println("M-WrongLoc");
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "You are not at the right location.");
 				queueGetAnswer.add(player);
 			}
 			else if (!correct) {
+				// TODO: send hint
+				System.out.println("M-Incorrect");
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Your answer is incorrect.\n");
 				player.setAttempts(player.getAttempts()-1);
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Remaining attempts: " + player.getAttempts());
+				
+				
+				int hintNo = player.getTest().getAttempts()-player.getAttempts();
+				if (!(player.getTest().getHints() == null) && hintNo<player.getTest().getHints().size()) {
+					twitter.v1().directMessages().sendDirectMessage(player.getID(), "Here is a hint:\n" + player.getTest().getHints().get(hintNo));
+				}
+				
 				if (player.getAttempts() == 0) {
 					player.setTest(player.getTest().getTestOnFail());
 					queueSendTest.add(player);
@@ -266,14 +383,17 @@ public class TwitterQA {
 				}
 			}
 			else {
-				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Congratulations! Your answer is correct.\n");
+				System.out.println("M-Correct");
+				player.setPoints(player.getPoints()+player.getTest().getReward());
 				player.setTest(player.getTest().getTestOnCorrect());
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Congratulations! Your answer was correct.\nYour points: " + player.getPoints());
 				queueSendTest.add(player);
 			}
-			if (!queueGetGameSelection.isEmpty() && queueGetGameSelection.peek().getID() == firstPlayer) {
-				alldone = true;
-			}		
+			alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);	
 		}
+	}
+	private Boolean interatedThroughQueue(Queue<Player> queue, Long playerID) {
+		return queue.isEmpty() || queue.peek().getID() == playerID;
 	}
 	private Location extractLocation(String name, GeoLocation[][] boundingboxcoor) {
         double[] centroid = new double[2];
@@ -288,13 +408,15 @@ public class TwitterQA {
 
         centroid[0] /= count;
         centroid[1] /= count;
-        Location location = new Location(name, centroid[0], centroid[1]);
+        // latitude and longitude are interchanged
+        Location location = new Location(name, centroid[1], centroid[0]);
         return location;
     }
 	private Boolean nearLocation(Location playerLoc, Location tweet) {
-		double lonDiff = Math.abs(playerLoc.longitude) - Math.abs(tweet.longitude);
-		double latDiff = Math.abs(playerLoc.latitude) - Math.abs(tweet.latitude);
-		
+		double lonDiff = Math.abs(Math.abs(playerLoc.longitude) - Math.abs(tweet.longitude));
+		double latDiff = Math.abs(Math.abs(playerLoc.latitude) - Math.abs(tweet.latitude));
+		//System.out.println("Loc:" + playerLoc.longitude + ", " + playerLoc.latitude + " : " + tweet.longitude + ", " + tweet.latitude);
+		//System.out.println("Loc-Diff: " + lonDiff + ", " + latDiff);
 		return (lonDiff < 0.015 && latDiff < 0.015);
 	}
 }

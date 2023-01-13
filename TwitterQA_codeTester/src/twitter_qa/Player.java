@@ -10,10 +10,14 @@ public class Player {
 	  private LocalDateTime timestamp;
 	  private Location nextLocation;
 	  private int attempts;
+	  public Long latestTweet;
+	  public Long latestMessage;
 
 	  public Player(long id) {
 	      this.id = id;
 	      this.points = 0;
+	      this.latestTweet = (long) 0;
+	      this.latestMessage = (long) 0;
 	  }
 
 	  public long getID() {

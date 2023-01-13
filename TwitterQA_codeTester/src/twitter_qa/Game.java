@@ -1,7 +1,6 @@
 package twitter_qa;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class Game {
 	  private String name;
@@ -9,6 +8,7 @@ public class Game {
 	  private HashMap<String, Test> tests;
 	  private String city;
 	  private String description;
+	  private int highscore;
 
 	  public Game(String name, Test initialTest, HashMap<String, Test> tests, String city, String description) {
 	    this.name = name;
@@ -16,6 +16,7 @@ public class Game {
 	    this.tests = tests;
 	    this.city = city;
 	    this.description = description;
+	    this.highscore = 0;
 	  }
 	  public String getID() {
 	    return name;
@@ -31,5 +32,11 @@ public class Game {
 	  }
 	  public String getDescription() {
 	    return description;
+	  }
+	  public void setHighscore(int score) {
+		  this.highscore = Math.max(highscore, score);
+	  }
+	  public int getHighscore() {
+		  return this.highscore;
 	  }
 	}

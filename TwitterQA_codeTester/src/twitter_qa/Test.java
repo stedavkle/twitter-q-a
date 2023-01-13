@@ -49,7 +49,7 @@ public class Test {
 	  public List<String> getHints() {
 	      return hints;
 	  }
-	  public int getreward() {
+	  public int getReward() {
 	      return reward;
 	  }
 	  public Test getTestOnCorrect() {
