@@ -14,5 +14,9 @@ Export-Package: TwitterQAModel,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.ocl.pivot;visibility:=reexport,
- org.eclipse.ocl.examples.codegen;visibility:=reexport
+ org.eclipse.ocl.examples.codegen;visibility:=reexport,
+ org.eclipse.emf.mwe.core,
+ org.eclipse.m2e.maven.runtime
 Bundle-ActivationPolicy: lazy
+Import-Package: ddm,
+ org.eclipse.xtext.resource
