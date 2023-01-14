@@ -2,9 +2,9 @@
 [module generate('/TwitterQA_emf/model/TwitterQA.ecore')]
 
 
-[template public generateElement(aTwitter_QA : Twitter_QA)]
+[template public generateElement(aTwitter_QA : TwitterQA)]
 [comment @main/]
-[file (aTwitter_QA.name, false, 'UTF-8')]
+[file ('aTwitter_QA.java', false, 'UTF-8')]
 
 [/file]
 [/template]
