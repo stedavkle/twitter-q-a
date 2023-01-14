@@ -199,13 +199,13 @@ public class TwitterQA {
 		
 		HashMap<String, Test> tests = new HashMap<String, Test>();
 		
-		Test tuebingen01 = new Test("1", tuebingen_stadt, "What is the main bridge through Tübingen called?", Arrays.asList("Neckarbrücke", "Neckarbruecke"), null, 360, 3, 100, null, null, null);
-		Test tuebingen00 = new Test("0", tuebingen_stadt, "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"), null, 360, 3, 100, tuebingen01, null, null);
+		Test tuebingen01 = new Test("1", tuebingen_stadt, "What is the main bridge through Tübingen called?", Arrays.asList("Neckarbrücke", "Neckarbruecke"), Arrays.asList("It is the bridge over the main river.", "The river is called \"Neckar\""), 360, 3, 100, null, null, null);
+		Test tuebingen00 = new Test("0", tuebingen_stadt, "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role."), 360, 3, 100, tuebingen01, null, null);
 		tests.put(tuebingen01.getID(), tuebingen01);
-		
 		Game game = new Game("0", tuebingen00, tests, "Tübingen", "The first game in a small city in the south of germany");
 		games.put(game.getID(), game);
-		sb.append(welcomeMessage).append(game.getID()).append(". \t").append(game.getDescription()).append("\n");
+		sb.append(welcomeMessage).append(game.getID()).append(" - ").append(game.getDescription()).append("\n\n");
+		
 		welcomeMessage = sb.toString();
 	}
 	public void updatePlayers() throws TwitterException {
@@ -272,7 +272,7 @@ public class TwitterQA {
 			
 			System.out.println("\t-answer: " + selection + " : " + twitter.v1().users().showUser(player.getID()).getScreenName());
 			if (!games.containsKey(selection)) {
-				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Please send a correct selection.");
+				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Please send a correct game id.");
 				queueGetGameSelection.add(player);
 			}
 			else {
@@ -362,18 +362,21 @@ public class TwitterQA {
 				queueGetAnswer.add(player);
 			}
 			else if (!correct) {
-				// TODO: send hint
 				System.out.println("M-Incorrect");
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Your answer is incorrect.\n");
-				player.setAttempts(player.getAttempts()-1);
+				
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Remaining attempts: " + player.getAttempts());
 				
 				
 				int hintNo = player.getTest().getAttempts()-player.getAttempts();
+				//System.out.printf("%d, %d, %d", player.getTest().getAttempts(), player.getAttempts(), hintNo);
+				//System.out.print(!(player.getTest().getHints() == null));
+				//System.out.print(hintNo<player.getTest().getHints().size());
+				
 				if (!(player.getTest().getHints() == null) && hintNo<player.getTest().getHints().size()) {
 					twitter.v1().directMessages().sendDirectMessage(player.getID(), "Here is a hint:\n" + player.getTest().getHints().get(hintNo));
 				}
-				
+				player.setAttempts(player.getAttempts()-1);
 				if (player.getAttempts() == 0) {
 					player.setTest(player.getTest().getTestOnFail());
 					queueSendTest.add(player);
@@ -389,7 +392,8 @@ public class TwitterQA {
 				twitter.v1().directMessages().sendDirectMessage(player.getID(), "Congratulations! Your answer was correct.\nYour points: " + player.getPoints());
 				queueSendTest.add(player);
 			}
-			alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);	
+			alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);
+			sendTestInstruction();
 		}
 	}
 	private Boolean interatedThroughQueue(Queue<Player> queue, Long playerID) {
