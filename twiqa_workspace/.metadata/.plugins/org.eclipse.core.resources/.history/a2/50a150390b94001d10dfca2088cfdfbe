@@ -1,0 +1,56 @@
+TwitterQA {
+
+	consumer_key is 'key'
+	consumer_secret is 'secret'
+	access_token is 'token'
+	access_token_secret is 'token_secret'
+	welcome_msg is "Welcome to this game"
+	games are [
+		Game "Welcome to Hühnergeschrei" {
+			description is "A quizz for arrivers"
+			city is "Hühnergeschrei"
+			initial_test is Test "Test One" {
+				question is"How many chickens live here?"
+				order is 0
+				answers are ["0", "Zero"]
+				timelimit is 30
+				attempts is 3
+				reward is 10
+				location is "Center"
+				on_correct is "Test Two"
+			}
+			tests are [
+				Test "Test Two" {
+					question is "How often was the sign stolen?"
+					order is 1
+					answers are ["7", "seven"]
+					timelimit is 20
+					attempts is 3
+					reward is 10
+					location is "Entry"
+					on_correct is "Test Three"
+				},
+				Test "Test Three" {
+					question is "How many restaurants/bars/... exist?"
+					order is 2
+					answers are ["0", "Zero", "zero"]
+					timelimit is 20
+					attempts is 3
+					reward is 10
+					location is"Center"
+				}
+			]
+			
+		}
+	]
+	locations are [
+		Location "Center" {
+			latitude is 283.2
+			longitude is 1230.239
+		},
+		Location "Entry" {
+			latitude is 283.221
+			longitude is 1230.235
+		}
+	]
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>.org.eclipse.jdt.core.external.folders</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>.link1</name>
+			<type>2</type>
+			<location>/Applications/Eclipse Java.app/Contents/Eclipse/plugins/org.eclipse.m2e.maven.runtime_3.8.601.20220820-1147</location>
+		</link>
+	</linkedResources>
+</projectDescription>
