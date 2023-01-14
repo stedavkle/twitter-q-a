@@ -17,10 +17,10 @@ TwitterQA {
 				attempts is 3
 				reward is 10
 				location is "Center"
-				on_correct is "Test Two"
+				on_correct is "TestTwo"
 			}
 			tests are [
-				Test "Test Two" {
+				Test "TestTwo" {
 					question is "How often was the sign stolen?"
 					order is 1
 					answers are ["7", "seven"]
@@ -28,9 +28,9 @@ TwitterQA {
 					attempts is 3
 					reward is 10
 					location is "Entry"
-					on_correct is "Test Three"
+					on_correct is "TestThree"
 				},
-				Test "Test Three" {
+				Test "TestThree" {
 					question is "How many restaurants/bars/... exist?"
 					order is 2
 					answers are ["0", "Zero", "zero"]
