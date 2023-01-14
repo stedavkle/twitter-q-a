@@ -23,7 +23,7 @@ public class DSLConversion {
 		// create resource for xtext file
 		Injector injector = new TwitterQAStandaloneSetup().createInjectorAndDoEMFRegistration();
 		XtextResourceSet xtextRS = injector.getInstance(XtextResourceSet.class);
-		
+
 		XtextResource xtextInput = (XtextResource) xtextRS.getResource(URI.createURI("../twiqa_workspace/TwitterQA/Main.twiqa"), true);
 		EcoreUtil.resolveAll(xtextInput);
 		// create empty xmi resource
@@ -33,6 +33,7 @@ public class DSLConversion {
 		xmiOutput.getContents().add(xtextInput.getContents().get(0));
 		try {
 			xmiOutput.save(null);
+			System.out.println("Saved xmi");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,4 +42,3 @@ public class DSLConversion {
 	}
 
 }
-
