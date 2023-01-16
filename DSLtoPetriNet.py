@@ -10,7 +10,7 @@ if __name__ == "__main__":
     # EITHER: main.twiqaOneGame.xmi
     # OR: main.twiqaSeveralGames.xmi
     # 
-    with open('main.twiqaOneGame.xmi', 'r', encoding='utf-8') as file:
+    with open('main.twiqa.xmi', 'r', encoding='utf-8') as file:
         my_xml = file.read()
       
     # Use xmltodict to parse and convert 
@@ -77,34 +77,48 @@ if __name__ == "__main__":
                 transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
                 y_count += 2
                 x_count += 2
-            # go through every test and create the corresponding places and transitions
-            for test in game['tests']:
+            # if there are several tests in the game, go through the list and create the corresponding places and transitions
+            if type(game['tests']) == list:
+                # go through every test and create the corresponding places and transitions
+                for test in game['tests']:
+                    # set the place for the following tests
+                    test_name = test['@name'].replace(" ", "")
+                    place[test_name] = ET.SubElement(nodes, "place", {"name": test_name, "x": str(x_count), "y": str(y_count)})
+                    # create transitions, if the test contains test in the corresponding keys
+                    if '@on_correct' in test.keys():
+                        trans_name = test_name + "TO" + str(test['@on_correct'])
+                        transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                        y_count += 2
+                        x_count += 2
+                    elif '@on_fail' in test.keys():
+                        trans_name = test_name + "TO" + str(test['@on_fail'])
+                        transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                        y_count += 2
+                        x_count += 2
+                    elif '@on_timeout' in test.keys():
+                        trans_name = test_name + "TO" + str(test['@on_timeout'])
+                        transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                        y_count += 2
+                        x_count += 2
+                    # if the test doesn't contain any furhter test, it is the final test and the players must return to the
+                    # players pool 
+                    else:
+                        trans_name = test_name + "TO" + "players_pool"
+                        transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                        y_count += 2
+                        x_count += 2
+            # if the game only contains one test
+            else:
                 # set the place for the following tests
-                test_name = test['@name'].replace(" ", "")
+                test_name = game['tests']['@name'].replace(" ", "")
                 place[test_name] = ET.SubElement(nodes, "place", {"name": test_name, "x": str(x_count), "y": str(y_count)})
-                # create transitions, if the test contains test in the corresponding keys
-                if '@on_correct' in test.keys():
-                    trans_name = test_name + "TO" + str(test['@on_correct'])
-                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                    y_count += 2
-                    x_count += 2
-                elif '@on_fail' in test.keys():
-                    trans_name = test_name + "TO" + str(test['@on_fail'])
-                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                    y_count += 2
-                    x_count += 2
-                elif '@on_timeout' in test.keys():
-                    trans_name = test_name + "TO" + str(test['@on_timeout'])
-                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                    y_count += 2
-                    x_count += 2
-                # if the test doesn't contain any furhter test, it is the final test and the players must return to the
+                # the test doesn't contain any furhter test, so the player can go directly back to the pool
                 # players pool 
-                else:
-                    trans_name = test_name + "TO" + "players_pool"
-                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                    y_count += 2
-                    x_count += 2
+                trans_name = test_name + "TO" + "players_pool"
+                transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                y_count += 2
+                x_count += 2
+                
 
     # if it contains exactly one, do this here
     else: 
@@ -141,34 +155,47 @@ if __name__ == "__main__":
             transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
             y_count += 2
             x_count += 2
-        # go through every test and create the corresponding places and transitions
-        for test in game['tests']:
+        # if there are several tests in the game, go through the list and create the corresponding places and transitions
+        if type(game['tests']) == list:
+            # go through every test and create the corresponding places and transitions
+            for test in game['tests']:
+                # set the place for the following tests
+                test_name = test['@name'].replace(" ", "")
+                place[test_name] = ET.SubElement(nodes, "place", {"name": test_name, "x": str(x_count), "y": str(y_count)})
+                # create transitions, if the test contains test in the corresponding keys
+                if '@on_correct' in test.keys():
+                    trans_name = test_name + "TO" + str(test['@on_correct'])
+                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                    y_count += 2
+                    x_count += 2
+                elif '@on_fail' in test.keys():
+                    trans_name = test_name + "TO" + str(test['@on_fail'])
+                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                    y_count += 2
+                    x_count += 2
+                elif '@on_timeout' in test.keys():
+                    trans_name = test_name + "TO" + str(test['@on_timeout'])
+                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                    y_count += 2
+                    x_count += 2
+                # if the test doesn't contain any furhter test, it is the final test and the players must return to the
+                # players pool 
+                else:
+                    trans_name = test_name + "TO" + "players_pool"
+                    transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+                    y_count += 2
+                    x_count += 2
+        # if the game only contains one test
+        else:
             # set the place for the following tests
-            test_name = test['@name'].replace(" ", "")
+            test_name = game['tests']['@name'].replace(" ", "")
             place[test_name] = ET.SubElement(nodes, "place", {"name": test_name, "x": str(x_count), "y": str(y_count)})
-            # create transitions, if the test contains test in the corresponding keys
-            if '@on_correct' in test.keys():
-                trans_name = test_name + "TO" + str(test['@on_correct'])
-                transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                y_count += 2
-                x_count += 2
-            elif '@on_fail' in test.keys():
-                trans_name = test_name + "TO" + str(test['@on_fail'])
-                transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                y_count += 2
-                x_count += 2
-            elif '@on_timeout' in test.keys():
-                trans_name = test_name + "TO" + str(test['@on_timeout'])
-                transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                y_count += 2
-                x_count += 2
-            # if the test doesn't contain any furhter test, it is the final test and the players must return to the
+            # the test doesn't contain any furhter test, so the player can go directly back to the pool
             # players pool 
-            else:
-                trans_name = test_name + "TO" + "players_pool"
-                transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
-                y_count += 2
-                x_count += 2
+            trans_name = test_name + "TO" + "players_pool"
+            transition[trans_name] = ET.SubElement(nodes, "transition", {"name": trans_name, "nservers-x": "0.5", "type": "EXP", "x": str(x_count/2), "y": str(y_count/2)})
+            y_count += 2
+            x_count += 2
 
     ###--- looping over the transitions, to create the arcs ---###
     arc_nums = 1
