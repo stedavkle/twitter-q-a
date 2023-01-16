@@ -1,10 +1,3 @@
-[comment encoding = UTF-8 /]
-[module generate('../TwitterQA_emf/model/TwitterQA.ecore')]
-
-
-[template public generateElement(aTwitterQA : TwitterQA)]
-[comment @main/]
-[file ('TwitterQA.java', false, 'UTF-8')]
 package twitter_qa;
 
 import java.time.LocalDateTime;
@@ -25,7 +18,7 @@ public class TwitterQA {
 	private Twitter twitter;
 	private long userID;
 	private String userName;
-	private String welcomeMessage = "[aTwitterQA.welcome_msg/]";
+	private String welcomeMessage = "Welcome to the Twitter Question&Answer game! \nPlease select one of the following games: \n\n";
 	private LocalDateTime msgTimestamp = LocalDateTime.MIN;
 	
 	private HashMap<String, Game> games = new HashMap<String, Game>();
@@ -41,8 +34,8 @@ public class TwitterQA {
 	
 	public TwitterQA() throws TwitterException {
 		this.twitter = Twitter.newBuilder()
-	      .oAuthConsumer("[aTwitterQA.consumer_key/]", "[aTwitterQA.consumer_secret/]")
-	      .oAuthAccessToken("[aTwitterQA.access_token/]", "[aTwitterQA.access_token_secret/]")
+	      .oAuthConsumer("nPty0JIv3o95dkuH7brLbYm7R", "nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH")
+	      .oAuthAccessToken("339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J", "WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1")
 	      .build();
 		this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();
 		this.userID = this.twitter.v1().users().showUser(userName).getId();
@@ -203,21 +196,16 @@ public class TwitterQA {
 	public void createGames() {
 		StringBuilder sb = new StringBuilder();		
 		
-		[for (aLoc: Location | aTwitterQA.locations)]
-		locations.put("[aLoc.name/]", new Location("[aLoc.name/]", [aLoc.longitude/], [aLoc.latitude/]));
-		[/for]		
+		locations.put("Tuebingen", new Location("Tuebingen", 48.521637, 9.057645));
 
 		HashMap<String, Test> tests = new HashMap<String, Test>();
 		
-		[for (aGame: Game | aTwitterQA.games)]
-		[for (aTest: Test | aGame.tests->sortedBy(order)->reverse())]
-		tests.put("[aTest.name/]", new Test("[aTest.name/]", locations.get("[aTest.location.name/]"), "[aTest.question/]", Arrays.asList("[for (a: String | aTest.answers)][a/];[/for]".split(";")), Arrays.asList("[for (h: String | aTest.hints)][h/];[/for]".split(";")), [aTest.timelimit/], [aTest.attempts/], [aTest.reward/],[if (aTest.on_correct.name.oclIsInvalid())]null[else]tests.get("[aTest.on_correct.name/]")[/if], [if (aTest.on_fail.name.oclIsInvalid())]null[else]tests.get("[aTest.on_fail.name/]")[/if], [if (aTest.on_timeout.name.oclIsInvalid())]null[else]tests.get("[aTest.on_timeout.name/]")[/if]));
-		[/for]
-		Test [aGame.initial_test.name/] = new Test("[aGame.initial_test.name/]", locations.get("[aGame.initial_test.location.name/]"), "[aGame.initial_test.question/]", Arrays.asList("[for (a: String | aGame.initial_test.answers)][a/];[/for]".split(";")), Arrays.asList("[for (h: String | aGame.initial_test.hints)][h/];[/for]".split(";")), [aGame.initial_test.timelimit/], [aGame.initial_test.attempts/], [aGame.initial_test.reward/], [if (aGame.initial_test.on_correct.name.oclIsInvalid())]null[else]tests.get("[aGame.initial_test.on_correct.name/]")[/if], [if (aGame.initial_test.on_fail.name.oclIsInvalid())]null[else]tests.get("[aGame.initial_test.on_fail.name/]")[/if], [if (aGame.initial_test.on_timeout.name.oclIsInvalid())]null[else]tests.get("[aGame.initial_test.on_timeout.name/]")[/if]);
-		Game game = new Game("[aGame.name/]", [aGame.initial_test.name/], tests, "[aGame.city/]", "[aGame.description/]");
+		tests.put("no2", new Test("no2", locations.get("Tuebingen"), "test?", Arrays.asList("test;".split(";")), Arrays.asList("".split(";")), 360, 1, 50,null, null, null));
+		tests.put("no1", new Test("no1", locations.get("Tuebingen"), "What is the main bridge through Tübingen called", Arrays.asList("Neckarbrücke;Neckarbruecke;".split(";")), Arrays.asList("It is the bridge over the main river.;The river is called \"Neckar\";".split(";")), 360, 3, 100,tests.get("no2"), null, null));
+		Test init = new Test("init", locations.get("Tuebingen"), "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität;Eberhard-Karls-Universitaet;".split(";")), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role.;".split(";")), 360, 3, 100, tests.get("no1"), null, null);
+		Game game = new Game("tuebingen", init, tests, "Tuebingen", "The first game in a small city in the south of germany");
 		games.put(game.getID(), game);
 		tests.clear();
-		[/for]
 		
 
 
@@ -367,7 +355,7 @@ public class TwitterQA {
 			
 			Boolean inTime = answer.getCreatedAt().isBefore(player.getTimestamp());
 			Boolean atLocation = nearLocation(player.getTest().getLocation(), extractLocation(answer.getPlace().getFullName(), answer.getPlace().getBoundingBoxCoordinates()));
-			Boolean correct = player.getTest().getAnswers().contains(answer.getText().split(";")['['/]0]);
+			Boolean correct = player.getTest().getAnswers().contains(answer.getText().split(";")[0]);
 		
 			if (!inTime) {
 				System.out.println("M-Timeout");
@@ -418,21 +406,21 @@ public class TwitterQA {
 	private Boolean interatedThroughQueue(Queue<Player> queue, Long playerID) {
 		return queue.isEmpty() || queue.peek().getID() == playerID;
 	}
-	private Location extractLocation(String name, GeoLocation['['/]]['['/]] boundingboxcoor) {
-        double['['/]] centroid = new double['['/]2];
+	private Location extractLocation(String name, GeoLocation[][] boundingboxcoor) {
+        double[] centroid = new double[2];
         int count = 0;
-        for (GeoLocation['['/]] gls : boundingboxcoor) {
+        for (GeoLocation[] gls : boundingboxcoor) {
             for (GeoLocation g : gls) {
-                centroid['['/]0] += g.longitude;
-                centroid['['/]1] += g.latitude;
+                centroid[0] += g.longitude;
+                centroid[1] += g.latitude;
                 count++;
             }
         }
 
-        centroid['['/]0] /= count;
-        centroid['['/]1] /= count;
+        centroid[0] /= count;
+        centroid[1] /= count;
         // latitude and longitude are interchanged
-        Location location = new Location(name, centroid['['/]1], centroid['['/]0]);
+        Location location = new Location(name, centroid[1], centroid[0]);
         return location;
     }
 	private Boolean nearLocation(Location playerLoc, Location tweet) {
@@ -444,5 +432,3 @@ public class TwitterQA {
 	}
 }
 
-[/file]
-[/template]

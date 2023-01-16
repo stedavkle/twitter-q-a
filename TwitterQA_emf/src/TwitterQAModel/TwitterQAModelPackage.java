@@ -40,7 +40,7 @@ public interface TwitterQAModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "TwitterQA_emf/model/TwitterQA.ecore";
+	String eNS_URI = "/TwitterQA_emf/model/TwitterQA.ecore";
 
 	/**
 	 * The package namespace name.

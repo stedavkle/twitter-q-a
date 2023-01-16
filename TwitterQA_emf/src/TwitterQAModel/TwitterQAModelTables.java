@@ -59,12 +59,12 @@ public class TwitterQAModelTables extends AbstractTables
 	/**
 	 *	Constants used by auto-generated code.
 	 */
-	public static final /*@NonInvalid*/ NsURIPackageId PACKid_TwitterQA_emf_s_model_s_TwitterQA_ecore = IdManager.getNsURIPackageId("TwitterQA_emf/model/TwitterQA.ecore", null, TwitterQAModelPackage.eINSTANCE);
+	public static final /*@NonInvalid*/ NsURIPackageId PACKid__s_TwitterQA_emf_s_model_s_TwitterQA_ecore = IdManager.getNsURIPackageId("/TwitterQA_emf/model/TwitterQA.ecore", null, TwitterQAModelPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore = IdManager.getNsURIPackageId("http://www.eclipse.org/emf/2002/Ecore", null, EcorePackage.eINSTANCE);
-	public static final /*@NonInvalid*/ ClassId CLSSid_Game = TwitterQAModelTables.PACKid_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("Game", 0);
-	public static final /*@NonInvalid*/ ClassId CLSSid_Location = TwitterQAModelTables.PACKid_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("Location", 0);
-	public static final /*@NonInvalid*/ ClassId CLSSid_Test = TwitterQAModelTables.PACKid_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("Test", 0);
-	public static final /*@NonInvalid*/ ClassId CLSSid_TwitterQA = TwitterQAModelTables.PACKid_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("TwitterQA", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Game = TwitterQAModelTables.PACKid__s_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("Game", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Location = TwitterQAModelTables.PACKid__s_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("Location", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Test = TwitterQAModelTables.PACKid__s_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("Test", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_TwitterQA = TwitterQAModelTables.PACKid__s_TwitterQA_emf_s_model_s_TwitterQA_ecore.getClassId("TwitterQA", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EDouble = TwitterQAModelTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EDouble", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = TwitterQAModelTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
 	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");

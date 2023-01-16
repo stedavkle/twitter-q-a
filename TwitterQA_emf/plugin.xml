@@ -17,7 +17,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated TwitterQA -->
       <package
-            uri="TwitterQA_emf/model/TwitterQA.ecore"
+            uri="/TwitterQA_emf/model/TwitterQA.ecore"
             class="TwitterQAModel.TwitterQAModelPackage"
             genModel="model/TwitterQA.genmodel"/>
    </extension>

@@ -1,21 +1,677 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="generate" nsURI="TwitterQA_acceleo::main::generate" startHeaderPosition="30" endHeaderPosition="167">
+  <mtl:Module name="generate" nsURI="TwitterQA_acceleo::main::generate" startHeaderPosition="30" endHeaderPosition="168">
     <input>
-      <takesTypesFrom href="TwitterQA_emf/model/TwitterQA.ecore#/"/>
+      <takesTypesFrom href="/TwitterQA_emf/model/TwitterQA.ecore#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
-        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="aTwitter_QA.java">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package twitter_qa;&#xD;&#xA;&#xD;&#xA;import java.time.LocalDateTime;&#xD;&#xA;import java.util.ArrayList;&#xD;&#xA;import java.util.Arrays;&#xD;&#xA;import java.util.HashMap;&#xD;&#xA;import java.util.List;&#xD;&#xA;import java.util.Objects;&#xD;&#xA;import java.util.Queue;&#xD;&#xA;import java.util.Scanner;&#xD;&#xA;import java.util.concurrent.ConcurrentLinkedQueue;&#xD;&#xA;import java.util.concurrent.TimeUnit;&#xD;&#xA;&#xD;&#xA;import twitter4j.*;&#xD;&#xA;import twitter4j.v1.*;&#xD;&#xA;&#xD;&#xA;public class TwitterQA {&#xD;&#xA;&#x9;private Twitter twitter;&#xD;&#xA;&#x9;private long userID;&#xD;&#xA;&#x9;private String userName;&#xD;&#xA;&#x9;private String welcomeMessage = &quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/welcome_msg"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;;&#xD;&#xA;&#x9;private LocalDateTime msgTimestamp = LocalDateTime.MIN;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;private HashMap&lt;String, Game> games = new HashMap&lt;String, Game>();&#xD;&#xA;&#x9;private HashMap&lt;Long, Player> players = new HashMap&lt;Long, Player>();&#xD;&#xA;&#x9;private HashMap&lt;String, Location> locations = new HashMap&lt;String, Location>();&#xD;&#xA;&#xD;&#xA;&#x9;private List&lt;Player> playersToDelete = new ArrayList&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueSendWelcomeMsg = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueGetGameSelection = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueSendTest = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueGetAnswer = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;public TwitterQA() throws TwitterException {&#xD;&#xA;&#x9;&#x9;this.twitter = Twitter.newBuilder()&#xD;&#xA;&#x9;      .oAuthConsumer(&quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/consumer_key"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, &quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/consumer_secret"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xD;&#xA;&#x9;      .oAuthAccessToken(&quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/access_token"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, &quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/access_token_secret"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xD;&#xA;&#x9;      .build();&#xD;&#xA;&#x9;&#x9;this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();&#xD;&#xA;&#x9;&#x9;this.userID = this.twitter.v1().users().showUser(userName).getId();&#xD;&#xA;&#x9;&#x9;System.out.println(this.userName + &quot; : &quot; + userID);&#xD;&#xA;&#x9;&#x9;createGames();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void run() throws TwitterException, InterruptedException {&#xD;&#xA;&#x9;&#x9;while (true) {&#xD;&#xA;&#x9;&#x9;&#x9;updatePlayers();&#xD;&#xA;&#x9;&#x9;&#x9;sendWelcomeMsg();&#xD;&#xA;&#x9;&#x9;&#x9;getGameSelection();&#xD;&#xA;&#x9;&#x9;&#x9;sendTestInstruction();&#xD;&#xA;&#x9;&#x9;&#x9;getAnswer();&#xD;&#xA;&#x9;&#x9;&#x9;TimeUnit.SECONDS.sleep(60);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void debug() throws TwitterException {&#xD;&#xA;&#x9;&#x9;Scanner console = new Scanner(System.in);&#xD;&#xA;&#x9;&#x9;String input;&#xD;&#xA;&#x9;&#x9;while (true) {&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;input = console.nextLine();&#xD;&#xA;&#x9;&#x9;&#x9;switch(input) {&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;t&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  GeoLocation test = GeoLocation.of(40.52477105, -3.7707802235079573);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(test);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(test.latitude + test.longitude);&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pf&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;      printFollowers();&#xD;&#xA;&#x9;&#x9;&#x9;      break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pp&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printPlayers();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pm&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printMessages();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pt&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printTweets();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;up&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  updatePlayers();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printPlayers();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;swm&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  sendWelcomeMsg();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;ggs&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  getGameSelection();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;sti&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  sendTestInstruction();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;ga&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  getAnswer();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;cc&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(&quot;Stop\n&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  console.close();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.exit(0);&#xD;&#xA;&#x9;&#x9;&#x9;  default:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(&quot;INPUT&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;public void printFollowers() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;FOLLOWERS&quot;);&#xD;&#xA;&#x9;&#x9;ArrayList&lt;Long> ids = getFollowerIDs(userID);&#xD;&#xA;&#x9;&#x9;for (long id : ids) {&#xD;&#xA;&#x9;&#x9;&#x9;User user = this.twitter.v1().users().showUser(id);&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(user.getScreenName() + &quot; : &quot; + id);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void printMessages() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;MESSAGES&quot;);&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, DirectMessage> messages = getNewDirectMessages();&#xD;&#xA;&#x9;&#x9;for (Long senderID : messages.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(senderID + &quot; : &quot; + messages.get(senderID).getText());&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void printPlayers() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;PLAYERS&quot;);&#xD;&#xA;&#x9;&#x9;for (Long id : players.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;User user = this.twitter.v1().users().showUser(id);&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(user.getScreenName() + &quot; : &quot; + id);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void printTweets() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;TWEETS&quot;);&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> tweets = getMentionTweets();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;for (Long userID : tweets.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;Status tweet = tweets.get(userID);&#xD;&#xA;&#x9;&#x9;&#x9;Location loc = extractLocation(tweet.getPlace().getFullName(), tweet.getPlace().getBoundingBoxCoordinates());&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(tweet.getUser() + &quot; : &quot; + loc.latitude + &quot;, &quot; + loc.longitude + &quot; : &quot; + tweet.getCreatedAt() + &quot; : &quot; + tweet.getText());&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;private ArrayList&lt;Long> getFollowerIDs(long userID) throws TwitterException {&#xD;&#xA;&#x9;&#x9;long cursor = -1;&#xD;&#xA;&#x9;    IDs ids;&#xD;&#xA;&#x9;    ArrayList&lt;Long> idArray = new ArrayList&lt;Long>();&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;do {&#xD;&#xA;&#x9;&#x9;&#x9;ids = twitter.v1().friendsFollowers().getFollowersIDs(userID, cursor);&#xD;&#xA;&#x9;&#x9;&#x9;for (long id : ids.getIDs()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;idArray.add(id);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;} while ((cursor = ids.getNextCursor()) != 0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;return idArray;&#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;private HashMap&lt;Long, DirectMessage> getNewDirectMessages() throws TwitterException {&#xD;&#xA;&#x9;&#x9;  DirectMessageList messagesBatch;&#xD;&#xA;&#x9;&#x9;  DirectMessageList messages = twitter.v1().directMessages().getDirectMessages(20);&#xD;&#xA;&#x9;&#x9;  if (messages.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;  System.out.println(&quot;\t-API no msg&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;  return new HashMap&lt;Long, DirectMessage>();&#xD;&#xA;&#x9;&#x9;  }&#xD;&#xA;&#x9;&#x9;  //System.out.println(&quot;limit : &quot; + messages.getRateLimitStatus());&#xD;&#xA;&#x9;&#x9;  String cursor = messages.getNextCursor();&#xD;&#xA;&#x9;&#x9;  String prev_cursor = null;&#xD;&#xA;&#x9;&#x9;  //System.out.println(cursor + &quot; : &quot; + prev_cursor);&#xD;&#xA;&#x9;      &#xD;&#xA;&#x9;      while (!Objects.equals(cursor, prev_cursor) &amp;&amp; msgTimestamp.isBefore(messages.get(messages.size()-1).getCreatedAt())) {&#xD;&#xA;&#x9;    &#x9;messagesBatch = twitter.v1().directMessages().getDirectMessages(20, messages.getNextCursor());&#xD;&#xA;&#x9;        messages.addAll(messagesBatch);&#xD;&#xA;&#x9;        prev_cursor = cursor;&#xD;&#xA;&#x9;        cursor = messagesBatch.getNextCursor();&#xD;&#xA;&#x9;        //System.out.println(cursor + &quot; : &quot; + prev_cursor);&#xD;&#xA;&#x9;      }&#xD;&#xA;&#x9;      &#xD;&#xA;&#x9;      HashMap&lt;Long, DirectMessage> messages_map = new HashMap&lt;Long, DirectMessage>();&#xD;&#xA;&#x9;      // loop in reverse to get newest message of user&#xD;&#xA;&#x9;      System.out.printf(&quot;\t-API %d messages\n&quot;, messages.size());&#xD;&#xA;&#x9;      for (int i=messages.size()-1; i>=0; i--) {&#xD;&#xA;&#x9;    &#x9;  DirectMessage message = messages.get(i);&#xD;&#xA;&#x9;    &#x9;  //System.out.println(&quot;\t-msg from: &quot; + twitter.v1().users().showUser(message.getSenderId()).getScreenName());&#xD;&#xA;&#x9;    &#x9;  if (message.getCreatedAt().isAfter(msgTimestamp))&#xD;&#xA;&#x9;    &#x9;  messages_map.put(message.getSenderId(), message);&#xD;&#xA;&#x9;      }&#xD;&#xA;&#x9;      msgTimestamp = messages.get(0).getCreatedAt();&#xD;&#xA;&#x9;      return messages_map;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;private HashMap&lt;Long, Status> getMentionTweets() throws TwitterException {&#xD;&#xA;&#x9;&#x9;ResponseList&lt;Status> tweets = twitter.v1().timelines().getMentionsTimeline();&#xD;&#xA;&#x9;&#x9;//System.out.println(tweets.size() + &quot; Tweets with mentions.&quot;);&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> tweets_map = new HashMap&lt;Long, Status>();&#xD;&#xA;&#x9;&#x9;// iterate backwards to get newest tweet&#xD;&#xA;&#x9;&#x9;for (int i=tweets.size()-1; i>=0; i--) {&#xD;&#xA;&#x9;&#x9;&#x9;Status tweet = tweets.get(i);&#xD;&#xA;&#x9;&#x9;&#x9;tweets_map.put(tweet.getUser().getId(), tweet);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return tweets_map;&#x9;&#x9;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void createGames() {&#xD;&#xA;&#x9;&#x9;StringBuilder sb = new StringBuilder();&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;locations.put(&quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aLoc" referredVariable="/0/generateElement/%/%.11/aLoc">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, new Location(&quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aLoc" referredVariable="/0/generateElement/%/%.11/aLoc">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aLoc" referredVariable="/0/generateElement/%/%.11/aLoc">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/longitude"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aLoc" referredVariable="/0/generateElement/%/%.11/aLoc">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/latitude"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xD;&#xA;"/>
+          <loopVariable name="aLoc">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(Location)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/locations"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;HashMap&lt;String, Test> tests = new HashMap&lt;String, Test>();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;tests.put(&quot;"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, new Test(&quot;"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, locations.get(&quot;"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/location"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/name"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;), &quot;"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/question"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, Arrays.asList(&quot;"/>
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateElement/%/%.13/%/%.9/a.1">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";"/>
+              <loopVariable name="a">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(String)">
+                <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/answers"/>
+              </iterSet>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;.split(&quot;;&quot;)), Arrays.asList(&quot;"/>
+            <body xsi:type="mtl:ForBlock">
+              <body xsi:type="ocl.ecore:VariableExp" name="h" referredVariable="/0/generateElement/%/%.13/%/%.11/h.1">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";"/>
+              <loopVariable name="h">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </loopVariable>
+              <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(String)">
+                <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/hints"/>
+              </iterSet>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;.split(&quot;;&quot;)), "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/timelimit"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/attempts"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/reward"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=","/>
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="null"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_correct"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/oclIsInvalid"/>
+              </ifExpr>
+              <else>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tests.get(&quot;"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_correct"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
+              </else>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="null"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_fail"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/oclIsInvalid"/>
+              </ifExpr>
+              <else>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tests.get(&quot;"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_fail"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
+              </else>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="null"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_timeout"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/oclIsInvalid"/>
+              </ifExpr>
+              <else>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tests.get(&quot;"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aTest" referredVariable="/0/generateElement/%/%.13/%/aTest">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_timeout"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
+              </else>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xD;&#xA;"/>
+            <loopVariable name="aTest">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/13/OrderedSet(Test)" referredOperation="/1/oclstdlib_OrderedSet(T)_Class/reverse">
+              <source xsi:type="ocl.ecore:IteratorExp" name="sortedBy" eType="/13/OrderedSet(Test)">
+                <source xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(Test)">
+                  <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/tests"/>
+                </source>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateElement/%/%.13/%/%.25/sortedBy/temp1">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/order"/>
+                </body>
+                <iterator xsi:type="ocl.ecore:Variable" name="temp1">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                </iterator>
+              </source>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;Test "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = new Test(&quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, locations.get(&quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/location"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;), &quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/question"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, Arrays.asList(&quot;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:VariableExp" name="a" referredVariable="/0/generateElement/%/%.13/%.10/a.1">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";"/>
+            <loopVariable name="a">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(String)">
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/answers"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;.split(&quot;;&quot;)), Arrays.asList(&quot;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:VariableExp" name="h" referredVariable="/0/generateElement/%/%.13/%.12/h.1">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";"/>
+            <loopVariable name="h">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(String)">
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                </source>
+                <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/hints"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;.split(&quot;;&quot;)), "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/timelimit"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/attempts"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/reward"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="null"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_correct"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/oclIsInvalid"/>
+            </ifExpr>
+            <else>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tests.get(&quot;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_correct"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
+            </else>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="null"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_fail"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/oclIsInvalid"/>
+            </ifExpr>
+            <else>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tests.get(&quot;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_fail"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
+            </else>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="null"/>
+            <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_timeout"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/oclIsInvalid"/>
+            </ifExpr>
+            <else>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tests.get(&quot;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                  <source xsi:type="ocl.ecore:PropertyCallExp">
+                    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+                    <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                      <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+                    </source>
+                    <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/on_timeout"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
+            </else>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xD;&#xA;&#x9;&#x9;Game game = new Game(&quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+                <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/initial_test"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", tests, &quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/city"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, &quot;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%/%.13/aGame">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/description"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;);&#xD;&#xA;&#x9;&#x9;games.put(game.getID(), game);&#xD;&#xA;&#x9;&#x9;tests.clear();&#xD;&#xA;"/>
+          <loopVariable name="aGame">
+            <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/13/OrderedSet(Game)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
+              <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/games"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;sb.append(welcomeMessage).append(game.getID()).append(&quot; - &quot;).append(game.getDescription()).append(&quot;\n\n&quot;);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;welcomeMessage = sb.toString();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void updatePlayers() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;PU&quot;);&#xD;&#xA;&#x9;&#x9;ArrayList&lt;Long> followers = getFollowerIDs(userID);&#xD;&#xA;&#x9;&#x9;for (Long followerID : followers) {&#xD;&#xA;&#x9;&#x9;&#x9;if (!players.containsKey(followerID)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Player player = new Player(followerID);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;players.put(followerID, player);&#xD;&#xA;&#x9;&#x9;        queueSendWelcomeMsg.add(player);&#xD;&#xA;&#x9;&#x9;        System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(followerID).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;for (Long player : players.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;if (!followers.contains(player)) {&#xD;&#xA;&#x9;&#x9;        playersToDelete.add(players.get(player));&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;public void sendWelcomeMsg() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;WM&quot;);&#xD;&#xA;&#x9;&#x9;while (!queueSendWelcomeMsg.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueSendWelcomeMsg.poll();&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), welcomeMessage);&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void getGameSelection() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;GS&quot;);&#xD;&#xA;&#x9;&#x9;if (queueGetGameSelection.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-queue empty&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, DirectMessage> messages = getNewDirectMessages();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;//&#x9;&#x9;for (Long mID : messages.keySet()) {&#xD;&#xA;//&#x9;&#x9;&#x9;System.out.printf(&quot;%d, %d%n&quot;, mID, messages.get(mID).getRecipientId());&#xD;&#xA;//&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;//System.out.printf(&quot;\t- %d messages\n&quot;, messages.size());&#xD;&#xA;&#x9;&#x9;if (messages.isEmpty()){return;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Long firstPlayer = queueGetGameSelection.peek().getID();&#xD;&#xA;&#x9;&#x9;Boolean alldone = false;&#xD;&#xA;&#x9;&#x9;while (!queueGetGameSelection.isEmpty() &amp;&amp; !alldone) {&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueGetGameSelection.poll();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {continue;}&#xD;&#xA;&#x9;&#x9;&#x9;DirectMessage message = messages.get(player.getID());&#xD;&#xA;&#x9;&#x9;&#x9;//System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(player.getID()).getScreenName() + &quot; : &quot; + message);&#xD;&#xA;&#x9;&#x9;&#x9;if (message == null || player.latestMessage == message.getId()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;String selection = message.getText();&#xD;&#xA;&#x9;&#x9;&#x9;player.latestMessage = message.getId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-answer: &quot; + selection + &quot; : &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;if (!games.containsKey(selection)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Please send a correct game id.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setGame(games.get(selection));&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You selected: &quot; + player.getGame().getID());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void sendTestInstruction() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;TI&quot;);&#xD;&#xA;&#x9;&#x9;while (!queueSendTest.isEmpty()) {&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueSendTest.poll();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (player.getTest() == null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.getGame().setHighscore(player.getPoints());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Congratulation, you finished the game with &quot; + player.getPoints() + &quot; points.\n&quot; + &quot;The highscore of this game is: &quot; + player.getGame().getHighscore());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setPoints(0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;\t-done &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendWelcomeMsg.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;DirectMessage message = twitter.v1().directMessages().sendDirectMessage(player.getID(), player.getTest().getQuestion());&#xD;&#xA;&#x9;&#x9;&#x9;player.setTimestamp(message.getCreatedAt().plusSeconds((long)player.getTest().getTimelimit()));&#xD;&#xA;&#x9;&#x9;&#x9;player.setAttempts(player.getTest().getAttempts());&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-sent &quot; + player.getGame().getID() + &quot;:&quot; + player.getTest().getID() + &quot; &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void getAnswer() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;GA&quot;);&#xD;&#xA;&#x9;&#x9;if (queueGetAnswer.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-queue empty&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> answers = getMentionTweets();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;if (answers.isEmpty()){return;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Long firstPlayer = queueGetAnswer.peek().getID();&#xD;&#xA;&#x9;&#x9;Boolean alldone = false;&#xD;&#xA;&#x9;&#x9;while (!queueGetAnswer.isEmpty() &amp;&amp; !alldone) {&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueGetAnswer.poll();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Status answer = answers.get(player.getID());&#xD;&#xA;&#x9;&#x9;&#x9;if (player.latestTweet == answer.getId()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;\t-no answer &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (answer.getPlace() == null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;No location specified in tweet.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(answer.getId() + &quot; : &quot; + answer.getText());&#xD;&#xA;&#x9;&#x9;&#x9;player.latestTweet = answer.getId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Boolean inTime = answer.getCreatedAt().isBefore(player.getTimestamp());&#xD;&#xA;&#x9;&#x9;&#x9;Boolean atLocation = nearLocation(player.getTest().getLocation(), extractLocation(answer.getPlace().getFullName(), answer.getPlace().getBoundingBoxCoordinates()));&#xD;&#xA;&#x9;&#x9;&#x9;Boolean correct = player.getTest().getAnswers().contains(answer.getText().split(&quot;;&quot;)"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0]);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (!inTime) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Timeout&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You provided the answer to late.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnTimeout());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else if (!atLocation) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-WrongLoc&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You are not at the right location.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else if (!correct) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Incorrect&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Your answer is incorrect.\n&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Remaining attempts: &quot; + player.getAttempts());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;int hintNo = player.getTest().getAttempts()-player.getAttempts();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.printf(&quot;%d, %d, %d&quot;, player.getTest().getAttempts(), player.getAttempts(), hintNo);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.print(!(player.getTest().getHints() == null));&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.print(hintNo&lt;player.getTest().getHints().size());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (!(player.getTest().getHints() == null) &amp;&amp; hintNo&lt;player.getTest().getHints().size()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Here is a hint:\n&quot; + player.getTest().getHints().get(hintNo));&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setAttempts(player.getAttempts()-1);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (player.getAttempts() == 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnFail());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Correct&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setPoints(player.getPoints()+player.getTest().getReward());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnCorrect());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Congratulations! Your answer was correct.\nYour points: &quot; + player.getPoints());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;sendTestInstruction();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;private Boolean interatedThroughQueue(Queue&lt;Player> queue, Long playerID) {&#xD;&#xA;&#x9;&#x9;return queue.isEmpty() || queue.peek().getID() == playerID;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;private Location extractLocation(String name, GeoLocation"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] boundingboxcoor) {&#xD;&#xA;        double"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] centroid = new double"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="2];&#xD;&#xA;        int count = 0;&#xD;&#xA;        for (GeoLocation"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] gls : boundingboxcoor) {&#xD;&#xA;            for (GeoLocation g : gls) {&#xD;&#xA;                centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0] += g.longitude;&#xD;&#xA;                centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1] += g.latitude;&#xD;&#xA;                count++;&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0] /= count;&#xD;&#xA;        centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1] /= count;&#xD;&#xA;        // latitude and longitude are interchanged&#xD;&#xA;        Location location = new Location(name, centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1], centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0]);&#xD;&#xA;        return location;&#xD;&#xA;    }&#xD;&#xA;&#x9;private Boolean nearLocation(Location playerLoc, Location tweet) {&#xD;&#xA;&#x9;&#x9;double lonDiff = Math.abs(Math.abs(playerLoc.longitude) - Math.abs(tweet.longitude));&#xD;&#xA;&#x9;&#x9;double latDiff = Math.abs(Math.abs(playerLoc.latitude) - Math.abs(tweet.latitude));&#xD;&#xA;&#x9;&#x9;//System.out.println(&quot;Loc:&quot; + playerLoc.longitude + &quot;, &quot; + playerLoc.latitude + &quot; : &quot; + tweet.longitude + &quot;, &quot; + tweet.latitude);&#xD;&#xA;&#x9;&#x9;//System.out.println(&quot;Loc-Diff: &quot; + lonDiff + &quot;, &quot; + latDiff);&#xD;&#xA;&#x9;&#x9;return (lonDiff &lt; 0.015 &amp;&amp; latDiff &lt; 0.015);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="TwitterQA.java">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
         <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <parameter name="aTwitter_QA">
-        <eType xsi:type="ecore:EClass" href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+      <parameter name="aTwitterQA">
+        <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
       </parameter>
     </ownedModuleElement>
   </mtl:Module>
@@ -45,8 +701,8 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/generateElement"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aTwitter_QA">
-          <eType xsi:type="ecore:EClass" href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+        <eParameters name="aTwitterQA">
+          <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
         </eParameters>
       </eOperations>
     </eClassifiers>
@@ -69,10 +725,14 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
       </eAnnotations>
+      <eOperations name="reverse">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:OrderedSetType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TwitterQAModel_TwitterQA_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+        <references href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -80,52 +740,1570 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Location)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Game)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Test)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(String)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateElement">
-      <details key="start" value="93"/>
-      <details key="end" value="238"/>
+      <details key="start" value="95"/>
+      <details key="end" value="18541"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateElement/%">
-      <details key="start" value="171"/>
-      <details key="end" value="225"/>
+      <details key="start" value="172"/>
+      <details key="end" value="18528"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateElement/%/%">
-      <details key="start" value="216"/>
-      <details key="end" value="218"/>
+      <details key="start" value="215"/>
+      <details key="end" value="733"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateElement/%/%.1">
-      <details key="start" value="178"/>
-      <details key="end" value="196"/>
+      <details key="start" value="734"/>
+      <details key="end" value="756"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/generateElement/%/%.2">
-      <details key="start" value="205"/>
-      <details key="end" value="212"/>
+    <eAnnotations source="positions.4" references="/0/generateElement/%/%.1/aTwitterQA">
+      <details key="start" value="734"/>
+      <details key="end" value="744"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateElement/aTwitter_QA">
-      <details key="start" value="126"/>
-      <details key="end" value="149"/>
+    <eAnnotations source="positions.5" references="/0/generateElement/%/%.2">
+      <details key="start" value="758"/>
+      <details key="end" value="1550"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElement/%/%.3">
+      <details key="start" value="1551"/>
+      <details key="end" value="1574"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElement/%/%.3/aTwitterQA">
+      <details key="start" value="1551"/>
+      <details key="end" value="1561"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElement/%/%.4">
+      <details key="start" value="1576"/>
+      <details key="end" value="1580"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElement/%/%.5">
+      <details key="start" value="1581"/>
+      <details key="end" value="1607"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElement/%/%.5/aTwitterQA">
+      <details key="start" value="1581"/>
+      <details key="end" value="1591"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElement/%/%.6">
+      <details key="start" value="1609"/>
+      <details key="end" value="1639"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElement/%/%.7">
+      <details key="start" value="1640"/>
+      <details key="end" value="1663"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElement/%/%.7/aTwitterQA">
+      <details key="start" value="1640"/>
+      <details key="end" value="1650"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElement/%/%.8">
+      <details key="start" value="1665"/>
+      <details key="end" value="1669"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElement/%/%.9">
+      <details key="start" value="1670"/>
+      <details key="end" value="1700"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%/%.9/aTwitterQA">
+      <details key="start" value="1670"/>
+      <details key="end" value="1680"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%/%.10">
+      <details key="start" value="1702"/>
+      <details key="end" value="7342"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%/%.11">
+      <details key="start" value="7344"/>
+      <details key="end" value="7500"/>
+      <details key="line" value="206"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%/%.11/%">
+      <details key="start" value="7391"/>
+      <details key="end" value="7408"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%/%.11/%.1">
+      <details key="start" value="7409"/>
+      <details key="end" value="7418"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%/%.11/%.1/aLoc">
+      <details key="start" value="7409"/>
+      <details key="end" value="7413"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%/%.11/%.2">
+      <details key="start" value="7420"/>
+      <details key="end" value="7437"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%/%.11/%.3">
+      <details key="start" value="7438"/>
+      <details key="end" value="7447"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%/%.11/%.3/aLoc">
+      <details key="start" value="7438"/>
+      <details key="end" value="7442"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%/%.11/%.4">
+      <details key="start" value="7449"/>
+      <details key="end" value="7452"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%/%.11/%.5">
+      <details key="start" value="7453"/>
+      <details key="end" value="7467"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%/%.11/%.5/aLoc">
+      <details key="start" value="7453"/>
+      <details key="end" value="7457"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%/%.11/%.6">
+      <details key="start" value="7469"/>
+      <details key="end" value="7471"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%/%.11/%.7">
+      <details key="start" value="7472"/>
+      <details key="end" value="7485"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%/%.11/%.7/aLoc">
+      <details key="start" value="7472"/>
+      <details key="end" value="7476"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%/%.11/%.8">
+      <details key="start" value="7487"/>
+      <details key="end" value="7492"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%/%.11/aLoc">
+      <details key="start" value="7350"/>
+      <details key="end" value="7364"/>
+      <details key="line" value="206"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElement/%/%.11/%.9">
+      <details key="start" value="7367"/>
+      <details key="end" value="7387"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElement/%/%.11/%.9/aTwitterQA">
+      <details key="start" value="7367"/>
+      <details key="end" value="7377"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElement/%/%.12">
+      <details key="start" value="7504"/>
+      <details key="end" value="7572"/>
+      <details key="line" value="208"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElement/%/%.13">
+      <details key="start" value="7574"/>
+      <details key="end" value="9268"/>
+      <details key="line" value="212"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElement/%/%.13/%">
+      <details key="start" value="7616"/>
+      <details key="end" value="8293"/>
+      <details key="line" value="213"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElement/%/%.13/%/%">
+      <details key="start" value="7679"/>
+      <details key="end" value="7692"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElement/%/%.13/%/%.1">
+      <details key="start" value="7693"/>
+      <details key="end" value="7703"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElement/%/%.13/%/%.1/aTest">
+      <details key="start" value="7693"/>
+      <details key="end" value="7698"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElement/%/%.13/%/%.2">
+      <details key="start" value="7705"/>
+      <details key="end" value="7718"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElement/%/%.13/%/%.3">
+      <details key="start" value="7719"/>
+      <details key="end" value="7729"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElement/%/%.13/%/%.3/aTest">
+      <details key="start" value="7719"/>
+      <details key="end" value="7724"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElement/%/%.13/%/%.4">
+      <details key="start" value="7731"/>
+      <details key="end" value="7749"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElement/%/%.13/%/%.5">
+      <details key="start" value="7750"/>
+      <details key="end" value="7769"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElement/%/%.13/%/%.5/%">
+      <details key="start" value="7750"/>
+      <details key="end" value="7764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElement/%/%.13/%/%.5/%/aTest">
+      <details key="start" value="7750"/>
+      <details key="end" value="7755"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElement/%/%.13/%/%.6">
+      <details key="start" value="7771"/>
+      <details key="end" value="7776"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElement/%/%.13/%/%.7">
+      <details key="start" value="7777"/>
+      <details key="end" value="7791"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElement/%/%.13/%/%.7/aTest">
+      <details key="start" value="7777"/>
+      <details key="end" value="7782"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElement/%/%.13/%/%.8">
+      <details key="start" value="7793"/>
+      <details key="end" value="7811"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElement/%/%.13/%/%.9">
+      <details key="start" value="7811"/>
+      <details key="end" value="7855"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElement/%/%.13/%/%.9/a">
+      <details key="start" value="7845"/>
+      <details key="end" value="7846"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElement/%/%.13/%/%.9/%">
+      <details key="start" value="7848"/>
+      <details key="end" value="7849"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElement/%/%.13/%/%.9/a.1">
+      <details key="start" value="7817"/>
+      <details key="end" value="7826"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElement/%/%.13/%/%.9/%.1">
+      <details key="start" value="7829"/>
+      <details key="end" value="7842"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElement/%/%.13/%/%.9/%.1/aTest">
+      <details key="start" value="7829"/>
+      <details key="end" value="7834"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElement/%/%.13/%/%.10">
+      <details key="start" value="7855"/>
+      <details key="end" value="7885"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElement/%/%.13/%/%.11">
+      <details key="start" value="7885"/>
+      <details key="end" value="7927"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElement/%/%.13/%/%.11/h">
+      <details key="start" value="7917"/>
+      <details key="end" value="7918"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElement/%/%.13/%/%.11/%">
+      <details key="start" value="7920"/>
+      <details key="end" value="7921"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElement/%/%.13/%/%.11/h.1">
+      <details key="start" value="7891"/>
+      <details key="end" value="7900"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElement/%/%.13/%/%.11/%.1">
+      <details key="start" value="7903"/>
+      <details key="end" value="7914"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElement/%/%.13/%/%.11/%.1/aTest">
+      <details key="start" value="7903"/>
+      <details key="end" value="7908"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElement/%/%.13/%/%.12">
+      <details key="start" value="7927"/>
+      <details key="end" value="7942"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElement/%/%.13/%/%.13">
+      <details key="start" value="7943"/>
+      <details key="end" value="7958"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElement/%/%.13/%/%.13/aTest">
+      <details key="start" value="7943"/>
+      <details key="end" value="7948"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElement/%/%.13/%/%.14">
+      <details key="start" value="7960"/>
+      <details key="end" value="7962"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElement/%/%.13/%/%.15">
+      <details key="start" value="7963"/>
+      <details key="end" value="7977"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElement/%/%.13/%/%.15/aTest">
+      <details key="start" value="7963"/>
+      <details key="end" value="7968"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElement/%/%.13/%/%.16">
+      <details key="start" value="7979"/>
+      <details key="end" value="7981"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElement/%/%.13/%/%.17">
+      <details key="start" value="7982"/>
+      <details key="end" value="7994"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElement/%/%.13/%/%.17/aTest">
+      <details key="start" value="7982"/>
+      <details key="end" value="7987"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElement/%/%.13/%/%.18">
+      <details key="start" value="7996"/>
+      <details key="end" value="7997"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElement/%/%.13/%/%.19">
+      <details key="start" value="7997"/>
+      <details key="end" value="8092"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElement/%/%.13/%/%.19/%">
+      <details key="start" value="8040"/>
+      <details key="end" value="8044"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElement/%/%.13/%/%.19/%.1">
+      <details key="start" value="8001"/>
+      <details key="end" value="8039"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElement/%/%.13/%/%.19/%.1/%">
+      <details key="start" value="8002"/>
+      <details key="end" value="8023"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElement/%/%.13/%/%.19/%.1/%/%">
+      <details key="start" value="8002"/>
+      <details key="end" value="8018"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElement/%/%.13/%/%.19/%.1/%/%/aTest">
+      <details key="start" value="8002"/>
+      <details key="end" value="8007"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElement/%/%.13/%/%.19/%.2">
+      <details key="start" value="8044"/>
+      <details key="end" value="8087"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElement/%/%.13/%/%.19/%.2/%">
+      <details key="start" value="8050"/>
+      <details key="end" value="8061"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElement/%/%.13/%/%.19/%.2/%.1">
+      <details key="start" value="8062"/>
+      <details key="end" value="8083"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%/%.13/%/%.19/%.2/%.1/%">
+      <details key="start" value="8062"/>
+      <details key="end" value="8078"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/%/%.13/%/%.19/%.2/%.1/%/aTest">
+      <details key="start" value="8062"/>
+      <details key="end" value="8067"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateElement/%/%.13/%/%.19/%.2/%.2">
+      <details key="start" value="8085"/>
+      <details key="end" value="8087"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateElement/%/%.13/%/%.20">
+      <details key="start" value="8092"/>
+      <details key="end" value="8094"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElement/%/%.13/%/%.21">
+      <details key="start" value="8094"/>
+      <details key="end" value="8183"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateElement/%/%.13/%/%.21/%">
+      <details key="start" value="8134"/>
+      <details key="end" value="8138"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateElement/%/%.13/%/%.21/%.1">
+      <details key="start" value="8098"/>
+      <details key="end" value="8133"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateElement/%/%.13/%/%.21/%.1/%">
+      <details key="start" value="8099"/>
+      <details key="end" value="8117"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateElement/%/%.13/%/%.21/%.1/%/%">
+      <details key="start" value="8099"/>
+      <details key="end" value="8112"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateElement/%/%.13/%/%.21/%.1/%/%/aTest">
+      <details key="start" value="8099"/>
+      <details key="end" value="8104"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateElement/%/%.13/%/%.21/%.2">
+      <details key="start" value="8138"/>
+      <details key="end" value="8178"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateElement/%/%.13/%/%.21/%.2/%">
+      <details key="start" value="8144"/>
+      <details key="end" value="8155"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateElement/%/%.13/%/%.21/%.2/%.1">
+      <details key="start" value="8156"/>
+      <details key="end" value="8174"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateElement/%/%.13/%/%.21/%.2/%.1/%">
+      <details key="start" value="8156"/>
+      <details key="end" value="8169"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateElement/%/%.13/%/%.21/%.2/%.1/%/aTest">
+      <details key="start" value="8156"/>
+      <details key="end" value="8161"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateElement/%/%.13/%/%.21/%.2/%.2">
+      <details key="start" value="8176"/>
+      <details key="end" value="8178"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateElement/%/%.13/%/%.22">
+      <details key="start" value="8183"/>
+      <details key="end" value="8185"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateElement/%/%.13/%/%.23">
+      <details key="start" value="8185"/>
+      <details key="end" value="8280"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateElement/%/%.13/%/%.23/%">
+      <details key="start" value="8228"/>
+      <details key="end" value="8232"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateElement/%/%.13/%/%.23/%.1">
+      <details key="start" value="8189"/>
+      <details key="end" value="8227"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateElement/%/%.13/%/%.23/%.1/%">
+      <details key="start" value="8190"/>
+      <details key="end" value="8211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateElement/%/%.13/%/%.23/%.1/%/%">
+      <details key="start" value="8190"/>
+      <details key="end" value="8206"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateElement/%/%.13/%/%.23/%.1/%/%/aTest">
+      <details key="start" value="8190"/>
+      <details key="end" value="8195"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateElement/%/%.13/%/%.23/%.2">
+      <details key="start" value="8232"/>
+      <details key="end" value="8275"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateElement/%/%.13/%/%.23/%.2/%">
+      <details key="start" value="8238"/>
+      <details key="end" value="8249"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateElement/%/%.13/%/%.23/%.2/%.1">
+      <details key="start" value="8250"/>
+      <details key="end" value="8271"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateElement/%/%.13/%/%.23/%.2/%.1/%">
+      <details key="start" value="8250"/>
+      <details key="end" value="8266"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateElement/%/%.13/%/%.23/%.2/%.1/%/aTest">
+      <details key="start" value="8250"/>
+      <details key="end" value="8255"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateElement/%/%.13/%/%.23/%.2/%.2">
+      <details key="start" value="8273"/>
+      <details key="end" value="8275"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateElement/%/%.13/%/%.24">
+      <details key="start" value="8280"/>
+      <details key="end" value="8285"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateElement/%/%.13/%/aTest">
+      <details key="start" value="7622"/>
+      <details key="end" value="7633"/>
+      <details key="line" value="213"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateElement/%/%.13/%/%.25">
+      <details key="start" value="7636"/>
+      <details key="end" value="7675"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateElement/%/%.13/%/%.25/sortedBy">
+      <details key="start" value="7636"/>
+      <details key="end" value="7664"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%">
+      <details key="start" value="7636"/>
+      <details key="end" value="7647"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%/aGame">
+      <details key="start" value="7636"/>
+      <details key="end" value="7641"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%.1">
+      <details key="start" value="7658"/>
+      <details key="end" value="7663"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateElement/%/%.13/%/%.25/sortedBy/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateElement/%/%.13/%.1">
+      <details key="start" value="8295"/>
+      <details key="end" value="8302"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateElement/%/%.13/%.2">
+      <details key="start" value="8303"/>
+      <details key="end" value="8326"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateElement/%/%.13/%.2/%">
+      <details key="start" value="8303"/>
+      <details key="end" value="8321"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateElement/%/%.13/%.2/%/aGame">
+      <details key="start" value="8303"/>
+      <details key="end" value="8308"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateElement/%/%.13/%.3">
+      <details key="start" value="8328"/>
+      <details key="end" value="8341"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateElement/%/%.13/%.4">
+      <details key="start" value="8342"/>
+      <details key="end" value="8365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateElement/%/%.13/%.4/%">
+      <details key="start" value="8342"/>
+      <details key="end" value="8360"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateElement/%/%.13/%.4/%/aGame">
+      <details key="start" value="8342"/>
+      <details key="end" value="8347"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateElement/%/%.13/%.5">
+      <details key="start" value="8367"/>
+      <details key="end" value="8385"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateElement/%/%.13/%.6">
+      <details key="start" value="8386"/>
+      <details key="end" value="8418"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateElement/%/%.13/%.6/%">
+      <details key="start" value="8386"/>
+      <details key="end" value="8413"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateElement/%/%.13/%.6/%/%">
+      <details key="start" value="8386"/>
+      <details key="end" value="8404"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateElement/%/%.13/%.6/%/%/aGame">
+      <details key="start" value="8386"/>
+      <details key="end" value="8391"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateElement/%/%.13/%.7">
+      <details key="start" value="8420"/>
+      <details key="end" value="8425"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateElement/%/%.13/%.8">
+      <details key="start" value="8426"/>
+      <details key="end" value="8453"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateElement/%/%.13/%.8/%">
+      <details key="start" value="8426"/>
+      <details key="end" value="8444"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateElement/%/%.13/%.8/%/aGame">
+      <details key="start" value="8426"/>
+      <details key="end" value="8431"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateElement/%/%.13/%.9">
+      <details key="start" value="8455"/>
+      <details key="end" value="8473"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateElement/%/%.13/%.10">
+      <details key="start" value="8473"/>
+      <details key="end" value="8530"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateElement/%/%.13/%.10/a">
+      <details key="start" value="8520"/>
+      <details key="end" value="8521"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateElement/%/%.13/%.10/%">
+      <details key="start" value="8523"/>
+      <details key="end" value="8524"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateElement/%/%.13/%.10/a.1">
+      <details key="start" value="8479"/>
+      <details key="end" value="8488"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateElement/%/%.13/%.10/%.1">
+      <details key="start" value="8491"/>
+      <details key="end" value="8517"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateElement/%/%.13/%.10/%.1/%">
+      <details key="start" value="8491"/>
+      <details key="end" value="8509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateElement/%/%.13/%.10/%.1/%/aGame">
+      <details key="start" value="8491"/>
+      <details key="end" value="8496"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateElement/%/%.13/%.11">
+      <details key="start" value="8530"/>
+      <details key="end" value="8560"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateElement/%/%.13/%.12">
+      <details key="start" value="8560"/>
+      <details key="end" value="8615"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateElement/%/%.13/%.12/h">
+      <details key="start" value="8605"/>
+      <details key="end" value="8606"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateElement/%/%.13/%.12/%">
+      <details key="start" value="8608"/>
+      <details key="end" value="8609"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateElement/%/%.13/%.12/h.1">
+      <details key="start" value="8566"/>
+      <details key="end" value="8575"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateElement/%/%.13/%.12/%.1">
+      <details key="start" value="8578"/>
+      <details key="end" value="8602"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateElement/%/%.13/%.12/%.1/%">
+      <details key="start" value="8578"/>
+      <details key="end" value="8596"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateElement/%/%.13/%.12/%.1/%/aGame">
+      <details key="start" value="8578"/>
+      <details key="end" value="8583"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/generateElement/%/%.13/%.13">
+      <details key="start" value="8615"/>
+      <details key="end" value="8630"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/generateElement/%/%.13/%.14">
+      <details key="start" value="8631"/>
+      <details key="end" value="8659"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/generateElement/%/%.13/%.14/%">
+      <details key="start" value="8631"/>
+      <details key="end" value="8649"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/generateElement/%/%.13/%.14/%/aGame">
+      <details key="start" value="8631"/>
+      <details key="end" value="8636"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/generateElement/%/%.13/%.15">
+      <details key="start" value="8661"/>
+      <details key="end" value="8663"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/generateElement/%/%.13/%.16">
+      <details key="start" value="8664"/>
+      <details key="end" value="8691"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/generateElement/%/%.13/%.16/%">
+      <details key="start" value="8664"/>
+      <details key="end" value="8682"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/generateElement/%/%.13/%.16/%/aGame">
+      <details key="start" value="8664"/>
+      <details key="end" value="8669"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/generateElement/%/%.13/%.17">
+      <details key="start" value="8693"/>
+      <details key="end" value="8695"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/generateElement/%/%.13/%.18">
+      <details key="start" value="8696"/>
+      <details key="end" value="8721"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/generateElement/%/%.13/%.18/%">
+      <details key="start" value="8696"/>
+      <details key="end" value="8714"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/generateElement/%/%.13/%.18/%/aGame">
+      <details key="start" value="8696"/>
+      <details key="end" value="8701"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/generateElement/%/%.13/%.19">
+      <details key="start" value="8723"/>
+      <details key="end" value="8725"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateElement/%/%.13/%.20">
+      <details key="start" value="8725"/>
+      <details key="end" value="8846"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateElement/%/%.13/%.20/%">
+      <details key="start" value="8781"/>
+      <details key="end" value="8785"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateElement/%/%.13/%.20/%.1">
+      <details key="start" value="8729"/>
+      <details key="end" value="8780"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/generateElement/%/%.13/%.20/%.1/%">
+      <details key="start" value="8730"/>
+      <details key="end" value="8764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/generateElement/%/%.13/%.20/%.1/%/%">
+      <details key="start" value="8730"/>
+      <details key="end" value="8759"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/generateElement/%/%.13/%.20/%.1/%/%/%">
+      <details key="start" value="8730"/>
+      <details key="end" value="8748"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/generateElement/%/%.13/%.20/%.1/%/%/%/aGame">
+      <details key="start" value="8730"/>
+      <details key="end" value="8735"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/generateElement/%/%.13/%.20/%.2">
+      <details key="start" value="8785"/>
+      <details key="end" value="8841"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/generateElement/%/%.13/%.20/%.2/%">
+      <details key="start" value="8791"/>
+      <details key="end" value="8802"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/generateElement/%/%.13/%.20/%.2/%.1">
+      <details key="start" value="8803"/>
+      <details key="end" value="8837"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/generateElement/%/%.13/%.20/%.2/%.1/%">
+      <details key="start" value="8803"/>
+      <details key="end" value="8832"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/generateElement/%/%.13/%.20/%.2/%.1/%/%">
+      <details key="start" value="8803"/>
+      <details key="end" value="8821"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/generateElement/%/%.13/%.20/%.2/%.1/%/%/aGame">
+      <details key="start" value="8803"/>
+      <details key="end" value="8808"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/generateElement/%/%.13/%.20/%.2/%.2">
+      <details key="start" value="8839"/>
+      <details key="end" value="8841"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/generateElement/%/%.13/%.21">
+      <details key="start" value="8846"/>
+      <details key="end" value="8848"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/generateElement/%/%.13/%.22">
+      <details key="start" value="8848"/>
+      <details key="end" value="8963"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/generateElement/%/%.13/%.22/%">
+      <details key="start" value="8901"/>
+      <details key="end" value="8905"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/generateElement/%/%.13/%.22/%.1">
+      <details key="start" value="8852"/>
+      <details key="end" value="8900"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/generateElement/%/%.13/%.22/%.1/%">
+      <details key="start" value="8853"/>
+      <details key="end" value="8884"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/generateElement/%/%.13/%.22/%.1/%/%">
+      <details key="start" value="8853"/>
+      <details key="end" value="8879"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/generateElement/%/%.13/%.22/%.1/%/%/%">
+      <details key="start" value="8853"/>
+      <details key="end" value="8871"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/generateElement/%/%.13/%.22/%.1/%/%/%/aGame">
+      <details key="start" value="8853"/>
+      <details key="end" value="8858"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/generateElement/%/%.13/%.22/%.2">
+      <details key="start" value="8905"/>
+      <details key="end" value="8958"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateElement/%/%.13/%.22/%.2/%">
+      <details key="start" value="8911"/>
+      <details key="end" value="8922"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateElement/%/%.13/%.22/%.2/%.1">
+      <details key="start" value="8923"/>
+      <details key="end" value="8954"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/generateElement/%/%.13/%.22/%.2/%.1/%">
+      <details key="start" value="8923"/>
+      <details key="end" value="8949"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/generateElement/%/%.13/%.22/%.2/%.1/%/%">
+      <details key="start" value="8923"/>
+      <details key="end" value="8941"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/generateElement/%/%.13/%.22/%.2/%.1/%/%/aGame">
+      <details key="start" value="8923"/>
+      <details key="end" value="8928"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/generateElement/%/%.13/%.22/%.2/%.2">
+      <details key="start" value="8956"/>
+      <details key="end" value="8958"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/generateElement/%/%.13/%.23">
+      <details key="start" value="8963"/>
+      <details key="end" value="8965"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/generateElement/%/%.13/%.24">
+      <details key="start" value="8965"/>
+      <details key="end" value="9086"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/generateElement/%/%.13/%.24/%">
+      <details key="start" value="9021"/>
+      <details key="end" value="9025"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/generateElement/%/%.13/%.24/%.1">
+      <details key="start" value="8969"/>
+      <details key="end" value="9020"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/generateElement/%/%.13/%.24/%.1/%">
+      <details key="start" value="8970"/>
+      <details key="end" value="9004"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/generateElement/%/%.13/%.24/%.1/%/%">
+      <details key="start" value="8970"/>
+      <details key="end" value="8999"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.203" references="/0/generateElement/%/%.13/%.24/%.1/%/%/%">
+      <details key="start" value="8970"/>
+      <details key="end" value="8988"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.204" references="/0/generateElement/%/%.13/%.24/%.1/%/%/%/aGame">
+      <details key="start" value="8970"/>
+      <details key="end" value="8975"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/generateElement/%/%.13/%.24/%.2">
+      <details key="start" value="9025"/>
+      <details key="end" value="9081"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/generateElement/%/%.13/%.24/%.2/%">
+      <details key="start" value="9031"/>
+      <details key="end" value="9042"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.207" references="/0/generateElement/%/%.13/%.24/%.2/%.1">
+      <details key="start" value="9043"/>
+      <details key="end" value="9077"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.208" references="/0/generateElement/%/%.13/%.24/%.2/%.1/%">
+      <details key="start" value="9043"/>
+      <details key="end" value="9072"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.209" references="/0/generateElement/%/%.13/%.24/%.2/%.1/%/%">
+      <details key="start" value="9043"/>
+      <details key="end" value="9061"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.210" references="/0/generateElement/%/%.13/%.24/%.2/%.1/%/%/aGame">
+      <details key="start" value="9043"/>
+      <details key="end" value="9048"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.211" references="/0/generateElement/%/%.13/%.24/%.2/%.2">
+      <details key="start" value="9079"/>
+      <details key="end" value="9081"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.212" references="/0/generateElement/%/%.13/%.25">
+      <details key="start" value="9086"/>
+      <details key="end" value="9114"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.213" references="/0/generateElement/%/%.13/%.26">
+      <details key="start" value="9115"/>
+      <details key="end" value="9125"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.214" references="/0/generateElement/%/%.13/%.26/aGame">
+      <details key="start" value="9115"/>
+      <details key="end" value="9120"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.215" references="/0/generateElement/%/%.13/%.27">
+      <details key="start" value="9127"/>
+      <details key="end" value="9130"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.216" references="/0/generateElement/%/%.13/%.28">
+      <details key="start" value="9131"/>
+      <details key="end" value="9154"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.217" references="/0/generateElement/%/%.13/%.28/%">
+      <details key="start" value="9131"/>
+      <details key="end" value="9149"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.218" references="/0/generateElement/%/%.13/%.28/%/aGame">
+      <details key="start" value="9131"/>
+      <details key="end" value="9136"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.219" references="/0/generateElement/%/%.13/%.29">
+      <details key="start" value="9156"/>
+      <details key="end" value="9166"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.220" references="/0/generateElement/%/%.13/%.30">
+      <details key="start" value="9167"/>
+      <details key="end" value="9177"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.221" references="/0/generateElement/%/%.13/%.30/aGame">
+      <details key="start" value="9167"/>
+      <details key="end" value="9172"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.222" references="/0/generateElement/%/%.13/%.31">
+      <details key="start" value="9179"/>
+      <details key="end" value="9183"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.223" references="/0/generateElement/%/%.13/%.32">
+      <details key="start" value="9184"/>
+      <details key="end" value="9201"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.224" references="/0/generateElement/%/%.13/%.32/aGame">
+      <details key="start" value="9184"/>
+      <details key="end" value="9189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.225" references="/0/generateElement/%/%.13/%.33">
+      <details key="start" value="9203"/>
+      <details key="end" value="9260"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.226" references="/0/generateElement/%/%.13/aGame">
+      <details key="start" value="7580"/>
+      <details key="end" value="7591"/>
+      <details key="line" value="212"/>
+    </eAnnotations>
+    <eAnnotations source="positions.227" references="/0/generateElement/%/%.13/%.34">
+      <details key="start" value="7594"/>
+      <details key="end" value="7610"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.228" references="/0/generateElement/%/%.13/%.34/aTwitterQA">
+      <details key="start" value="7594"/>
+      <details key="end" value="7604"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.229" references="/0/generateElement/%/%.14">
+      <details key="start" value="9270"/>
+      <details key="end" value="15159"/>
+      <details key="line" value="221"/>
+    </eAnnotations>
+    <eAnnotations source="positions.230" references="/0/generateElement/%/%.15">
+      <details key="start" value="15160"/>
+      <details key="end" value="15163"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.231" references="/0/generateElement/%/%.16">
+      <details key="start" value="15165"/>
+      <details key="end" value="17413"/>
+      <details key="line" value="370"/>
+    </eAnnotations>
+    <eAnnotations source="positions.232" references="/0/generateElement/%/%.17">
+      <details key="start" value="17414"/>
+      <details key="end" value="17417"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.233" references="/0/generateElement/%/%.18">
+      <details key="start" value="17419"/>
+      <details key="end" value="17420"/>
+      <details key="line" value="421"/>
+    </eAnnotations>
+    <eAnnotations source="positions.234" references="/0/generateElement/%/%.19">
+      <details key="start" value="17421"/>
+      <details key="end" value="17424"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.235" references="/0/generateElement/%/%.20">
+      <details key="start" value="17426"/>
+      <details key="end" value="17462"/>
+      <details key="line" value="421"/>
+    </eAnnotations>
+    <eAnnotations source="positions.236" references="/0/generateElement/%/%.21">
+      <details key="start" value="17463"/>
+      <details key="end" value="17466"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.237" references="/0/generateElement/%/%.22">
+      <details key="start" value="17468"/>
+      <details key="end" value="17491"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.238" references="/0/generateElement/%/%.23">
+      <details key="start" value="17492"/>
+      <details key="end" value="17495"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.239" references="/0/generateElement/%/%.24">
+      <details key="start" value="17497"/>
+      <details key="end" value="17550"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.240" references="/0/generateElement/%/%.25">
+      <details key="start" value="17551"/>
+      <details key="end" value="17554"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.241" references="/0/generateElement/%/%.26">
+      <details key="start" value="17556"/>
+      <details key="end" value="17649"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.242" references="/0/generateElement/%/%.27">
+      <details key="start" value="17650"/>
+      <details key="end" value="17653"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.243" references="/0/generateElement/%/%.28">
+      <details key="start" value="17655"/>
+      <details key="end" value="17699"/>
+      <details key="line" value="426"/>
+    </eAnnotations>
+    <eAnnotations source="positions.244" references="/0/generateElement/%/%.29">
+      <details key="start" value="17700"/>
+      <details key="end" value="17703"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.245" references="/0/generateElement/%/%.30">
+      <details key="start" value="17705"/>
+      <details key="end" value="17794"/>
+      <details key="line" value="427"/>
+    </eAnnotations>
+    <eAnnotations source="positions.246" references="/0/generateElement/%/%.31">
+      <details key="start" value="17795"/>
+      <details key="end" value="17798"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.247" references="/0/generateElement/%/%.32">
+      <details key="start" value="17800"/>
+      <details key="end" value="17830"/>
+      <details key="line" value="432"/>
+    </eAnnotations>
+    <eAnnotations source="positions.248" references="/0/generateElement/%/%.33">
+      <details key="start" value="17831"/>
+      <details key="end" value="17834"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.249" references="/0/generateElement/%/%.34">
+      <details key="start" value="17836"/>
+      <details key="end" value="17957"/>
+      <details key="line" value="433"/>
+    </eAnnotations>
+    <eAnnotations source="positions.250" references="/0/generateElement/%/%.35">
+      <details key="start" value="17958"/>
+      <details key="end" value="17961"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.251" references="/0/generateElement/%/%.36">
+      <details key="start" value="17963"/>
+      <details key="end" value="17975"/>
+      <details key="line" value="435"/>
+    </eAnnotations>
+    <eAnnotations source="positions.252" references="/0/generateElement/%/%.37">
+      <details key="start" value="17976"/>
+      <details key="end" value="17979"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.253" references="/0/generateElement/%/%.38">
+      <details key="start" value="17981"/>
+      <details key="end" value="18521"/>
+      <details key="line" value="435"/>
+    </eAnnotations>
+    <eAnnotations source="positions.254" references="/0/generateElement/%/%.39">
+      <details key="start" value="179"/>
+      <details key="end" value="195"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.255" references="/0/generateElement/%/%.40">
+      <details key="start" value="204"/>
+      <details key="end" value="211"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.256" references="/0/generateElement/aTwitterQA">
+      <details key="start" value="128"/>
+      <details key="end" value="150"/>
       <details key="line" value="5"/>
     </eAnnotations>
   </ecore:EAnnotation>
