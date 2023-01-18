@@ -1,55 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TwitterQA:TwitterQA
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:TwitterQA="/TwitterQA_emf/model/TwitterQA.ecore"
-    xsi:schemaLocation="/TwitterQA_emf/model/TwitterQA.ecore TwitterQA.ecore"
-    consumer_key="nPty0JIv3o95dkuH7brLbYm7R"
-    consumer_secret="nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH"
-    access_token="339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J"
-    access_token_secret="WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1"
-    welcome_msg="Welcome to the Twitter Question&amp;Answer game! \nPlease select one of the following games: \n\n">
-  <games name="tuebingen"
-      description="The first game in a small city in the south of germany"
-      city="Tuebingen">
-    <initial_test
-        name="init"
-        location="Tuebingen"
-        question="What is the official name of the Univerity of Tübingen?"
-        timelimit="360"
-        attempts="3"
-        reward="100"
-        on_correct="no1">
-      <answers>Eberhard-Karls-Universität</answers>
-      <answers>Eberhard-Karls-Universitaet</answers>
-      <hints>It was founded 1477 by \&quot;Eberhard im Bart\&quot; also \&quot;Karl Eugen\&quot; plays a major role.</hints>
+<?xml version="1.0" encoding="ASCII"?>
+<TwitterQA:TwitterQA xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TwitterQA="/TwitterQA_emf/model/TwitterQA.ecore" consumer_key="key" consumer_secret="secret" access_token="token" access_token_secret="token_secret" welcome_msg="Welcome to this game">
+  <games name="Welcome to H&#xfc;hnergeschrei" description="A quizz for arrivers" city="H&#xfc;hnergeschrei">
+    <initial_test name="Test One" location="Center" question="How many chickens live here?" timelimit="30" attempts="3" reward="10" on_correct="TestTwo">
+      <answers>0</answers>
+      <answers>Zero</answers>
     </initial_test>
-    <tests name="no1"
-        location="Tuebingen"
-        question="What is the main bridge through Tübingen called"
-        timelimit="360"
-        attempts="3"
-        reward="100"
-        on_correct="no2"
-        order="1">
-      <answers>Neckarbrücke</answers>
-      <answers>Neckarbruecke</answers>
-      <hints>It is the bridge over the main river.</hints>
-      <hints>The river is called \&quot;Neckar\&quot;</hints>
+    <tests name="TestTwo" location="Entry" question="How often was the sign stolen?" timelimit="20" attempts="3" reward="10" on_correct="TestThree" order="1">
+      <answers>7</answers>
+      <answers>seven</answers>
     </tests>
-    <tests name="no2"
-        location="Tuebingen"
-        question="test?"
-        timelimit="360"
-        attempts="1"
-        reward="50"
-        order="2">
-      <answers>test</answers>
+    <tests name="TestThree" location="Center" question="How many restaurants/bars/... exist?" timelimit="20" attempts="3" reward="10" order="2">
+      <answers>0</answers>
+      <answers>Zero</answers>
+      <answers>zero</answers>
     </tests>
   </games>
-  <locations
-      name="Tuebingen"
-      latitude="9.057645"
-      longitude="48.521637"/>
+  <locations name="Center" latitude="283.2" longitude="1230.239"/>
+  <locations name="Entry" latitude="283.221" longitude="1230.235"/>
 </TwitterQA:TwitterQA>
