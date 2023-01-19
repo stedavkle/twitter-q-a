@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ASCII"?>
+<TwitterQA:TwitterQA xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TwitterQA="/TwitterQA_emf/model/TwitterQA.ecore" consumer_key="nPty0JIv3o95dkuH7brLbYm7R" consumer_secret="nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH" access_token="339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J" access_token_secret="WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1" welcome_msg="Welcome to the Twitter Question&amp;Answer game! &#xA;Please select one of the following games: &#xA;&#xA;">
+  <games name="tuebingen" description="The first game in a small city in the south of germany" city="Tuebingen">
+    <initial_test name="init" location="Tuebingen" question="What is the official name of the Univerity of T&#xfc;bingen?" timelimit="360" attempts="3" reward="100" on_correct="no1">
+      <answers>Eberhard-Karls-Universit&#xe4;t</answers>
+      <answers>Eberhard-Karls-Universitaet</answers>
+      <hints>It was founded 1477 by &quot;Eberhard im Bart&quot; also &quot;Karl Eugen&quot; plays a major role.</hints>
+    </initial_test>
+    <tests name="no1" location="Tuebingen" question="What is the main bridge through T&#xfc;bingen called?" timelimit="360" attempts="3" reward="100" on_correct="no2" order="1">
+      <answers>Neckarbr&#xfc;cke</answers>
+      <answers>Neckarbruecke</answers>
+      <hints>It is the bridge over the main river.</hints>
+      <hints>The river is called &quot;Neckar&quot;</hints>
+    </tests>
+    <tests name="no2" location="Tuebingen" question="test?" timelimit="360" attempts="1" reward="50" order="2">
+      <answers>test</answers>
+    </tests>
+  </games>
+  <locations name="Tuebingen" latitude="9.057645" longitude="48.521637"/>
+</TwitterQA:TwitterQA>

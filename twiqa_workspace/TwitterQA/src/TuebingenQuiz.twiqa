@@ -1,0 +1,52 @@
+TwitterQA {
+	consumer_key is "nPty0JIv3o95dkuH7brLbYm7R"
+	consumer_secret is "nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH"
+	access_token is "339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J"
+	access_token_secret is "WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1"
+	welcome_msg is "Welcome to the Twitter Question&Answer game! \nPlease select one of the following games: \n\n"
+	games are [
+		Game "tuebingen" {
+			description is "The first game in a small city in the south of germany"
+			city is "Tuebingen"
+			initial_test is Test "init" {
+				question is "What is the official name of the Univerity of Tübingen?"
+				order is 0
+				answers are ["Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"]
+				hints are ["It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role."]
+				timelimit is 360
+				attempts is 3
+				reward is 100
+				location is "Tuebingen"
+				on_correct is "no1"
+			}
+			tests are [
+				Test "no1" {
+					question is "What is the main bridge through Tübingen called?"
+					order is 1
+					answers are ["Neckarbrücke", "Neckarbruecke"]
+					hints are ["It is the bridge over the main river.", "The river is called \"Neckar\"" ]
+					timelimit is 360
+					attempts is 3
+					reward is 100
+					location is "Tuebingen"
+					on_correct is "no2"
+				},
+				Test "no2" {
+					question is "test?"
+					order is 2
+					answers are ["test"]
+					timelimit is 360
+					attempts is 1
+					reward is 50
+					location is "Tuebingen"
+				}
+			]
+		}
+	]
+	locations are [
+		Location "Tuebingen" {
+			latitude is 9.057645
+			longitude is 48.521637
+		}
+	]
+}

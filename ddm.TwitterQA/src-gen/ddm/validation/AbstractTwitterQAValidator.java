@@ -13,7 +13,7 @@ public abstract class AbstractTwitterQAValidator extends AbstractDeclarativeVali
 	@Override
 	protected List<EPackage> getEPackages() {
 		List<EPackage> result = new ArrayList<EPackage>();
-		result.add(EPackage.Registry.INSTANCE.getEPackage("TwitterQA_emf/model/TwitterQA.ecore"));
+		result.add(EPackage.Registry.INSTANCE.getEPackage("/TwitterQA_emf/model/TwitterQA.ecore"));
 		return result;
 	}
 }

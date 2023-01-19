@@ -23,6 +23,7 @@ public class TwitterQA {
 	
 	private HashMap<String, Game> games = new HashMap<String, Game>();
 	private HashMap<Long, Player> players = new HashMap<Long, Player>();
+	private HashMap<String, Location> locations = new HashMap<String, Location>();
 	
 	private List<Player> playersToDelete = new ArrayList<Player>();
 	private Queue<Player> queueSendWelcomeMsg = new ConcurrentLinkedQueue<Player>();
@@ -194,11 +195,10 @@ public class TwitterQA {
 	}
 	public void createGames() {
 		StringBuilder sb = new StringBuilder();
-		
-		Location tuebingen_stadt = new Location("Tübingen", 48.521637, 9.057645);
-		
+
 		HashMap<String, Test> tests = new HashMap<String, Test>();
-		
+		Location tuebingen_stadt = new Location("Tübingen", 48.521637, 9.057645);
+		Test x = new Test("0", locations.get("Tübingen"), "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität;Eberhard-Karls-Universitaet;".split(";")), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role.;".split(";")), 360, 3, 100, null, null, null);		
 		Test tuebingen01 = new Test("1", tuebingen_stadt, "What is the main bridge through Tübingen called?", Arrays.asList("Neckarbrücke", "Neckarbruecke"), Arrays.asList("It is the bridge over the main river.", "The river is called \"Neckar\""), 360, 3, 100, null, null, null);
 		Test tuebingen00 = new Test("0", tuebingen_stadt, "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role."), 360, 3, 100, tuebingen01, null, null);
 		tests.put(tuebingen01.getID(), tuebingen01);

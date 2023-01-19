@@ -480,7 +480,7 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 						try {
 							final /*@NonInvalid*/ Test on_correct_0 = t_0.getOn_correct();
 							if (on_correct_0 == null) {
-								throw new InvalidValueException("Null source for \'\'TwitterQA_emf/model/TwitterQA.ecore\'::Test::order\'");
+								throw new InvalidValueException("Null source for \'\'/TwitterQA_emf/model/TwitterQA.ecore\'::Test::order\'");
 							}
 							final /*@Thrown*/ int order = on_correct_0.getOrder();
 							final /*@Thrown*/ IntegerValue BOXED_order = ValueUtil.integerValueOf(order);
@@ -645,7 +645,7 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 						try {
 							final /*@NonInvalid*/ Test on_timeout_0 = t_0.getOn_timeout();
 							if (on_timeout_0 == null) {
-								throw new InvalidValueException("Null source for \'\'TwitterQA_emf/model/TwitterQA.ecore\'::Test::order\'");
+								throw new InvalidValueException("Null source for \'\'/TwitterQA_emf/model/TwitterQA.ecore\'::Test::order\'");
 							}
 							final /*@Thrown*/ int order = on_timeout_0.getOrder();
 							final /*@Thrown*/ IntegerValue BOXED_order = ValueUtil.integerValueOf(order);
@@ -767,7 +767,7 @@ public class GameImpl extends MinimalEObjectImpl.Container implements Game {
 						try {
 							final /*@NonInvalid*/ Test on_fail_0 = t_0.getOn_fail();
 							if (on_fail_0 == null) {
-								throw new InvalidValueException("Null source for \'\'TwitterQA_emf/model/TwitterQA.ecore\'::Test::order\'");
+								throw new InvalidValueException("Null source for \'\'/TwitterQA_emf/model/TwitterQA.ecore\'::Test::order\'");
 							}
 							final /*@Thrown*/ int order = on_fail_0.getOrder();
 							final /*@Thrown*/ IntegerValue BOXED_order = ValueUtil.integerValueOf(order);

@@ -61,4 +61,9 @@ public class Test {
 	  public Test getTestOnFail() {
 	      return on_fail;
 	  }
+	  public void setTests(Test on_correct, Test on_timeout, Test on_fail) {
+		  this.on_correct = on_correct;
+		  this.on_timeout = on_timeout;
+		  this.on_fail = on_fail;		  
+	  }
 	}

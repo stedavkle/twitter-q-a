@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<TwitterQA:TwitterQA xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TwitterQA="TwitterQA_emf/model/TwitterQA.ecore" consumer_key="key" consumer_secret="secret" access_token="token" access_token_secret="token_secret" welcome_msg="Welcome to this game">
+<TwitterQA:TwitterQA xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:TwitterQA="/TwitterQA_emf/model/TwitterQA.ecore" consumer_key="key" consumer_secret="secret" access_token="token" access_token_secret="token_secret" welcome_msg="Welcome to this game">
   <games name="Welcome to H&#xfc;hnergeschrei" description="A quizz for arrivers" city="H&#xfc;hnergeschrei">
     <initial_test name="Test One" location="Center" question="How many chickens live here?" timelimit="30" attempts="3" reward="10" on_correct="TestTwo">
       <answers>0</answers>
