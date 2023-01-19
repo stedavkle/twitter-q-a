@@ -1,6 +1,5 @@
 package twitter_qa;
 
-
 import java.util.List;
 
 public class Test {
@@ -68,3 +67,4 @@ public class Test {
 		  this.on_fail = on_fail;		  
 	  }
 	}
+

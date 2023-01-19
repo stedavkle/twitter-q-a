@@ -34,8 +34,8 @@ public class TwitterQA {
 	
 	public TwitterQA() throws TwitterException {
 		this.twitter = Twitter.newBuilder()
-	      .oAuthConsumer("nPty0JIv3o95dkuH7brLbYm7R", "nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH")
-	      .oAuthAccessToken("339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J", "WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1")
+	      .oAuthConsumer("", "")
+	      .oAuthAccessToken("", "")
 	      .build();
 		this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();
 		this.userID = this.twitter.v1().users().showUser(userName).getId();
@@ -421,6 +421,6 @@ public class TwitterQA {
 		double latDiff = Math.abs(Math.abs(playerLoc.latitude) - Math.abs(tweet.latitude));
 		//System.out.println("Loc:" + playerLoc.longitude + ", " + playerLoc.latitude + " : " + tweet.longitude + ", " + tweet.latitude);
 		//System.out.println("Loc-Diff: " + lonDiff + ", " + latDiff);
-		return (lonDiff < 0.015 && latDiff < 0.015);
+		return (lonDiff < 0.025 && latDiff < 0.025);
 	}
 }

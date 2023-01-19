@@ -1,6 +1,5 @@
 package twitter_qa;
 
-
 import java.util.HashMap;
 
 public class Game {
@@ -41,3 +40,4 @@ public class Game {
 		  return this.highscore;
 	  }
 	}
+

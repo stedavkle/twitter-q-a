@@ -1,6 +1,5 @@
 package twitter_qa;
 
-
 import twitter4j.TwitterException;
 
 public class main {	

@@ -1,6 +1,5 @@
 package twitter_qa;
 
-
 public class Location {
 	  public String name;
 	  public double longitude;
@@ -12,3 +11,4 @@ public class Location {
 	    this.latitude = latitude;
 	  }
 	}
+

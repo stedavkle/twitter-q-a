@@ -1,9 +1,227 @@
 [comment encoding = UTF-8 /]
 [module generate('../TwitterQA_emf/model/TwitterQA.ecore')]
 
-
 [template public generateElement(aTwitterQA : TwitterQA)]
 [comment @main/]
+[file ('Game.java', false, 'UTF-8')]
+package twitter_qa;
+
+import java.util.HashMap;
+
+public class Game {
+	  private String name;
+	  private Test initialTest;
+	  private HashMap<String, Test> tests;
+	  private String city;
+	  private String description;
+	  private int highscore;
+
+	  public Game(String name, Test initialTest, HashMap<String, Test> tests, String city, String description) {
+	    this.name = name;
+	    this.initialTest = initialTest;
+	    this.tests = tests;
+	    this.city = city;
+	    this.description = description;
+	    this.highscore = 0;
+	  }
+	  public String getID() {
+	    return name;
+	  }
+	  public Test getInitialTest() {
+	    return initialTest;
+	  }
+	  public HashMap<String, Test> getTests() {
+	    return tests;
+	  }
+	  public String getCity() {
+	    return city;
+	  }
+	  public String getDescription() {
+	    return description;
+	  }
+	  public void setHighscore(int score) {
+		  this.highscore = Math.max(highscore, score);
+	  }
+	  public int getHighscore() {
+		  return this.highscore;
+	  }
+	}
+
+[/file]
+[file ('Location.java', false, 'UTF-8')]
+package twitter_qa;
+
+public class Location {
+	  public String name;
+	  public double longitude;
+	  public double latitude;
+
+	  public Location(String name, double longitude, double latitude) {
+	    this.name = name;
+	    this.longitude = longitude;
+	    this.latitude = latitude;
+	  }
+	}
+
+[/file]
+[file ('main.java', false, 'UTF-8')]
+package twitter_qa;
+
+import twitter4j.TwitterException;
+
+public class main {	
+	public static void main(String['['/]] args) throws TwitterException, InterruptedException{
+	     
+		System.out.println("Start");
+		
+		
+		TwitterQA twitter_qa = new TwitterQA();
+		twitter_qa.run();
+		//twitter_qa.debug();
+	}
+}
+[/file]
+[file ('Player.java', false, 'UTF-8')]
+package twitter_qa;
+
+import java.time.LocalDateTime;
+
+public class Player {
+	  private long id;
+	  private int points;
+	  private Game game;
+	  private Test test;
+	  private LocalDateTime timestamp;
+	  private Location nextLocation;
+	  private int attempts;
+	  public Long latestTweet;
+	  public Long latestMessage;
+
+	  public Player(long id) {
+	      this.id = id;
+	      this.points = 0;
+	      this.latestTweet = (long) 0;
+	      this.latestMessage = (long) 0;
+	  }
+
+	  public long getID() {
+		  return id;
+	  }
+	  public void setID(long id) {
+		  this.id = id;
+	  }
+	  public int getPoints() {
+		  return points;
+	  }
+	  public void setPoints(int points) {
+		  this.points = points;
+	  }
+	  public Game getGame() {
+		  return game;
+	  }
+	  public void setGame(Game game) {
+		  this.game = game;
+		  this.test = game.getInitialTest();
+	  }
+	  public Test getTest() {
+		  return test;
+	  }
+	  public void setTest(Test test) {
+		  this.test = test;
+	  }
+	  public LocalDateTime getTimestamp() {
+		  return timestamp;
+	  }
+	  public void setTimestamp(LocalDateTime timestamp) {
+		  this.timestamp = timestamp;
+	  }
+	  public Location getNextLocation() {
+		  return nextLocation;
+	  }
+	  public void setNextLocation(Location location) {
+		  this.nextLocation = location;
+	  }
+	  public int getAttempts() {
+		  return attempts;
+	  }
+	  public void setAttempts(int attempts) {
+		  this.attempts = attempts;
+	  }
+	}
+
+[/file]
+[file ('Test.java', false, 'UTF-8')]
+package twitter_qa;
+
+import java.util.List;
+
+public class Test {
+	  private String name;
+	  private Location location;
+	  private String question;
+	  private List<String> answers;
+	  private List<String> hints;
+	  private int timelimit;
+	  private int attempts;
+	  private int reward;
+	  private Test on_correct;
+	  private Test on_timeout;
+	  private Test on_fail;
+
+	  public Test(String name, Location location, String question, List<String> answers, List<String> hints, int timelimit, int attempts, int reward, Test on_correct, Test on_timeout, Test on_fail) {
+	    this.name = name;
+	    this.location = location;
+	    this.question = question;
+	    this.answers = answers;
+	    this.hints = hints;
+	    this.timelimit = timelimit;
+	    this.attempts = attempts;
+	    this.reward = reward;
+	    this.on_correct = on_correct;
+	    this.on_timeout = on_timeout;
+	    this.on_fail = on_fail;
+	  }
+	  public String getID() {
+	    return name;
+	  }
+	  public Location getLocation() {
+	      return location;
+	  }
+	  public int getTimelimit() {
+	      return timelimit;
+	  }
+	  public String getQuestion() {
+	      return question;
+	  }
+	  public List<String> getAnswers() {
+	      return answers;
+	  }
+	  public int getAttempts() {
+	      return attempts;
+	  }
+	  public List<String> getHints() {
+	      return hints;
+	  }
+	  public int getReward() {
+	      return reward;
+	  }
+	  public Test getTestOnCorrect() {
+	      return on_correct;
+	  }
+	  public Test getTestOnTimeout() {
+	      return on_timeout;
+	  }
+	  public Test getTestOnFail() {
+	      return on_fail;
+	  }
+	  public void setTests(Test on_correct, Test on_timeout, Test on_fail) {
+		  this.on_correct = on_correct;
+		  this.on_timeout = on_timeout;
+		  this.on_fail = on_fail;		  
+	  }
+	}
+
+[/file]
 [file ('TwitterQA.java', false, 'UTF-8')]
 package twitter_qa;
 
@@ -201,7 +419,8 @@ public class TwitterQA {
 		return tweets_map;		
 	}
 	public void createGames() {
-		StringBuilder sb = new StringBuilder();		
+		StringBuilder sb = new StringBuilder();	
+		sb.append(welcomeMessage);
 		
 		[for (aLoc: Location | aTwitterQA.locations)]
 		locations.put("[aLoc.name/]", new Location("[aLoc.name/]", [aLoc.longitude/], [aLoc.latitude/]));
@@ -214,17 +433,11 @@ public class TwitterQA {
 		tests.put("[aTest.name/]", new Test("[aTest.name/]", locations.get("[aTest.location.name/]"), "[aTest.question/]", Arrays.asList("[for (a: String | aTest.answers)][a/];[/for]".split(";")), Arrays.asList("[for (h: String | aTest.hints)][h/];[/for]".split(";")), [aTest.timelimit/], [aTest.attempts/], [aTest.reward/],[if (aTest.on_correct.name.oclIsInvalid())]null[else]tests.get("[aTest.on_correct.name/]")[/if], [if (aTest.on_fail.name.oclIsInvalid())]null[else]tests.get("[aTest.on_fail.name/]")[/if], [if (aTest.on_timeout.name.oclIsInvalid())]null[else]tests.get("[aTest.on_timeout.name/]")[/if]));
 		[/for]
 		Test [aGame.initial_test.name/] = new Test("[aGame.initial_test.name/]", locations.get("[aGame.initial_test.location.name/]"), "[aGame.initial_test.question/]", Arrays.asList("[for (a: String | aGame.initial_test.answers)][a/];[/for]".split(";")), Arrays.asList("[for (h: String | aGame.initial_test.hints)][h/];[/for]".split(";")), [aGame.initial_test.timelimit/], [aGame.initial_test.attempts/], [aGame.initial_test.reward/], [if (aGame.initial_test.on_correct.name.oclIsInvalid())]null[else]tests.get("[aGame.initial_test.on_correct.name/]")[/if], [if (aGame.initial_test.on_fail.name.oclIsInvalid())]null[else]tests.get("[aGame.initial_test.on_fail.name/]")[/if], [if (aGame.initial_test.on_timeout.name.oclIsInvalid())]null[else]tests.get("[aGame.initial_test.on_timeout.name/]")[/if]);
-		Game game = new Game("[aGame.name/]", [aGame.initial_test.name/], tests, "[aGame.city/]", "[aGame.description/]");
-		games.put(game.getID(), game);
+		Game [aGame.name/] = new Game("[aGame.name/]", [aGame.initial_test.name/], tests, "[aGame.city/]", "[aGame.description/]");
+		games.put([aGame.name/].getID(), [aGame.name/]);
+		sb.append([aGame.name/].getID()).append(" - ").append([aGame.name/].getDescription()).append("\n\n");
 		tests.clear();
 		[/for]
-		
-
-
-
-		
-		sb.append(welcomeMessage).append(game.getID()).append(" - ").append(game.getDescription()).append("\n\n");
-		
 		welcomeMessage = sb.toString();
 	}
 	public void updatePlayers() throws TwitterException {

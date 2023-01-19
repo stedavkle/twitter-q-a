@@ -1,6 +1,5 @@
 package twitter_qa;
 
-
 import java.time.LocalDateTime;
 
 public class Player {
@@ -65,3 +64,4 @@ public class Player {
 		  this.attempts = attempts;
 	  }
 	}
+

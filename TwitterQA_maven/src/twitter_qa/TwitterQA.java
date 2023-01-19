@@ -34,8 +34,8 @@ public class TwitterQA {
 	
 	public TwitterQA() throws TwitterException {
 		this.twitter = Twitter.newBuilder()
-	      .oAuthConsumer("nPty0JIv3o95dkuH7brLbYm7R", "nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH")
-	      .oAuthAccessToken("339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J", "WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1")
+	      .oAuthConsumer("", "")
+	      .oAuthAccessToken("", "")
 	      .build();
 		this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();
 		this.userID = this.twitter.v1().users().showUser(userName).getId();
@@ -194,25 +194,26 @@ public class TwitterQA {
 		return tweets_map;		
 	}
 	public void createGames() {
-		StringBuilder sb = new StringBuilder();		
+		StringBuilder sb = new StringBuilder();	
+		sb.append(welcomeMessage);
 		
 		locations.put("Tuebingen", new Location("Tuebingen", 48.521637, 9.057645));
+		locations.put("UAM", new Location("UAM", 40.5466989, -3.7139596));
 
 		HashMap<String, Test> tests = new HashMap<String, Test>();
 		
-		tests.put("no2", new Test("no2", locations.get("Tuebingen"), "test?", Arrays.asList("test;".split(";")), Arrays.asList("".split(";")), 360, 1, 50,null, null, null));
-		tests.put("no1", new Test("no1", locations.get("Tuebingen"), "What is the main bridge through Tübingen called", Arrays.asList("Neckarbrücke;Neckarbruecke;".split(";")), Arrays.asList("It is the bridge over the main river.;The river is called \"Neckar\";".split(";")), 360, 3, 100,tests.get("no2"), null, null));
-		Test init = new Test("init", locations.get("Tuebingen"), "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität;Eberhard-Karls-Universitaet;".split(";")), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role.;".split(";")), 360, 3, 100, tests.get("no1"), null, null);
-		Game game = new Game("tuebingen", init, tests, "Tuebingen", "The first game in a small city in the south of germany");
-		games.put(game.getID(), game);
+		tests.put("tue1", new Test("tue1", locations.get("Tuebingen"), "What is the main bridge through Tübingen called", Arrays.asList("Neckarbrücke;Neckarbruecke;".split(";")), Arrays.asList("It is the bridge over the main river.;The river is called \"Neckar\";".split(";")), 360, 3, 100,null, null, null));
+		Test tueinit = new Test("tueinit", locations.get("Tuebingen"), "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität;Eberhard-Karls-Universitaet;".split(";")), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role.;".split(";")), 360, 3, 100, tests.get("tue1"), null, null);
+		Game tue = new Game("tue", tueinit, tests, "Tuebingen", "The first game in a small city in the south of germany");
+		games.put(tue.getID(), tue);
+		sb.append(tue.getID()).append(" - ").append(tue.getDescription()).append("\n\n");
 		tests.clear();
-		
-
-
-
-		
-		sb.append(welcomeMessage).append(game.getID()).append(" - ").append(game.getDescription()).append("\n\n");
-		
+		tests.put("uam1", new Test("uam1", locations.get("UAM"), "", Arrays.asList("Joseph Fourier;".split(";")), Arrays.asList("He invented one of the most important transformations for signals.;".split(";")), 360, 3, 100,null, null, null));
+		Test uaminit = new Test("uaminit", locations.get("UAM"), "What person is mentioned on the top of the entrance from  \"Edificio A\"?", Arrays.asList("Alan Turing;".split(";")), Arrays.asList("He invented the Turing-Machine.;".split(";")), 360, 3, 100, tests.get("uam1"), null, null);
+		Game uam = new Game("uam", uaminit, tests, "Madrid", "A small game at the UAM campus of madrid.");
+		games.put(uam.getID(), uam);
+		sb.append(uam.getID()).append(" - ").append(uam.getDescription()).append("\n\n");
+		tests.clear();
 		welcomeMessage = sb.toString();
 	}
 	public void updatePlayers() throws TwitterException {

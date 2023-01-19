@@ -10,7 +10,8 @@ if __name__ == "__main__":
     # EITHER: main.twiqaOneGame.xmi
     # OR: main.twiqaSeveralGames.xmi
     # 
-    with open('main.twiqa.xmi', 'r', encoding='utf-8') as file:
+    path = input('Path to xmi file: ')
+    with open(path, 'r', encoding='utf-8') as file:
         my_xml = file.read()
       
     # Use xmltodict to parse and convert 
