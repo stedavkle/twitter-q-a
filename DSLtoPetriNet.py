@@ -21,7 +21,7 @@ if __name__ == "__main__":
     #pprint.pprint(my_dict, indent=2)
 
     project = ET.Element("project", {"name": "CreatedGames", "version": "121"})
-    gspn = ET.SubElement(project, "gspn", {"name": "PT", "show-color-cmd": "false", "show-fluid-cmd": "false", "show-timed-cmd": "false", "view-rates": "false"})
+    gspn = ET.SubElement(project, "gspn", {"name": "PT", "show-color-cmd": "false", "show-fluid-cmd": "false", "show-timed-cmd": "True", "view-rates": "false"})
     nodes = ET.SubElement(gspn, "nodes")
     edges = ET.SubElement(gspn, "edges")
 
@@ -213,4 +213,5 @@ if __name__ == "__main__":
 
     tree = ET.ElementTree(project)
     tree.write("CreatedGames.xml")
+    tree.write("CreatedGames.PNPRO")
 
