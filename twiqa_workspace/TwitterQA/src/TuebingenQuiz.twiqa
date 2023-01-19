@@ -3,32 +3,75 @@ TwitterQA {
 	consumer_secret is "nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH"
 	access_token is "339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J"
 	access_token_secret is "WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1"
-	welcome_msg is "Welcome to the Twitter Question&Answer game! \nPlease select one of the following games: \n\n"
+	welcome_msg is "Welcome to the Twitter Question&Answer game! Please select one of the following games: "
 	games are [
 		Game tuebingen {
 			description is "The first game in a small city in the south of germany"
 			city is "Tuebingen"
+<<<<<<< Updated upstream
 			initial_test is Test init {
+=======
+			initial_test is Test "tueinit" {
+>>>>>>> Stashed changes
 				question is "What is the official name of the Univerity of Tübingen?"
 				order is 0
 				answers are ["Eberhard-Karls-Universität", "Eberhard-Karls-Universitaet"]
-				hints are ["It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role."]
+				hints are ["It was founded 1477 by Eberhard im Bart also Karl Eugen plays a major role."]
 				timelimit is 360
 				attempts is 3
 				reward is 100
+<<<<<<< Updated upstream
 				location is Tuebingen
 				on_correct is no1
 			}
 			tests are [
 				Test no1 {
+=======
+				location is "Tuebingen"
+				on_correct is "tue1"
+			}
+			tests are [
+				Test "tue1" {
+>>>>>>> Stashed changes
 					question is "What is the main bridge through Tübingen called?"
 					order is 1
 					answers are ["Neckarbrücke", "Neckarbruecke"]
-					hints are ["It is the bridge over the main river.", "The river is called \"Neckar\"" ]
+					hints are ["It is the bridge over the main river.", "The river is called Neckar" ]
 					timelimit is 360
 					attempts is 3
 					reward is 100
+<<<<<<< Updated upstream
 					location is Tuebingen
+=======
+					location is "Tuebingen"
+				}
+			]
+		},
+		Game "uam" {
+			description is "TA small game at the UAM campus of madrid."
+			city is "UAM"
+			initial_test is Test "uaminit" {
+				question is "What person is mentioned on the top of the entrance from Edificio A?"
+				order is 0
+				answers are ["Alan Turing"]
+				hints are ["He invented the Turing-Machine."]
+				timelimit is 360
+				attempts is 3
+				reward is 100
+				location is "UAM"
+				on_correct is "uam1"
+			}
+			tests are [
+				Test "uam1" {
+					question is "What person is mentioned on the top of the entrance from Edificio C?"
+					order is 1
+					answers are ["Joseph Fourier"]
+					hints are ["He invented one of the most important transformations for signals." ]
+					timelimit is 360
+					attempts is 3
+					reward is 100
+					location is "UAM"
+>>>>>>> Stashed changes
 				}
 			]
 		}
@@ -37,6 +80,10 @@ TwitterQA {
 		Location Tuebingen {
 			latitude is 9.057645
 			longitude is 48.521637
+		},
+		Location "UAM" {
+			latitude is -3.7139596
+			longitude is 40.5466989
 		}
 	]
 }

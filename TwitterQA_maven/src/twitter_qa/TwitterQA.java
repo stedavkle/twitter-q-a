@@ -18,7 +18,7 @@ public class TwitterQA {
 	private Twitter twitter;
 	private long userID;
 	private String userName;
-	private String welcomeMessage = "Welcome to the Twitter Question&Answer game! \nPlease select one of the following games: \n\n";
+	private String welcomeMessage = "Welcome to the Twitter Question&Answer game! Please select one of the following games: ";
 	private LocalDateTime msgTimestamp = LocalDateTime.MIN;
 	
 	private HashMap<String, Game> games = new HashMap<String, Game>();
@@ -34,8 +34,8 @@ public class TwitterQA {
 	
 	public TwitterQA() throws TwitterException {
 		this.twitter = Twitter.newBuilder()
-	      .oAuthConsumer("", "")
-	      .oAuthAccessToken("", "")
+	      .oAuthConsumer("nPty0JIv3o95dkuH7brLbYm7R", "nKfyaXeKEB0gb9QXU75C7meXlpIZMDOeW3GRrZ1NEnfYz5WqxH")
+	      .oAuthAccessToken("339007027-dIc8sKZ1eOyQ59jgCL8eIrDcn9ukNuoTfgA4Jl6J", "WwnlVHwIO0RyGgm9UmOfusvJtkzQUtoNoJyJGhnyGTkO1")
 	      .build();
 		this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();
 		this.userID = this.twitter.v1().users().showUser(userName).getId();
@@ -202,15 +202,15 @@ public class TwitterQA {
 
 		HashMap<String, Test> tests = new HashMap<String, Test>();
 		
-		tests.put("tue1", new Test("tue1", locations.get("Tuebingen"), "What is the main bridge through Tübingen called", Arrays.asList("Neckarbrücke;Neckarbruecke;".split(";")), Arrays.asList("It is the bridge over the main river.;The river is called \"Neckar\";".split(";")), 360, 3, 100,null, null, null));
-		Test tueinit = new Test("tueinit", locations.get("Tuebingen"), "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität;Eberhard-Karls-Universitaet;".split(";")), Arrays.asList("It was founded 1477 by \"Eberhard im Bart\" also \"Karl Eugen\" plays a major role.;".split(";")), 360, 3, 100, tests.get("tue1"), null, null);
-		Game tue = new Game("tue", tueinit, tests, "Tuebingen", "The first game in a small city in the south of germany");
-		games.put(tue.getID(), tue);
-		sb.append(tue.getID()).append(" - ").append(tue.getDescription()).append("\n\n");
+		tests.put("tue1", new Test("tue1", locations.get("Tuebingen"), "What is the main bridge through Tübingen called?", Arrays.asList("Neckarbrücke;Neckarbruecke;".split(";")), Arrays.asList("It is the bridge over the main river.;The river is called Neckar;".split(";")), 360, 3, 100,null, null, null));
+		Test tueinit = new Test("tueinit", locations.get("Tuebingen"), "What is the official name of the Univerity of Tübingen?", Arrays.asList("Eberhard-Karls-Universität;Eberhard-Karls-Universitaet;".split(";")), Arrays.asList("It was founded 1477 by Eberhard im Bart also Karl Eugen plays a major role.;".split(";")), 360, 3, 100, tests.get("tue1"), null, null);
+		Game tuebingen = new Game("tuebingen", tueinit, tests, "Tuebingen", "The first game in a small city in the south of germany");
+		games.put(tuebingen.getID(), tuebingen);
+		sb.append(tuebingen.getID()).append(" - ").append(tuebingen.getDescription()).append("\n\n");
 		tests.clear();
-		tests.put("uam1", new Test("uam1", locations.get("UAM"), "", Arrays.asList("Joseph Fourier;".split(";")), Arrays.asList("He invented one of the most important transformations for signals.;".split(";")), 360, 3, 100,null, null, null));
-		Test uaminit = new Test("uaminit", locations.get("UAM"), "What person is mentioned on the top of the entrance from  \"Edificio A\"?", Arrays.asList("Alan Turing;".split(";")), Arrays.asList("He invented the Turing-Machine.;".split(";")), 360, 3, 100, tests.get("uam1"), null, null);
-		Game uam = new Game("uam", uaminit, tests, "Madrid", "A small game at the UAM campus of madrid.");
+		tests.put("uam1", new Test("uam1", locations.get("UAM"), "What person is mentioned on the top of the entrance from Edificio C?", Arrays.asList("Joseph Fourier;".split(";")), Arrays.asList("He invented one of the most important transformations for signals.;".split(";")), 360, 3, 100,null, null, null));
+		Test uaminit = new Test("uaminit", locations.get("UAM"), "What person is mentioned on the top of the entrance from Edificio A?", Arrays.asList("Alan Turing;".split(";")), Arrays.asList("He invented the Turing-Machine.;".split(";")), 360, 3, 100, tests.get("uam1"), null, null);
+		Game uam = new Game("uam", uaminit, tests, "UAM", "TA small game at the UAM campus of madrid.");
 		games.put(uam.getID(), uam);
 		sb.append(uam.getID()).append(" - ").append(uam.getDescription()).append("\n\n");
 		tests.clear();
