@@ -24,11 +24,11 @@ public class DSLConversion {
 		Injector injector = new TwitterQAStandaloneSetup().createInjectorAndDoEMFRegistration();
 		XtextResourceSet xtextRS = injector.getInstance(XtextResourceSet.class);
 
-		XtextResource xtextInput = (XtextResource) xtextRS.getResource(URI.createURI("../twiqa_workspace/TwitterQA/Main.twiqa"), true);
+		XtextResource xtextInput = (XtextResource) xtextRS.getResource(URI.createURI("../twiqa_workspace/TwitterQA/src/TuebingenQuiz.twiqa"), true);
 		EcoreUtil.resolveAll(xtextInput);
 		// create empty xmi resource
 		ResourceSet xmiRS = new ResourceSetImpl();
-		Resource xmiOutput = xmiRS.createResource(URI.createURI("./main.twiqa.xmi"));
+		Resource xmiOutput = xmiRS.createResource(URI.createURI("./Tuebingen.twiqa.xmi"));
 		// save xtext resource in xmi resource
 		xmiOutput.getContents().add(xtextInput.getContents().get(0));
 		try {

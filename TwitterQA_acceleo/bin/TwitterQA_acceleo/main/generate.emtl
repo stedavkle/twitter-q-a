@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+<<<<<<< HEAD
   <mtl:Module name="generate" nsURI="TwitterQA_acceleo::main::generate" startHeaderPosition="30" endHeaderPosition="166">
+=======
+  <mtl:Module name="generate" nsURI="TwitterQA_acceleo::main::generate" startHeaderPosition="29" endHeaderPosition="163">
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
     <input>
       <takesTypesFrom href="/TwitterQA_emf/model/TwitterQA.ecore#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+<<<<<<< HEAD
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package twitter_qa;&#xD;&#xA;&#xD;&#xA;import java.util.HashMap;&#xD;&#xA;&#xD;&#xA;public class Game {&#xD;&#xA;&#x9;  private String name;&#xD;&#xA;&#x9;  private Test initialTest;&#xD;&#xA;&#x9;  private HashMap&lt;String, Test> tests;&#xD;&#xA;&#x9;  private String city;&#xD;&#xA;&#x9;  private String description;&#xD;&#xA;&#x9;  private int highscore;&#xD;&#xA;&#xD;&#xA;&#x9;  public Game(String name, Test initialTest, HashMap&lt;String, Test> tests, String city, String description) {&#xD;&#xA;&#x9;    this.name = name;&#xD;&#xA;&#x9;    this.initialTest = initialTest;&#xD;&#xA;&#x9;    this.tests = tests;&#xD;&#xA;&#x9;    this.city = city;&#xD;&#xA;&#x9;    this.description = description;&#xD;&#xA;&#x9;    this.highscore = 0;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public String getID() {&#xD;&#xA;&#x9;    return name;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public Test getInitialTest() {&#xD;&#xA;&#x9;    return initialTest;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public HashMap&lt;String, Test> getTests() {&#xD;&#xA;&#x9;    return tests;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public String getCity() {&#xD;&#xA;&#x9;    return city;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public String getDescription() {&#xD;&#xA;&#x9;    return description;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public void setHighscore(int score) {&#xD;&#xA;&#x9;&#x9;  this.highscore = Math.max(highscore, score);&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;  public int getHighscore() {&#xD;&#xA;&#x9;&#x9;  return this.highscore;&#xD;&#xA;&#x9;  }&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Game.java">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -56,6 +61,9 @@
       </body>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package twitter_qa;&#xD;&#xA;&#xD;&#xA;import java.time.LocalDateTime;&#xD;&#xA;import java.util.ArrayList;&#xD;&#xA;import java.util.Arrays;&#xD;&#xA;import java.util.HashMap;&#xD;&#xA;import java.util.List;&#xD;&#xA;import java.util.Objects;&#xD;&#xA;import java.util.Queue;&#xD;&#xA;import java.util.Scanner;&#xD;&#xA;import java.util.concurrent.ConcurrentLinkedQueue;&#xD;&#xA;import java.util.concurrent.TimeUnit;&#xD;&#xA;&#xD;&#xA;import twitter4j.*;&#xD;&#xA;import twitter4j.v1.*;&#xD;&#xA;&#xD;&#xA;public class TwitterQA {&#xD;&#xA;&#x9;private Twitter twitter;&#xD;&#xA;&#x9;private long userID;&#xD;&#xA;&#x9;private String userName;&#xD;&#xA;&#x9;private String welcomeMessage = &quot;"/>
+=======
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package twitter_qa;&#xA;&#xA;import java.time.LocalDateTime;&#xA;import java.util.ArrayList;&#xA;import java.util.Arrays;&#xA;import java.util.HashMap;&#xA;import java.util.List;&#xA;import java.util.Objects;&#xA;import java.util.Queue;&#xA;import java.util.Scanner;&#xA;import java.util.concurrent.ConcurrentLinkedQueue;&#xA;import java.util.concurrent.TimeUnit;&#xA;&#xA;import twitter4j.*;&#xA;import twitter4j.v1.*;&#xA;&#xA;public class TwitterQA {&#xA;&#x9;private Twitter twitter;&#xA;&#x9;private long userID;&#xA;&#x9;private String userName;&#xA;&#x9;private String welcomeMessage = &quot;"/>
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
@@ -63,7 +71,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/welcome_msg"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;;&#xD;&#xA;&#x9;private LocalDateTime msgTimestamp = LocalDateTime.MIN;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;private HashMap&lt;String, Game> games = new HashMap&lt;String, Game>();&#xD;&#xA;&#x9;private HashMap&lt;Long, Player> players = new HashMap&lt;Long, Player>();&#xD;&#xA;&#x9;private HashMap&lt;String, Location> locations = new HashMap&lt;String, Location>();&#xD;&#xA;&#xD;&#xA;&#x9;private List&lt;Player> playersToDelete = new ArrayList&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueSendWelcomeMsg = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueGetGameSelection = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueSendTest = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;private Queue&lt;Player> queueGetAnswer = new ConcurrentLinkedQueue&lt;Player>();&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;public TwitterQA() throws TwitterException {&#xD;&#xA;&#x9;&#x9;this.twitter = Twitter.newBuilder()&#xD;&#xA;&#x9;      .oAuthConsumer(&quot;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;;&#xA;&#x9;private LocalDateTime msgTimestamp = LocalDateTime.MIN;&#xA;&#x9;&#xA;&#x9;private HashMap&lt;String, Game> games = new HashMap&lt;String, Game>();&#xA;&#x9;private HashMap&lt;Long, Player> players = new HashMap&lt;Long, Player>();&#xA;&#x9;private HashMap&lt;String, Location> locations = new HashMap&lt;String, Location>();&#xA;&#xA;&#x9;private List&lt;Player> playersToDelete = new ArrayList&lt;Player>();&#xA;&#x9;private Queue&lt;Player> queueSendWelcomeMsg = new ConcurrentLinkedQueue&lt;Player>();&#xA;&#x9;private Queue&lt;Player> queueGetGameSelection = new ConcurrentLinkedQueue&lt;Player>();&#xA;&#x9;private Queue&lt;Player> queueSendTest = new ConcurrentLinkedQueue&lt;Player>();&#xA;&#x9;private Queue&lt;Player> queueGetAnswer = new ConcurrentLinkedQueue&lt;Player>();&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public TwitterQA() throws TwitterException {&#xA;&#x9;&#x9;this.twitter = Twitter.newBuilder()&#xA;&#x9;      .oAuthConsumer(&quot;"/>
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
@@ -79,7 +87,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/consumer_secret"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xD;&#xA;&#x9;      .oAuthAccessToken(&quot;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xA;&#x9;      .oAuthAccessToken(&quot;"/>
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aTwitterQA" referredVariable="/0/generateElement/aTwitterQA">
@@ -95,7 +103,11 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/access_token_secret"/>
         </body>
+<<<<<<< HEAD
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xD;&#xA;&#x9;      .build();&#xD;&#xA;&#x9;&#x9;this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();&#xD;&#xA;&#x9;&#x9;this.userID = this.twitter.v1().users().showUser(userName).getId();&#xD;&#xA;&#x9;&#x9;System.out.println(this.userName + &quot; : &quot; + userID);&#xD;&#xA;&#x9;&#x9;createGames();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void run() throws TwitterException, InterruptedException {&#xD;&#xA;&#x9;&#x9;while (true) {&#xD;&#xA;&#x9;&#x9;&#x9;updatePlayers();&#xD;&#xA;&#x9;&#x9;&#x9;sendWelcomeMsg();&#xD;&#xA;&#x9;&#x9;&#x9;getGameSelection();&#xD;&#xA;&#x9;&#x9;&#x9;sendTestInstruction();&#xD;&#xA;&#x9;&#x9;&#x9;getAnswer();&#xD;&#xA;&#x9;&#x9;&#x9;TimeUnit.SECONDS.sleep(60);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void debug() throws TwitterException {&#xD;&#xA;&#x9;&#x9;Scanner console = new Scanner(System.in);&#xD;&#xA;&#x9;&#x9;String input;&#xD;&#xA;&#x9;&#x9;while (true) {&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;input = console.nextLine();&#xD;&#xA;&#x9;&#x9;&#x9;switch(input) {&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;t&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  GeoLocation test = GeoLocation.of(40.52477105, -3.7707802235079573);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(test);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(test.latitude + test.longitude);&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pf&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;      printFollowers();&#xD;&#xA;&#x9;&#x9;&#x9;      break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pp&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printPlayers();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pm&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printMessages();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;pt&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printTweets();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;up&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  updatePlayers();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  printPlayers();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;swm&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  sendWelcomeMsg();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;ggs&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  getGameSelection();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;sti&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  sendTestInstruction();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;ga&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  getAnswer();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xD;&#xA;&#x9;&#x9;&#x9;  case &quot;cc&quot;:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(&quot;Stop\n&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  console.close();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.exit(0);&#xD;&#xA;&#x9;&#x9;&#x9;  default:&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(&quot;INPUT&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;public void printFollowers() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;FOLLOWERS&quot;);&#xD;&#xA;&#x9;&#x9;ArrayList&lt;Long> ids = getFollowerIDs(userID);&#xD;&#xA;&#x9;&#x9;for (long id : ids) {&#xD;&#xA;&#x9;&#x9;&#x9;User user = this.twitter.v1().users().showUser(id);&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(user.getScreenName() + &quot; : &quot; + id);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void printMessages() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;MESSAGES&quot;);&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, DirectMessage> messages = getNewDirectMessages();&#xD;&#xA;&#x9;&#x9;for (Long senderID : messages.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(senderID + &quot; : &quot; + messages.get(senderID).getText());&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void printPlayers() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;PLAYERS&quot;);&#xD;&#xA;&#x9;&#x9;for (Long id : players.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;User user = this.twitter.v1().users().showUser(id);&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(user.getScreenName() + &quot; : &quot; + id);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void printTweets() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;TWEETS&quot;);&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> tweets = getMentionTweets();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;for (Long userID : tweets.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;Status tweet = tweets.get(userID);&#xD;&#xA;&#x9;&#x9;&#x9;Location loc = extractLocation(tweet.getPlace().getFullName(), tweet.getPlace().getBoundingBoxCoordinates());&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(tweet.getUser() + &quot; : &quot; + loc.latitude + &quot;, &quot; + loc.longitude + &quot; : &quot; + tweet.getCreatedAt() + &quot; : &quot; + tweet.getText());&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;private ArrayList&lt;Long> getFollowerIDs(long userID) throws TwitterException {&#xD;&#xA;&#x9;&#x9;long cursor = -1;&#xD;&#xA;&#x9;    IDs ids;&#xD;&#xA;&#x9;    ArrayList&lt;Long> idArray = new ArrayList&lt;Long>();&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;do {&#xD;&#xA;&#x9;&#x9;&#x9;ids = twitter.v1().friendsFollowers().getFollowersIDs(userID, cursor);&#xD;&#xA;&#x9;&#x9;&#x9;for (long id : ids.getIDs()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;idArray.add(id);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;} while ((cursor = ids.getNextCursor()) != 0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;return idArray;&#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;private HashMap&lt;Long, DirectMessage> getNewDirectMessages() throws TwitterException {&#xD;&#xA;&#x9;&#x9;  DirectMessageList messagesBatch;&#xD;&#xA;&#x9;&#x9;  DirectMessageList messages = twitter.v1().directMessages().getDirectMessages(20);&#xD;&#xA;&#x9;&#x9;  if (messages.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;  System.out.println(&quot;\t-API no msg&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;  return new HashMap&lt;Long, DirectMessage>();&#xD;&#xA;&#x9;&#x9;  }&#xD;&#xA;&#x9;&#x9;  //System.out.println(&quot;limit : &quot; + messages.getRateLimitStatus());&#xD;&#xA;&#x9;&#x9;  String cursor = messages.getNextCursor();&#xD;&#xA;&#x9;&#x9;  String prev_cursor = null;&#xD;&#xA;&#x9;&#x9;  //System.out.println(cursor + &quot; : &quot; + prev_cursor);&#xD;&#xA;&#x9;      &#xD;&#xA;&#x9;      while (!Objects.equals(cursor, prev_cursor) &amp;&amp; msgTimestamp.isBefore(messages.get(messages.size()-1).getCreatedAt())) {&#xD;&#xA;&#x9;    &#x9;messagesBatch = twitter.v1().directMessages().getDirectMessages(20, messages.getNextCursor());&#xD;&#xA;&#x9;        messages.addAll(messagesBatch);&#xD;&#xA;&#x9;        prev_cursor = cursor;&#xD;&#xA;&#x9;        cursor = messagesBatch.getNextCursor();&#xD;&#xA;&#x9;        //System.out.println(cursor + &quot; : &quot; + prev_cursor);&#xD;&#xA;&#x9;      }&#xD;&#xA;&#x9;      &#xD;&#xA;&#x9;      HashMap&lt;Long, DirectMessage> messages_map = new HashMap&lt;Long, DirectMessage>();&#xD;&#xA;&#x9;      // loop in reverse to get newest message of user&#xD;&#xA;&#x9;      System.out.printf(&quot;\t-API %d messages\n&quot;, messages.size());&#xD;&#xA;&#x9;      for (int i=messages.size()-1; i>=0; i--) {&#xD;&#xA;&#x9;    &#x9;  DirectMessage message = messages.get(i);&#xD;&#xA;&#x9;    &#x9;  //System.out.println(&quot;\t-msg from: &quot; + twitter.v1().users().showUser(message.getSenderId()).getScreenName());&#xD;&#xA;&#x9;    &#x9;  if (message.getCreatedAt().isAfter(msgTimestamp))&#xD;&#xA;&#x9;    &#x9;  messages_map.put(message.getSenderId(), message);&#xD;&#xA;&#x9;      }&#xD;&#xA;&#x9;      msgTimestamp = messages.get(0).getCreatedAt();&#xD;&#xA;&#x9;      return messages_map;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;private HashMap&lt;Long, Status> getMentionTweets() throws TwitterException {&#xD;&#xA;&#x9;&#x9;ResponseList&lt;Status> tweets = twitter.v1().timelines().getMentionsTimeline();&#xD;&#xA;&#x9;&#x9;//System.out.println(tweets.size() + &quot; Tweets with mentions.&quot;);&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> tweets_map = new HashMap&lt;Long, Status>();&#xD;&#xA;&#x9;&#x9;// iterate backwards to get newest tweet&#xD;&#xA;&#x9;&#x9;for (int i=tweets.size()-1; i>=0; i--) {&#xD;&#xA;&#x9;&#x9;&#x9;Status tweet = tweets.get(i);&#xD;&#xA;&#x9;&#x9;&#x9;tweets_map.put(tweet.getUser().getId(), tweet);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;return tweets_map;&#x9;&#x9;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void createGames() {&#xD;&#xA;&#x9;&#x9;StringBuilder sb = new StringBuilder();&#x9;&#xD;&#xA;&#x9;&#x9;sb.append(welcomeMessage);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;"/>
+=======
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xA;&#x9;      .build();&#xA;&#x9;&#x9;this.userName = this.twitter.v1().users().getAccountSettings().getScreenName();&#xA;&#x9;&#x9;this.userID = this.twitter.v1().users().showUser(userName).getId();&#xA;&#x9;&#x9;System.out.println(this.userName + &quot; : &quot; + userID);&#xA;&#x9;&#x9;createGames();&#xA;&#x9;}&#xA;&#x9;public void run() throws TwitterException, InterruptedException {&#xA;&#x9;&#x9;while (true) {&#xA;&#x9;&#x9;&#x9;updatePlayers();&#xA;&#x9;&#x9;&#x9;sendWelcomeMsg();&#xA;&#x9;&#x9;&#x9;getGameSelection();&#xA;&#x9;&#x9;&#x9;sendTestInstruction();&#xA;&#x9;&#x9;&#x9;getAnswer();&#xA;&#x9;&#x9;&#x9;TimeUnit.SECONDS.sleep(60);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void debug() throws TwitterException {&#xA;&#x9;&#x9;Scanner console = new Scanner(System.in);&#xA;&#x9;&#x9;String input;&#xA;&#x9;&#x9;while (true) {&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;input = console.nextLine();&#xA;&#x9;&#x9;&#x9;switch(input) {&#xA;&#x9;&#x9;&#x9;  case &quot;t&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  GeoLocation test = GeoLocation.of(40.52477105, -3.7707802235079573);&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(test);&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(test.latitude + test.longitude);&#xA;&#x9;&#x9;&#x9;  case &quot;pf&quot;:&#xA;&#x9;&#x9;&#x9;      printFollowers();&#xA;&#x9;&#x9;&#x9;      break;&#xA;&#x9;&#x9;&#x9;  case &quot;pp&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  printPlayers();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;pm&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  printMessages();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;pt&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  printTweets();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;up&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  updatePlayers();&#xA;&#x9;&#x9;&#x9;&#x9;  printPlayers();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;swm&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  sendWelcomeMsg();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;ggs&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  getGameSelection();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;sti&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  sendTestInstruction();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;ga&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  getAnswer();&#xA;&#x9;&#x9;&#x9;&#x9;  break;&#xA;&#x9;&#x9;&#x9;  case &quot;cc&quot;:&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(&quot;Stop\n&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;  console.close();&#xA;&#x9;&#x9;&#x9;&#x9;  System.exit(0);&#xA;&#x9;&#x9;&#x9;  default:&#xA;&#x9;&#x9;&#x9;&#x9;  System.out.println(&quot;INPUT&quot;);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void printFollowers() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;FOLLOWERS&quot;);&#xA;&#x9;&#x9;ArrayList&lt;Long> ids = getFollowerIDs(userID);&#xA;&#x9;&#x9;for (long id : ids) {&#xA;&#x9;&#x9;&#x9;User user = this.twitter.v1().users().showUser(id);&#xA;&#x9;&#x9;&#x9;System.out.println(user.getScreenName() + &quot; : &quot; + id);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xA;&#x9;}&#xA;&#x9;public void printMessages() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;MESSAGES&quot;);&#xA;&#x9;&#x9;HashMap&lt;Long, DirectMessage> messages = getNewDirectMessages();&#xA;&#x9;&#x9;for (Long senderID : messages.keySet()) {&#xA;&#x9;&#x9;&#x9;System.out.println(senderID + &quot; : &quot; + messages.get(senderID).getText());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xA;&#x9;}&#xA;&#x9;public void printPlayers() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;PLAYERS&quot;);&#xA;&#x9;&#x9;for (Long id : players.keySet()) {&#xA;&#x9;&#x9;&#x9;User user = this.twitter.v1().users().showUser(id);&#xA;&#x9;&#x9;&#x9;System.out.println(user.getScreenName() + &quot; : &quot; + id);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xA;&#x9;}&#xA;&#x9;public void printTweets() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;TWEETS&quot;);&#xA;&#x9;&#x9;HashMap&lt;Long, Status> tweets = getMentionTweets();&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;for (Long userID : tweets.keySet()) {&#xA;&#x9;&#x9;&#x9;Status tweet = tweets.get(userID);&#xA;&#x9;&#x9;&#x9;Location loc = extractLocation(tweet.getPlace().getFullName(), tweet.getPlace().getBoundingBoxCoordinates());&#xA;&#x9;&#x9;&#x9;System.out.println(tweet.getUser() + &quot; : &quot; + loc.latitude + &quot;, &quot; + loc.longitude + &quot; : &quot; + tweet.getCreatedAt() + &quot; : &quot; + tweet.getText());&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;System.out.println(&quot;-----\n&quot;);&#xA;&#x9;}&#xA;&#x9;private ArrayList&lt;Long> getFollowerIDs(long userID) throws TwitterException {&#xA;&#x9;&#x9;long cursor = -1;&#xA;&#x9;    IDs ids;&#xA;&#x9;    ArrayList&lt;Long> idArray = new ArrayList&lt;Long>();&#xA;&#xA;&#x9;&#x9;do {&#xA;&#x9;&#x9;&#x9;ids = twitter.v1().friendsFollowers().getFollowersIDs(userID, cursor);&#xA;&#x9;&#x9;&#x9;for (long id : ids.getIDs()) {&#xA;&#x9;&#x9;&#x9;&#x9;idArray.add(id);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} while ((cursor = ids.getNextCursor()) != 0);&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;return idArray;&#xA;&#x9;}&#x9;&#xA;&#x9;private HashMap&lt;Long, DirectMessage> getNewDirectMessages() throws TwitterException {&#xA;&#x9;&#x9;  DirectMessageList messagesBatch;&#xA;&#x9;&#x9;  DirectMessageList messages = twitter.v1().directMessages().getDirectMessages(20);&#xA;&#x9;&#x9;  if (messages.isEmpty()) {&#xA;&#x9;&#x9;&#x9;  System.out.println(&quot;\t-API no msg&quot;);&#xA;&#x9;&#x9;&#x9;  return new HashMap&lt;Long, DirectMessage>();&#xA;&#x9;&#x9;  }&#xA;&#x9;&#x9;  //System.out.println(&quot;limit : &quot; + messages.getRateLimitStatus());&#xA;&#x9;&#x9;  String cursor = messages.getNextCursor();&#xA;&#x9;&#x9;  String prev_cursor = null;&#xA;&#x9;&#x9;  //System.out.println(cursor + &quot; : &quot; + prev_cursor);&#xA;&#x9;      &#xA;&#x9;      while (!Objects.equals(cursor, prev_cursor) &amp;&amp; msgTimestamp.isBefore(messages.get(messages.size()-1).getCreatedAt())) {&#xA;&#x9;    &#x9;messagesBatch = twitter.v1().directMessages().getDirectMessages(20, messages.getNextCursor());&#xA;&#x9;        messages.addAll(messagesBatch);&#xA;&#x9;        prev_cursor = cursor;&#xA;&#x9;        cursor = messagesBatch.getNextCursor();&#xA;&#x9;        //System.out.println(cursor + &quot; : &quot; + prev_cursor);&#xA;&#x9;      }&#xA;&#x9;      &#xA;&#x9;      HashMap&lt;Long, DirectMessage> messages_map = new HashMap&lt;Long, DirectMessage>();&#xA;&#x9;      // loop in reverse to get newest message of user&#xA;&#x9;      System.out.printf(&quot;\t-API %d messages\n&quot;, messages.size());&#xA;&#x9;      for (int i=messages.size()-1; i>=0; i--) {&#xA;&#x9;    &#x9;  DirectMessage message = messages.get(i);&#xA;&#x9;    &#x9;  //System.out.println(&quot;\t-msg from: &quot; + twitter.v1().users().showUser(message.getSenderId()).getScreenName());&#xA;&#x9;    &#x9;  if (message.getCreatedAt().isAfter(msgTimestamp))&#xA;&#x9;    &#x9;  messages_map.put(message.getSenderId(), message);&#xA;&#x9;      }&#xA;&#x9;      msgTimestamp = messages.get(0).getCreatedAt();&#xA;&#x9;      return messages_map;&#xA;&#x9;&#x9;}&#xA;&#x9;private HashMap&lt;Long, Status> getMentionTweets() throws TwitterException {&#xA;&#x9;&#x9;ResponseList&lt;Status> tweets = twitter.v1().timelines().getMentionsTimeline();&#xA;&#x9;&#x9;//System.out.println(tweets.size() + &quot; Tweets with mentions.&quot;);&#xA;&#x9;&#x9;HashMap&lt;Long, Status> tweets_map = new HashMap&lt;Long, Status>();&#xA;&#x9;&#x9;// iterate backwards to get newest tweet&#xA;&#x9;&#x9;for (int i=tweets.size()-1; i>=0; i--) {&#xA;&#x9;&#x9;&#x9;Status tweet = tweets.get(i);&#xA;&#x9;&#x9;&#x9;tweets_map.put(tweet.getUser().getId(), tweet);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return tweets_map;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;public void createGames() {&#xA;&#x9;&#x9;StringBuilder sb = new StringBuilder();&#x9;&#x9;&#xA;&#x9;&#x9;&#xA;"/>
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;locations.put(&quot;"/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
@@ -129,7 +141,7 @@
             </source>
             <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location/latitude"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xD;&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xA;"/>
           <loopVariable name="aLoc">
             <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Location"/>
           </loopVariable>
@@ -140,7 +152,7 @@
             <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/locations"/>
           </iterSet>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;HashMap&lt;String, Test> tests = new HashMap&lt;String, Test>();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;HashMap&lt;String, Test> tests = new HashMap&lt;String, Test>();&#xA;&#x9;&#x9;&#xA;"/>
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;tests.put(&quot;"/>
@@ -337,7 +349,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
               </else>
             </body>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xD;&#xA;"/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="));&#xA;"/>
             <loopVariable name="aTest">
               <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Test"/>
             </loopVariable>
@@ -616,7 +628,11 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)"/>
             </else>
           </body>
+<<<<<<< HEAD
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xD;&#xA;&#x9;&#x9;Game "/>
+=======
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#x9;&#x9;Game game = new Game(&quot;"/>
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
           <body xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:VariableExp" name="aGame" referredVariable="/0/generateElement/%.5/%.13/aGame">
@@ -660,6 +676,7 @@
             </source>
             <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/description"/>
           </body>
+<<<<<<< HEAD
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;);&#xD;&#xA;&#x9;&#x9;games.put("/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -693,6 +710,9 @@
             <referredProperty xsi:type="ecore:EAttribute" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game/name"/>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".getDescription()).append(&quot;\n\n&quot;);&#xD;&#xA;&#x9;&#x9;tests.clear();&#xD;&#xA;"/>
+=======
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;);&#xA;&#x9;&#x9;games.put(game.getID(), game);&#xA;&#x9;&#x9;tests.clear();&#xA;"/>
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
           <loopVariable name="aGame">
             <eType xsi:type="ecore:EClass" href="/TwitterQA_emf/model/TwitterQA.ecore#//Game"/>
           </loopVariable>
@@ -703,11 +723,15 @@
             <referredProperty xsi:type="ecore:EReference" href="/TwitterQA_emf/model/TwitterQA.ecore#//TwitterQA/games"/>
           </iterSet>
         </body>
+<<<<<<< HEAD
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;welcomeMessage = sb.toString();&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void updatePlayers() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;PU&quot;);&#xD;&#xA;&#x9;&#x9;ArrayList&lt;Long> followers = getFollowerIDs(userID);&#xD;&#xA;&#x9;&#x9;for (Long followerID : followers) {&#xD;&#xA;&#x9;&#x9;&#x9;if (!players.containsKey(followerID)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;Player player = new Player(followerID);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;players.put(followerID, player);&#xD;&#xA;&#x9;&#x9;        queueSendWelcomeMsg.add(player);&#xD;&#xA;&#x9;&#x9;        System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(followerID).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;for (Long player : players.keySet()) {&#xD;&#xA;&#x9;&#x9;&#x9;if (!followers.contains(player)) {&#xD;&#xA;&#x9;&#x9;        playersToDelete.add(players.get(player));&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#x9;&#xD;&#xA;&#x9;public void sendWelcomeMsg() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;WM&quot;);&#xD;&#xA;&#x9;&#x9;while (!queueSendWelcomeMsg.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueSendWelcomeMsg.poll();&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), welcomeMessage);&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void getGameSelection() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;GS&quot;);&#xD;&#xA;&#x9;&#x9;if (queueGetGameSelection.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-queue empty&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, DirectMessage> messages = getNewDirectMessages();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;//&#x9;&#x9;for (Long mID : messages.keySet()) {&#xD;&#xA;//&#x9;&#x9;&#x9;System.out.printf(&quot;%d, %d%n&quot;, mID, messages.get(mID).getRecipientId());&#xD;&#xA;//&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;//System.out.printf(&quot;\t- %d messages\n&quot;, messages.size());&#xD;&#xA;&#x9;&#x9;if (messages.isEmpty()){return;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Long firstPlayer = queueGetGameSelection.peek().getID();&#xD;&#xA;&#x9;&#x9;Boolean alldone = false;&#xD;&#xA;&#x9;&#x9;while (!queueGetGameSelection.isEmpty() &amp;&amp; !alldone) {&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueGetGameSelection.poll();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {continue;}&#xD;&#xA;&#x9;&#x9;&#x9;DirectMessage message = messages.get(player.getID());&#xD;&#xA;&#x9;&#x9;&#x9;//System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(player.getID()).getScreenName() + &quot; : &quot; + message);&#xD;&#xA;&#x9;&#x9;&#x9;if (message == null || player.latestMessage == message.getId()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;String selection = message.getText();&#xD;&#xA;&#x9;&#x9;&#x9;player.latestMessage = message.getId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-answer: &quot; + selection + &quot; : &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;if (!games.containsKey(selection)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Please send a correct game id.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setGame(games.get(selection));&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You selected: &quot; + player.getGame().getID());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void sendTestInstruction() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;TI&quot;);&#xD;&#xA;&#x9;&#x9;while (!queueSendTest.isEmpty()) {&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueSendTest.poll();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (player.getTest() == null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.getGame().setHighscore(player.getPoints());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Congratulation, you finished the game with &quot; + player.getPoints() + &quot; points.\n&quot; + &quot;The highscore of this game is: &quot; + player.getGame().getHighscore());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setPoints(0);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;\t-done &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendWelcomeMsg.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;DirectMessage message = twitter.v1().directMessages().sendDirectMessage(player.getID(), player.getTest().getQuestion());&#xD;&#xA;&#x9;&#x9;&#x9;player.setTimestamp(message.getCreatedAt().plusSeconds((long)player.getTest().getTimelimit()));&#xD;&#xA;&#x9;&#x9;&#x9;player.setAttempts(player.getTest().getAttempts());&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-sent &quot; + player.getGame().getID() + &quot;:&quot; + player.getTest().getID() + &quot; &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;public void getAnswer() throws TwitterException {&#xD;&#xA;&#x9;&#x9;System.out.println(&quot;GA&quot;);&#xD;&#xA;&#x9;&#x9;if (queueGetAnswer.isEmpty()) {&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-queue empty&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;return;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> answers = getMentionTweets();&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;if (answers.isEmpty()){return;}&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Long firstPlayer = queueGetAnswer.peek().getID();&#xD;&#xA;&#x9;&#x9;Boolean alldone = false;&#xD;&#xA;&#x9;&#x9;while (!queueGetAnswer.isEmpty() &amp;&amp; !alldone) {&#xD;&#xA;&#x9;&#x9;&#x9;Player player = queueGetAnswer.poll();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Status answer = answers.get(player.getID());&#xD;&#xA;&#x9;&#x9;&#x9;if (player.latestTweet == answer.getId()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;\t-no answer &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (answer.getPlace() == null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;No location specified in tweet.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;System.out.println(answer.getId() + &quot; : &quot; + answer.getText());&#xD;&#xA;&#x9;&#x9;&#x9;player.latestTweet = answer.getId();&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;Boolean inTime = answer.getCreatedAt().isBefore(player.getTimestamp());&#xD;&#xA;&#x9;&#x9;&#x9;Boolean atLocation = nearLocation(player.getTest().getLocation(), extractLocation(answer.getPlace().getFullName(), answer.getPlace().getBoundingBoxCoordinates()));&#xD;&#xA;&#x9;&#x9;&#x9;Boolean correct = player.getTest().getAnswers().contains(answer.getText().split(&quot;;&quot;)"/>
+=======
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#xA;&#xA;&#xA;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;sb.append(welcomeMessage).append(game.getID()).append(&quot; - &quot;).append(game.getDescription()).append(&quot;\n\n&quot;);&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;welcomeMessage = sb.toString();&#xA;&#x9;}&#xA;&#x9;public void updatePlayers() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;PU&quot;);&#xA;&#x9;&#x9;ArrayList&lt;Long> followers = getFollowerIDs(userID);&#xA;&#x9;&#x9;for (Long followerID : followers) {&#xA;&#x9;&#x9;&#x9;if (!players.containsKey(followerID)) {&#xA;&#x9;&#x9;&#x9;&#x9;Player player = new Player(followerID);&#xA;&#x9;&#x9;&#x9;&#x9;players.put(followerID, player);&#xA;&#x9;&#x9;        queueSendWelcomeMsg.add(player);&#xA;&#x9;&#x9;        System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(followerID).getScreenName());&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;for (Long player : players.keySet()) {&#xA;&#x9;&#x9;&#x9;if (!followers.contains(player)) {&#xA;&#x9;&#x9;        playersToDelete.add(players.get(player));&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;}&#x9;&#xA;&#x9;public void sendWelcomeMsg() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;WM&quot;);&#xA;&#x9;&#x9;while (!queueSendWelcomeMsg.isEmpty()) {&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;Player player = queueSendWelcomeMsg.poll();&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), welcomeMessage);&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xA;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void getGameSelection() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;GS&quot;);&#xA;&#x9;&#x9;if (queueGetGameSelection.isEmpty()) {&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-queue empty&quot;);&#xA;&#x9;&#x9;&#x9;return;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;HashMap&lt;Long, DirectMessage> messages = getNewDirectMessages();&#xA;&#x9;&#x9;&#xA;//&#x9;&#x9;for (Long mID : messages.keySet()) {&#xA;//&#x9;&#x9;&#x9;System.out.printf(&quot;%d, %d%n&quot;, mID, messages.get(mID).getRecipientId());&#xA;//&#x9;&#x9;}&#xA;&#x9;&#x9;//System.out.printf(&quot;\t- %d messages\n&quot;, messages.size());&#xA;&#x9;&#x9;if (messages.isEmpty()){return;}&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;Long firstPlayer = queueGetGameSelection.peek().getID();&#xA;&#x9;&#x9;Boolean alldone = false;&#xA;&#x9;&#x9;while (!queueGetGameSelection.isEmpty() &amp;&amp; !alldone) {&#xA;&#x9;&#x9;&#x9;Player player = queueGetGameSelection.poll();&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {continue;}&#xA;&#x9;&#x9;&#x9;DirectMessage message = messages.get(player.getID());&#xA;&#x9;&#x9;&#x9;//System.out.println(&quot;\t-&quot; + twitter.v1().users().showUser(player.getID()).getScreenName() + &quot; : &quot; + message);&#xA;&#x9;&#x9;&#x9;if (message == null || player.latestMessage == message.getId()) {&#xA;&#x9;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;String selection = message.getText();&#xA;&#x9;&#x9;&#x9;player.latestMessage = message.getId();&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-answer: &quot; + selection + &quot; : &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xA;&#x9;&#x9;&#x9;if (!games.containsKey(selection)) {&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Please send a correct game id.&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;queueGetGameSelection.add(player);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;else {&#xA;&#x9;&#x9;&#x9;&#x9;player.setGame(games.get(selection));&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You selected: &quot; + player.getGame().getID());&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetGameSelection, firstPlayer);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void sendTestInstruction() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;TI&quot;);&#xA;&#x9;&#x9;while (!queueSendTest.isEmpty()) {&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;Player player = queueSendTest.poll();&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if (player.getTest() == null) {&#xA;&#x9;&#x9;&#x9;&#x9;player.getGame().setHighscore(player.getPoints());&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Congratulation, you finished the game with &quot; + player.getPoints() + &quot; points.\n&quot; + &quot;The highscore of this game is: &quot; + player.getGame().getHighscore());&#xA;&#x9;&#x9;&#x9;&#x9;player.setPoints(0);&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;\t-done &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xA;&#x9;&#x9;&#x9;&#x9;queueSendWelcomeMsg.add(player);&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;DirectMessage message = twitter.v1().directMessages().sendDirectMessage(player.getID(), player.getTest().getQuestion());&#xA;&#x9;&#x9;&#x9;player.setTimestamp(message.getCreatedAt().plusSeconds((long)player.getTest().getTimelimit()));&#xA;&#x9;&#x9;&#x9;player.setAttempts(player.getTest().getAttempts());&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-sent &quot; + player.getGame().getID() + &quot;:&quot; + player.getTest().getID() + &quot; &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xA;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void getAnswer() throws TwitterException {&#xA;&#x9;&#x9;System.out.println(&quot;GA&quot;);&#xA;&#x9;&#x9;if (queueGetAnswer.isEmpty()) {&#xA;&#x9;&#x9;&#x9;System.out.println(&quot;\t-queue empty&quot;);&#xA;&#x9;&#x9;&#x9;return;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;HashMap&lt;Long, Status> answers = getMentionTweets();&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;if (answers.isEmpty()){return;}&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;Long firstPlayer = queueGetAnswer.peek().getID();&#xA;&#x9;&#x9;Boolean alldone = false;&#xA;&#x9;&#x9;while (!queueGetAnswer.isEmpty() &amp;&amp; !alldone) {&#xA;&#x9;&#x9;&#x9;Player player = queueGetAnswer.poll();&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if (playersToDelete.contains(player)) {&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;Status answer = answers.get(player.getID());&#xA;&#x9;&#x9;&#x9;if (player.latestTweet == answer.getId()) {&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;\t-no answer &quot; + twitter.v1().users().showUser(player.getID()).getScreenName());&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if (answer.getPlace() == null) {&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;No location specified in tweet.&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xA;&#x9;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xA;&#x9;&#x9;&#x9;&#x9;continue;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;System.out.println(answer.getId() + &quot; : &quot; + answer.getText());&#xA;&#x9;&#x9;&#x9;player.latestTweet = answer.getId();&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;Boolean inTime = answer.getCreatedAt().isBefore(player.getTimestamp());&#xA;&#x9;&#x9;&#x9;Boolean atLocation = nearLocation(player.getTest().getLocation(), extractLocation(answer.getPlace().getFullName(), answer.getPlace().getBoundingBoxCoordinates()));&#xA;&#x9;&#x9;&#x9;Boolean correct = player.getTest().getAnswers().contains(answer.getText().split(&quot;;&quot;)"/>
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0]);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;if (!inTime) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Timeout&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You provided the answer to late.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnTimeout());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else if (!atLocation) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-WrongLoc&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You are not at the right location.&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else if (!correct) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Incorrect&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Your answer is incorrect.\n&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Remaining attempts: &quot; + player.getAttempts());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;int hintNo = player.getTest().getAttempts()-player.getAttempts();&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.printf(&quot;%d, %d, %d&quot;, player.getTest().getAttempts(), player.getAttempts(), hintNo);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.print(!(player.getTest().getHints() == null));&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.print(hintNo&lt;player.getTest().getHints().size());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (!(player.getTest().getHints() == null) &amp;&amp; hintNo&lt;player.getTest().getHints().size()) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Here is a hint:\n&quot; + player.getTest().getHints().get(hintNo));&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setAttempts(player.getAttempts()-1);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (player.getAttempts() == 0) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnFail());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Correct&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setPoints(player.getPoints()+player.getTest().getReward());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnCorrect());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Congratulations! Your answer was correct.\nYour points: &quot; + player.getPoints());&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xD;&#xA;&#x9;&#x9;&#x9;sendTestInstruction();&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;private Boolean interatedThroughQueue(Queue&lt;Player> queue, Long playerID) {&#xD;&#xA;&#x9;&#x9;return queue.isEmpty() || queue.peek().getID() == playerID;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;private Location extractLocation(String name, GeoLocation"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0]);&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if (!inTime) {&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Timeout&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You provided the answer to late.&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnTimeout());&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;else if (!atLocation) {&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-WrongLoc&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;You are not at the right location.&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;else if (!correct) {&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Incorrect&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Your answer is incorrect.\n&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Remaining attempts: &quot; + player.getAttempts());&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;int hintNo = player.getTest().getAttempts()-player.getAttempts();&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.printf(&quot;%d, %d, %d&quot;, player.getTest().getAttempts(), player.getAttempts(), hintNo);&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.print(!(player.getTest().getHints() == null));&#xA;&#x9;&#x9;&#x9;&#x9;//System.out.print(hintNo&lt;player.getTest().getHints().size());&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;if (!(player.getTest().getHints() == null) &amp;&amp; hintNo&lt;player.getTest().getHints().size()) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Here is a hint:\n&quot; + player.getTest().getHints().get(hintNo));&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;player.setAttempts(player.getAttempts()-1);&#xA;&#x9;&#x9;&#x9;&#x9;if (player.getAttempts() == 0) {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnFail());&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;else {&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;queueGetAnswer.add(player);&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;else {&#xA;&#x9;&#x9;&#x9;&#x9;System.out.println(&quot;M-Correct&quot;);&#xA;&#x9;&#x9;&#x9;&#x9;player.setPoints(player.getPoints()+player.getTest().getReward());&#xA;&#x9;&#x9;&#x9;&#x9;player.setTest(player.getTest().getTestOnCorrect());&#xA;&#x9;&#x9;&#x9;&#x9;twitter.v1().directMessages().sendDirectMessage(player.getID(), &quot;Congratulations! Your answer was correct.\nYour points: &quot; + player.getPoints());&#xA;&#x9;&#x9;&#x9;&#x9;queueSendTest.add(player);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;alldone = interatedThroughQueue(queueGetAnswer, firstPlayer);&#xA;&#x9;&#x9;&#x9;sendTestInstruction();&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;private Boolean interatedThroughQueue(Queue&lt;Player> queue, Long playerID) {&#xA;&#x9;&#x9;return queue.isEmpty() || queue.peek().getID() == playerID;&#xA;&#x9;}&#xA;&#x9;private Location extractLocation(String name, GeoLocation"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -715,7 +739,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] boundingboxcoor) {&#xD;&#xA;        double"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] boundingboxcoor) {&#xA;        double"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -723,27 +747,27 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="2];&#xD;&#xA;        int count = 0;&#xD;&#xA;        for (GeoLocation"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="2];&#xA;        int count = 0;&#xA;        for (GeoLocation"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] gls : boundingboxcoor) {&#xD;&#xA;            for (GeoLocation g : gls) {&#xD;&#xA;                centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="] gls : boundingboxcoor) {&#xA;            for (GeoLocation g : gls) {&#xA;                centroid"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0] += g.longitude;&#xD;&#xA;                centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0] += g.longitude;&#xA;                centroid"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1] += g.latitude;&#xD;&#xA;                count++;&#xD;&#xA;            }&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1] += g.latitude;&#xA;                count++;&#xA;            }&#xA;        }&#xA;&#xA;        centroid"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0] /= count;&#xD;&#xA;        centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0] /= count;&#xA;        centroid"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1] /= count;&#xD;&#xA;        // latitude and longitude are interchanged&#xD;&#xA;        Location location = new Location(name, centroid"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1] /= count;&#xA;        // latitude and longitude are interchanged&#xA;        Location location = new Location(name, centroid"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -751,7 +775,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0]);&#xD;&#xA;        return location;&#xD;&#xA;    }&#xD;&#xA;&#x9;private Boolean nearLocation(Location playerLoc, Location tweet) {&#xD;&#xA;&#x9;&#x9;double lonDiff = Math.abs(Math.abs(playerLoc.longitude) - Math.abs(tweet.longitude));&#xD;&#xA;&#x9;&#x9;double latDiff = Math.abs(Math.abs(playerLoc.latitude) - Math.abs(tweet.latitude));&#xD;&#xA;&#x9;&#x9;//System.out.println(&quot;Loc:&quot; + playerLoc.longitude + &quot;, &quot; + playerLoc.latitude + &quot; : &quot; + tweet.longitude + &quot;, &quot; + tweet.latitude);&#xD;&#xA;&#x9;&#x9;//System.out.println(&quot;Loc-Diff: &quot; + lonDiff + &quot;, &quot; + latDiff);&#xD;&#xA;&#x9;&#x9;return (lonDiff &lt; 0.015 &amp;&amp; latDiff &lt; 0.015);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0]);&#xA;        return location;&#xA;    }&#xA;&#x9;private Boolean nearLocation(Location playerLoc, Location tweet) {&#xA;&#x9;&#x9;double lonDiff = Math.abs(Math.abs(playerLoc.longitude) - Math.abs(tweet.longitude));&#xA;&#x9;&#x9;double latDiff = Math.abs(Math.abs(playerLoc.latitude) - Math.abs(tweet.latitude));&#xA;&#x9;&#x9;//System.out.println(&quot;Loc:&quot; + playerLoc.longitude + &quot;, &quot; + playerLoc.latitude + &quot; : &quot; + tweet.longitude + &quot;, &quot; + tweet.latitude);&#xA;&#x9;&#x9;//System.out.println(&quot;Loc-Diff: &quot; + lonDiff + &quot;, &quot; + latDiff);&#xA;&#x9;&#x9;return (lonDiff &lt; 0.015 &amp;&amp; latDiff &lt; 0.015);&#xA;&#x9;}&#xA;}&#xA;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="TwitterQA.java">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -1159,6 +1183,7 @@
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateElement">
+<<<<<<< HEAD
       <details key="start" value="93"/>
       <details key="end" value="23775"/>
       <details key="line" value="4"/>
@@ -2627,6 +2652,1291 @@
       <details key="start" value="126"/>
       <details key="end" value="148"/>
       <details key="line" value="4"/>
+=======
+      <details key="start" value="91"/>
+      <details key="end" value="18094"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateElement/%">
+      <details key="start" value="166"/>
+      <details key="end" value="18082"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateElement/%/%">
+      <details key="start" value="208"/>
+      <details key="end" value="706"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateElement/%/%.1">
+      <details key="start" value="707"/>
+      <details key="end" value="729"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateElement/%/%.1/aTwitterQA">
+      <details key="start" value="707"/>
+      <details key="end" value="717"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateElement/%/%.2">
+      <details key="start" value="731"/>
+      <details key="end" value="1507"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElement/%/%.3">
+      <details key="start" value="1508"/>
+      <details key="end" value="1531"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElement/%/%.3/aTwitterQA">
+      <details key="start" value="1508"/>
+      <details key="end" value="1518"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElement/%/%.4">
+      <details key="start" value="1533"/>
+      <details key="end" value="1537"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElement/%/%.5">
+      <details key="start" value="1538"/>
+      <details key="end" value="1564"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElement/%/%.5/aTwitterQA">
+      <details key="start" value="1538"/>
+      <details key="end" value="1548"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElement/%/%.6">
+      <details key="start" value="1566"/>
+      <details key="end" value="1595"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElement/%/%.7">
+      <details key="start" value="1596"/>
+      <details key="end" value="1619"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElement/%/%.7/aTwitterQA">
+      <details key="start" value="1596"/>
+      <details key="end" value="1606"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElement/%/%.8">
+      <details key="start" value="1621"/>
+      <details key="end" value="1625"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElement/%/%.9">
+      <details key="start" value="1626"/>
+      <details key="end" value="1656"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%/%.9/aTwitterQA">
+      <details key="start" value="1626"/>
+      <details key="end" value="1636"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%/%.10">
+      <details key="start" value="1658"/>
+      <details key="end" value="7137"/>
+      <details key="line" value="45"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%/%.11">
+      <details key="start" value="7139"/>
+      <details key="end" value="7293"/>
+      <details key="line" value="206"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%/%.11/%">
+      <details key="start" value="7185"/>
+      <details key="end" value="7202"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%/%.11/%.1">
+      <details key="start" value="7203"/>
+      <details key="end" value="7212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%/%.11/%.1/aLoc">
+      <details key="start" value="7203"/>
+      <details key="end" value="7207"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%/%.11/%.2">
+      <details key="start" value="7214"/>
+      <details key="end" value="7231"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%/%.11/%.3">
+      <details key="start" value="7232"/>
+      <details key="end" value="7241"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%/%.11/%.3/aLoc">
+      <details key="start" value="7232"/>
+      <details key="end" value="7236"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%/%.11/%.4">
+      <details key="start" value="7243"/>
+      <details key="end" value="7246"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%/%.11/%.5">
+      <details key="start" value="7247"/>
+      <details key="end" value="7261"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%/%.11/%.5/aLoc">
+      <details key="start" value="7247"/>
+      <details key="end" value="7251"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%/%.11/%.6">
+      <details key="start" value="7263"/>
+      <details key="end" value="7265"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%/%.11/%.7">
+      <details key="start" value="7266"/>
+      <details key="end" value="7279"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%/%.11/%.7/aLoc">
+      <details key="start" value="7266"/>
+      <details key="end" value="7270"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%/%.11/%.8">
+      <details key="start" value="7281"/>
+      <details key="end" value="7285"/>
+      <details key="line" value="207"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%/%.11/aLoc">
+      <details key="start" value="7145"/>
+      <details key="end" value="7159"/>
+      <details key="line" value="206"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElement/%/%.11/%.9">
+      <details key="start" value="7162"/>
+      <details key="end" value="7182"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElement/%/%.11/%.9/aTwitterQA">
+      <details key="start" value="7162"/>
+      <details key="end" value="7172"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElement/%/%.12">
+      <details key="start" value="7296"/>
+      <details key="end" value="7361"/>
+      <details key="line" value="208"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElement/%/%.13">
+      <details key="start" value="7363"/>
+      <details key="end" value="9049"/>
+      <details key="line" value="212"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElement/%/%.13/%">
+      <details key="start" value="7404"/>
+      <details key="end" value="8079"/>
+      <details key="line" value="213"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElement/%/%.13/%/%">
+      <details key="start" value="7466"/>
+      <details key="end" value="7479"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElement/%/%.13/%/%.1">
+      <details key="start" value="7480"/>
+      <details key="end" value="7490"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElement/%/%.13/%/%.1/aTest">
+      <details key="start" value="7480"/>
+      <details key="end" value="7485"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElement/%/%.13/%/%.2">
+      <details key="start" value="7492"/>
+      <details key="end" value="7505"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElement/%/%.13/%/%.3">
+      <details key="start" value="7506"/>
+      <details key="end" value="7516"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElement/%/%.13/%/%.3/aTest">
+      <details key="start" value="7506"/>
+      <details key="end" value="7511"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElement/%/%.13/%/%.4">
+      <details key="start" value="7518"/>
+      <details key="end" value="7536"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElement/%/%.13/%/%.5">
+      <details key="start" value="7537"/>
+      <details key="end" value="7556"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElement/%/%.13/%/%.5/%">
+      <details key="start" value="7537"/>
+      <details key="end" value="7551"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElement/%/%.13/%/%.5/%/aTest">
+      <details key="start" value="7537"/>
+      <details key="end" value="7542"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElement/%/%.13/%/%.6">
+      <details key="start" value="7558"/>
+      <details key="end" value="7563"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElement/%/%.13/%/%.7">
+      <details key="start" value="7564"/>
+      <details key="end" value="7578"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElement/%/%.13/%/%.7/aTest">
+      <details key="start" value="7564"/>
+      <details key="end" value="7569"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElement/%/%.13/%/%.8">
+      <details key="start" value="7580"/>
+      <details key="end" value="7598"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElement/%/%.13/%/%.9">
+      <details key="start" value="7598"/>
+      <details key="end" value="7642"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElement/%/%.13/%/%.9/a">
+      <details key="start" value="7632"/>
+      <details key="end" value="7633"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElement/%/%.13/%/%.9/%">
+      <details key="start" value="7635"/>
+      <details key="end" value="7636"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElement/%/%.13/%/%.9/a.1">
+      <details key="start" value="7604"/>
+      <details key="end" value="7613"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElement/%/%.13/%/%.9/%.1">
+      <details key="start" value="7616"/>
+      <details key="end" value="7629"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElement/%/%.13/%/%.9/%.1/aTest">
+      <details key="start" value="7616"/>
+      <details key="end" value="7621"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElement/%/%.13/%/%.10">
+      <details key="start" value="7642"/>
+      <details key="end" value="7672"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElement/%/%.13/%/%.11">
+      <details key="start" value="7672"/>
+      <details key="end" value="7714"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElement/%/%.13/%/%.11/h">
+      <details key="start" value="7704"/>
+      <details key="end" value="7705"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElement/%/%.13/%/%.11/%">
+      <details key="start" value="7707"/>
+      <details key="end" value="7708"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElement/%/%.13/%/%.11/h.1">
+      <details key="start" value="7678"/>
+      <details key="end" value="7687"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElement/%/%.13/%/%.11/%.1">
+      <details key="start" value="7690"/>
+      <details key="end" value="7701"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElement/%/%.13/%/%.11/%.1/aTest">
+      <details key="start" value="7690"/>
+      <details key="end" value="7695"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElement/%/%.13/%/%.12">
+      <details key="start" value="7714"/>
+      <details key="end" value="7729"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElement/%/%.13/%/%.13">
+      <details key="start" value="7730"/>
+      <details key="end" value="7745"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElement/%/%.13/%/%.13/aTest">
+      <details key="start" value="7730"/>
+      <details key="end" value="7735"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElement/%/%.13/%/%.14">
+      <details key="start" value="7747"/>
+      <details key="end" value="7749"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElement/%/%.13/%/%.15">
+      <details key="start" value="7750"/>
+      <details key="end" value="7764"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElement/%/%.13/%/%.15/aTest">
+      <details key="start" value="7750"/>
+      <details key="end" value="7755"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElement/%/%.13/%/%.16">
+      <details key="start" value="7766"/>
+      <details key="end" value="7768"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElement/%/%.13/%/%.17">
+      <details key="start" value="7769"/>
+      <details key="end" value="7781"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElement/%/%.13/%/%.17/aTest">
+      <details key="start" value="7769"/>
+      <details key="end" value="7774"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElement/%/%.13/%/%.18">
+      <details key="start" value="7783"/>
+      <details key="end" value="7784"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElement/%/%.13/%/%.19">
+      <details key="start" value="7784"/>
+      <details key="end" value="7879"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElement/%/%.13/%/%.19/%">
+      <details key="start" value="7827"/>
+      <details key="end" value="7831"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElement/%/%.13/%/%.19/%.1">
+      <details key="start" value="7788"/>
+      <details key="end" value="7826"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElement/%/%.13/%/%.19/%.1/%">
+      <details key="start" value="7789"/>
+      <details key="end" value="7810"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElement/%/%.13/%/%.19/%.1/%/%">
+      <details key="start" value="7789"/>
+      <details key="end" value="7805"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElement/%/%.13/%/%.19/%.1/%/%/aTest">
+      <details key="start" value="7789"/>
+      <details key="end" value="7794"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElement/%/%.13/%/%.19/%.2">
+      <details key="start" value="7831"/>
+      <details key="end" value="7874"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElement/%/%.13/%/%.19/%.2/%">
+      <details key="start" value="7837"/>
+      <details key="end" value="7848"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElement/%/%.13/%/%.19/%.2/%.1">
+      <details key="start" value="7849"/>
+      <details key="end" value="7870"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%/%.13/%/%.19/%.2/%.1/%">
+      <details key="start" value="7849"/>
+      <details key="end" value="7865"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/%/%.13/%/%.19/%.2/%.1/%/aTest">
+      <details key="start" value="7849"/>
+      <details key="end" value="7854"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateElement/%/%.13/%/%.19/%.2/%.2">
+      <details key="start" value="7872"/>
+      <details key="end" value="7874"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateElement/%/%.13/%/%.20">
+      <details key="start" value="7879"/>
+      <details key="end" value="7881"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElement/%/%.13/%/%.21">
+      <details key="start" value="7881"/>
+      <details key="end" value="7970"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateElement/%/%.13/%/%.21/%">
+      <details key="start" value="7921"/>
+      <details key="end" value="7925"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateElement/%/%.13/%/%.21/%.1">
+      <details key="start" value="7885"/>
+      <details key="end" value="7920"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateElement/%/%.13/%/%.21/%.1/%">
+      <details key="start" value="7886"/>
+      <details key="end" value="7904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateElement/%/%.13/%/%.21/%.1/%/%">
+      <details key="start" value="7886"/>
+      <details key="end" value="7899"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateElement/%/%.13/%/%.21/%.1/%/%/aTest">
+      <details key="start" value="7886"/>
+      <details key="end" value="7891"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateElement/%/%.13/%/%.21/%.2">
+      <details key="start" value="7925"/>
+      <details key="end" value="7965"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateElement/%/%.13/%/%.21/%.2/%">
+      <details key="start" value="7931"/>
+      <details key="end" value="7942"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateElement/%/%.13/%/%.21/%.2/%.1">
+      <details key="start" value="7943"/>
+      <details key="end" value="7961"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateElement/%/%.13/%/%.21/%.2/%.1/%">
+      <details key="start" value="7943"/>
+      <details key="end" value="7956"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateElement/%/%.13/%/%.21/%.2/%.1/%/aTest">
+      <details key="start" value="7943"/>
+      <details key="end" value="7948"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateElement/%/%.13/%/%.21/%.2/%.2">
+      <details key="start" value="7963"/>
+      <details key="end" value="7965"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateElement/%/%.13/%/%.22">
+      <details key="start" value="7970"/>
+      <details key="end" value="7972"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateElement/%/%.13/%/%.23">
+      <details key="start" value="7972"/>
+      <details key="end" value="8067"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateElement/%/%.13/%/%.23/%">
+      <details key="start" value="8015"/>
+      <details key="end" value="8019"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateElement/%/%.13/%/%.23/%.1">
+      <details key="start" value="7976"/>
+      <details key="end" value="8014"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateElement/%/%.13/%/%.23/%.1/%">
+      <details key="start" value="7977"/>
+      <details key="end" value="7998"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateElement/%/%.13/%/%.23/%.1/%/%">
+      <details key="start" value="7977"/>
+      <details key="end" value="7993"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateElement/%/%.13/%/%.23/%.1/%/%/aTest">
+      <details key="start" value="7977"/>
+      <details key="end" value="7982"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateElement/%/%.13/%/%.23/%.2">
+      <details key="start" value="8019"/>
+      <details key="end" value="8062"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateElement/%/%.13/%/%.23/%.2/%">
+      <details key="start" value="8025"/>
+      <details key="end" value="8036"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateElement/%/%.13/%/%.23/%.2/%.1">
+      <details key="start" value="8037"/>
+      <details key="end" value="8058"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateElement/%/%.13/%/%.23/%.2/%.1/%">
+      <details key="start" value="8037"/>
+      <details key="end" value="8053"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateElement/%/%.13/%/%.23/%.2/%.1/%/aTest">
+      <details key="start" value="8037"/>
+      <details key="end" value="8042"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateElement/%/%.13/%/%.23/%.2/%.2">
+      <details key="start" value="8060"/>
+      <details key="end" value="8062"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateElement/%/%.13/%/%.24">
+      <details key="start" value="8067"/>
+      <details key="end" value="8071"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateElement/%/%.13/%/aTest">
+      <details key="start" value="7410"/>
+      <details key="end" value="7421"/>
+      <details key="line" value="213"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateElement/%/%.13/%/%.25">
+      <details key="start" value="7424"/>
+      <details key="end" value="7463"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateElement/%/%.13/%/%.25/sortedBy">
+      <details key="start" value="7424"/>
+      <details key="end" value="7452"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%">
+      <details key="start" value="7424"/>
+      <details key="end" value="7435"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%/aGame">
+      <details key="start" value="7424"/>
+      <details key="end" value="7429"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%.1">
+      <details key="start" value="7446"/>
+      <details key="end" value="7451"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateElement/%/%.13/%/%.25/sortedBy/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateElement/%/%.13/%/%.25/sortedBy/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateElement/%/%.13/%.1">
+      <details key="start" value="8080"/>
+      <details key="end" value="8087"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateElement/%/%.13/%.2">
+      <details key="start" value="8088"/>
+      <details key="end" value="8111"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateElement/%/%.13/%.2/%">
+      <details key="start" value="8088"/>
+      <details key="end" value="8106"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateElement/%/%.13/%.2/%/aGame">
+      <details key="start" value="8088"/>
+      <details key="end" value="8093"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateElement/%/%.13/%.3">
+      <details key="start" value="8113"/>
+      <details key="end" value="8126"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateElement/%/%.13/%.4">
+      <details key="start" value="8127"/>
+      <details key="end" value="8150"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateElement/%/%.13/%.4/%">
+      <details key="start" value="8127"/>
+      <details key="end" value="8145"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateElement/%/%.13/%.4/%/aGame">
+      <details key="start" value="8127"/>
+      <details key="end" value="8132"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateElement/%/%.13/%.5">
+      <details key="start" value="8152"/>
+      <details key="end" value="8170"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateElement/%/%.13/%.6">
+      <details key="start" value="8171"/>
+      <details key="end" value="8203"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateElement/%/%.13/%.6/%">
+      <details key="start" value="8171"/>
+      <details key="end" value="8198"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateElement/%/%.13/%.6/%/%">
+      <details key="start" value="8171"/>
+      <details key="end" value="8189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateElement/%/%.13/%.6/%/%/aGame">
+      <details key="start" value="8171"/>
+      <details key="end" value="8176"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateElement/%/%.13/%.7">
+      <details key="start" value="8205"/>
+      <details key="end" value="8210"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateElement/%/%.13/%.8">
+      <details key="start" value="8211"/>
+      <details key="end" value="8238"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateElement/%/%.13/%.8/%">
+      <details key="start" value="8211"/>
+      <details key="end" value="8229"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateElement/%/%.13/%.8/%/aGame">
+      <details key="start" value="8211"/>
+      <details key="end" value="8216"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateElement/%/%.13/%.9">
+      <details key="start" value="8240"/>
+      <details key="end" value="8258"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateElement/%/%.13/%.10">
+      <details key="start" value="8258"/>
+      <details key="end" value="8315"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateElement/%/%.13/%.10/a">
+      <details key="start" value="8305"/>
+      <details key="end" value="8306"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateElement/%/%.13/%.10/%">
+      <details key="start" value="8308"/>
+      <details key="end" value="8309"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateElement/%/%.13/%.10/a.1">
+      <details key="start" value="8264"/>
+      <details key="end" value="8273"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateElement/%/%.13/%.10/%.1">
+      <details key="start" value="8276"/>
+      <details key="end" value="8302"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateElement/%/%.13/%.10/%.1/%">
+      <details key="start" value="8276"/>
+      <details key="end" value="8294"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateElement/%/%.13/%.10/%.1/%/aGame">
+      <details key="start" value="8276"/>
+      <details key="end" value="8281"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateElement/%/%.13/%.11">
+      <details key="start" value="8315"/>
+      <details key="end" value="8345"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateElement/%/%.13/%.12">
+      <details key="start" value="8345"/>
+      <details key="end" value="8400"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateElement/%/%.13/%.12/h">
+      <details key="start" value="8390"/>
+      <details key="end" value="8391"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateElement/%/%.13/%.12/%">
+      <details key="start" value="8393"/>
+      <details key="end" value="8394"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateElement/%/%.13/%.12/h.1">
+      <details key="start" value="8351"/>
+      <details key="end" value="8360"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateElement/%/%.13/%.12/%.1">
+      <details key="start" value="8363"/>
+      <details key="end" value="8387"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateElement/%/%.13/%.12/%.1/%">
+      <details key="start" value="8363"/>
+      <details key="end" value="8381"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateElement/%/%.13/%.12/%.1/%/aGame">
+      <details key="start" value="8363"/>
+      <details key="end" value="8368"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/generateElement/%/%.13/%.13">
+      <details key="start" value="8400"/>
+      <details key="end" value="8415"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/generateElement/%/%.13/%.14">
+      <details key="start" value="8416"/>
+      <details key="end" value="8444"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/generateElement/%/%.13/%.14/%">
+      <details key="start" value="8416"/>
+      <details key="end" value="8434"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/generateElement/%/%.13/%.14/%/aGame">
+      <details key="start" value="8416"/>
+      <details key="end" value="8421"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/generateElement/%/%.13/%.15">
+      <details key="start" value="8446"/>
+      <details key="end" value="8448"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/generateElement/%/%.13/%.16">
+      <details key="start" value="8449"/>
+      <details key="end" value="8476"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/generateElement/%/%.13/%.16/%">
+      <details key="start" value="8449"/>
+      <details key="end" value="8467"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/generateElement/%/%.13/%.16/%/aGame">
+      <details key="start" value="8449"/>
+      <details key="end" value="8454"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/generateElement/%/%.13/%.17">
+      <details key="start" value="8478"/>
+      <details key="end" value="8480"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/generateElement/%/%.13/%.18">
+      <details key="start" value="8481"/>
+      <details key="end" value="8506"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/generateElement/%/%.13/%.18/%">
+      <details key="start" value="8481"/>
+      <details key="end" value="8499"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/generateElement/%/%.13/%.18/%/aGame">
+      <details key="start" value="8481"/>
+      <details key="end" value="8486"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/generateElement/%/%.13/%.19">
+      <details key="start" value="8508"/>
+      <details key="end" value="8510"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateElement/%/%.13/%.20">
+      <details key="start" value="8510"/>
+      <details key="end" value="8631"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateElement/%/%.13/%.20/%">
+      <details key="start" value="8566"/>
+      <details key="end" value="8570"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateElement/%/%.13/%.20/%.1">
+      <details key="start" value="8514"/>
+      <details key="end" value="8565"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/generateElement/%/%.13/%.20/%.1/%">
+      <details key="start" value="8515"/>
+      <details key="end" value="8549"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/generateElement/%/%.13/%.20/%.1/%/%">
+      <details key="start" value="8515"/>
+      <details key="end" value="8544"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/generateElement/%/%.13/%.20/%.1/%/%/%">
+      <details key="start" value="8515"/>
+      <details key="end" value="8533"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/generateElement/%/%.13/%.20/%.1/%/%/%/aGame">
+      <details key="start" value="8515"/>
+      <details key="end" value="8520"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/generateElement/%/%.13/%.20/%.2">
+      <details key="start" value="8570"/>
+      <details key="end" value="8626"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/generateElement/%/%.13/%.20/%.2/%">
+      <details key="start" value="8576"/>
+      <details key="end" value="8587"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/generateElement/%/%.13/%.20/%.2/%.1">
+      <details key="start" value="8588"/>
+      <details key="end" value="8622"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/generateElement/%/%.13/%.20/%.2/%.1/%">
+      <details key="start" value="8588"/>
+      <details key="end" value="8617"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/generateElement/%/%.13/%.20/%.2/%.1/%/%">
+      <details key="start" value="8588"/>
+      <details key="end" value="8606"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/generateElement/%/%.13/%.20/%.2/%.1/%/%/aGame">
+      <details key="start" value="8588"/>
+      <details key="end" value="8593"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/generateElement/%/%.13/%.20/%.2/%.2">
+      <details key="start" value="8624"/>
+      <details key="end" value="8626"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/generateElement/%/%.13/%.21">
+      <details key="start" value="8631"/>
+      <details key="end" value="8633"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/generateElement/%/%.13/%.22">
+      <details key="start" value="8633"/>
+      <details key="end" value="8748"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/generateElement/%/%.13/%.22/%">
+      <details key="start" value="8686"/>
+      <details key="end" value="8690"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/generateElement/%/%.13/%.22/%.1">
+      <details key="start" value="8637"/>
+      <details key="end" value="8685"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/generateElement/%/%.13/%.22/%.1/%">
+      <details key="start" value="8638"/>
+      <details key="end" value="8669"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/generateElement/%/%.13/%.22/%.1/%/%">
+      <details key="start" value="8638"/>
+      <details key="end" value="8664"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/generateElement/%/%.13/%.22/%.1/%/%/%">
+      <details key="start" value="8638"/>
+      <details key="end" value="8656"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/generateElement/%/%.13/%.22/%.1/%/%/%/aGame">
+      <details key="start" value="8638"/>
+      <details key="end" value="8643"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/generateElement/%/%.13/%.22/%.2">
+      <details key="start" value="8690"/>
+      <details key="end" value="8743"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateElement/%/%.13/%.22/%.2/%">
+      <details key="start" value="8696"/>
+      <details key="end" value="8707"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateElement/%/%.13/%.22/%.2/%.1">
+      <details key="start" value="8708"/>
+      <details key="end" value="8739"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/generateElement/%/%.13/%.22/%.2/%.1/%">
+      <details key="start" value="8708"/>
+      <details key="end" value="8734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/generateElement/%/%.13/%.22/%.2/%.1/%/%">
+      <details key="start" value="8708"/>
+      <details key="end" value="8726"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/generateElement/%/%.13/%.22/%.2/%.1/%/%/aGame">
+      <details key="start" value="8708"/>
+      <details key="end" value="8713"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/generateElement/%/%.13/%.22/%.2/%.2">
+      <details key="start" value="8741"/>
+      <details key="end" value="8743"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/generateElement/%/%.13/%.23">
+      <details key="start" value="8748"/>
+      <details key="end" value="8750"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/generateElement/%/%.13/%.24">
+      <details key="start" value="8750"/>
+      <details key="end" value="8871"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/generateElement/%/%.13/%.24/%">
+      <details key="start" value="8806"/>
+      <details key="end" value="8810"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/generateElement/%/%.13/%.24/%.1">
+      <details key="start" value="8754"/>
+      <details key="end" value="8805"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/generateElement/%/%.13/%.24/%.1/%">
+      <details key="start" value="8755"/>
+      <details key="end" value="8789"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/generateElement/%/%.13/%.24/%.1/%/%">
+      <details key="start" value="8755"/>
+      <details key="end" value="8784"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.203" references="/0/generateElement/%/%.13/%.24/%.1/%/%/%">
+      <details key="start" value="8755"/>
+      <details key="end" value="8773"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.204" references="/0/generateElement/%/%.13/%.24/%.1/%/%/%/aGame">
+      <details key="start" value="8755"/>
+      <details key="end" value="8760"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/generateElement/%/%.13/%.24/%.2">
+      <details key="start" value="8810"/>
+      <details key="end" value="8866"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/generateElement/%/%.13/%.24/%.2/%">
+      <details key="start" value="8816"/>
+      <details key="end" value="8827"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.207" references="/0/generateElement/%/%.13/%.24/%.2/%.1">
+      <details key="start" value="8828"/>
+      <details key="end" value="8862"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.208" references="/0/generateElement/%/%.13/%.24/%.2/%.1/%">
+      <details key="start" value="8828"/>
+      <details key="end" value="8857"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.209" references="/0/generateElement/%/%.13/%.24/%.2/%.1/%/%">
+      <details key="start" value="8828"/>
+      <details key="end" value="8846"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.210" references="/0/generateElement/%/%.13/%.24/%.2/%.1/%/%/aGame">
+      <details key="start" value="8828"/>
+      <details key="end" value="8833"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.211" references="/0/generateElement/%/%.13/%.24/%.2/%.2">
+      <details key="start" value="8864"/>
+      <details key="end" value="8866"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.212" references="/0/generateElement/%/%.13/%.25">
+      <details key="start" value="8871"/>
+      <details key="end" value="8898"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.213" references="/0/generateElement/%/%.13/%.26">
+      <details key="start" value="8899"/>
+      <details key="end" value="8909"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.214" references="/0/generateElement/%/%.13/%.26/aGame">
+      <details key="start" value="8899"/>
+      <details key="end" value="8904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.215" references="/0/generateElement/%/%.13/%.27">
+      <details key="start" value="8911"/>
+      <details key="end" value="8914"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.216" references="/0/generateElement/%/%.13/%.28">
+      <details key="start" value="8915"/>
+      <details key="end" value="8938"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.217" references="/0/generateElement/%/%.13/%.28/%">
+      <details key="start" value="8915"/>
+      <details key="end" value="8933"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.218" references="/0/generateElement/%/%.13/%.28/%/aGame">
+      <details key="start" value="8915"/>
+      <details key="end" value="8920"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.219" references="/0/generateElement/%/%.13/%.29">
+      <details key="start" value="8940"/>
+      <details key="end" value="8950"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.220" references="/0/generateElement/%/%.13/%.30">
+      <details key="start" value="8951"/>
+      <details key="end" value="8961"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.221" references="/0/generateElement/%/%.13/%.30/aGame">
+      <details key="start" value="8951"/>
+      <details key="end" value="8956"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.222" references="/0/generateElement/%/%.13/%.31">
+      <details key="start" value="8963"/>
+      <details key="end" value="8967"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.223" references="/0/generateElement/%/%.13/%.32">
+      <details key="start" value="8968"/>
+      <details key="end" value="8985"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.224" references="/0/generateElement/%/%.13/%.32/aGame">
+      <details key="start" value="8968"/>
+      <details key="end" value="8973"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.225" references="/0/generateElement/%/%.13/%.33">
+      <details key="start" value="8987"/>
+      <details key="end" value="9041"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.226" references="/0/generateElement/%/%.13/aGame">
+      <details key="start" value="7369"/>
+      <details key="end" value="7380"/>
+      <details key="line" value="212"/>
+    </eAnnotations>
+    <eAnnotations source="positions.227" references="/0/generateElement/%/%.13/%.34">
+      <details key="start" value="7383"/>
+      <details key="end" value="7399"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.228" references="/0/generateElement/%/%.13/%.34/aTwitterQA">
+      <details key="start" value="7383"/>
+      <details key="end" value="7393"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.229" references="/0/generateElement/%/%.14">
+      <details key="start" value="9050"/>
+      <details key="end" value="14790"/>
+      <details key="line" value="221"/>
+    </eAnnotations>
+    <eAnnotations source="positions.230" references="/0/generateElement/%/%.15">
+      <details key="start" value="14791"/>
+      <details key="end" value="14794"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.231" references="/0/generateElement/%/%.16">
+      <details key="start" value="14796"/>
+      <details key="end" value="16993"/>
+      <details key="line" value="370"/>
+    </eAnnotations>
+    <eAnnotations source="positions.232" references="/0/generateElement/%/%.17">
+      <details key="start" value="16994"/>
+      <details key="end" value="16997"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.233" references="/0/generateElement/%/%.18">
+      <details key="start" value="16999"/>
+      <details key="end" value="17000"/>
+      <details key="line" value="421"/>
+    </eAnnotations>
+    <eAnnotations source="positions.234" references="/0/generateElement/%/%.19">
+      <details key="start" value="17001"/>
+      <details key="end" value="17004"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.235" references="/0/generateElement/%/%.20">
+      <details key="start" value="17006"/>
+      <details key="end" value="17041"/>
+      <details key="line" value="421"/>
+    </eAnnotations>
+    <eAnnotations source="positions.236" references="/0/generateElement/%/%.21">
+      <details key="start" value="17042"/>
+      <details key="end" value="17045"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.237" references="/0/generateElement/%/%.22">
+      <details key="start" value="17047"/>
+      <details key="end" value="17070"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.238" references="/0/generateElement/%/%.23">
+      <details key="start" value="17071"/>
+      <details key="end" value="17074"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.239" references="/0/generateElement/%/%.24">
+      <details key="start" value="17076"/>
+      <details key="end" value="17127"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.240" references="/0/generateElement/%/%.25">
+      <details key="start" value="17128"/>
+      <details key="end" value="17131"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.241" references="/0/generateElement/%/%.26">
+      <details key="start" value="17133"/>
+      <details key="end" value="17224"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.242" references="/0/generateElement/%/%.27">
+      <details key="start" value="17225"/>
+      <details key="end" value="17228"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.243" references="/0/generateElement/%/%.28">
+      <details key="start" value="17230"/>
+      <details key="end" value="17273"/>
+      <details key="line" value="426"/>
+    </eAnnotations>
+    <eAnnotations source="positions.244" references="/0/generateElement/%/%.29">
+      <details key="start" value="17274"/>
+      <details key="end" value="17277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.245" references="/0/generateElement/%/%.30">
+      <details key="start" value="17279"/>
+      <details key="end" value="17363"/>
+      <details key="line" value="427"/>
+    </eAnnotations>
+    <eAnnotations source="positions.246" references="/0/generateElement/%/%.31">
+      <details key="start" value="17364"/>
+      <details key="end" value="17367"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.247" references="/0/generateElement/%/%.32">
+      <details key="start" value="17369"/>
+      <details key="end" value="17398"/>
+      <details key="line" value="432"/>
+    </eAnnotations>
+    <eAnnotations source="positions.248" references="/0/generateElement/%/%.33">
+      <details key="start" value="17399"/>
+      <details key="end" value="17402"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.249" references="/0/generateElement/%/%.34">
+      <details key="start" value="17404"/>
+      <details key="end" value="17523"/>
+      <details key="line" value="433"/>
+    </eAnnotations>
+    <eAnnotations source="positions.250" references="/0/generateElement/%/%.35">
+      <details key="start" value="17524"/>
+      <details key="end" value="17527"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.251" references="/0/generateElement/%/%.36">
+      <details key="start" value="17529"/>
+      <details key="end" value="17541"/>
+      <details key="line" value="435"/>
+    </eAnnotations>
+    <eAnnotations source="positions.252" references="/0/generateElement/%/%.37">
+      <details key="start" value="17542"/>
+      <details key="end" value="17545"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.253" references="/0/generateElement/%/%.38">
+      <details key="start" value="17547"/>
+      <details key="end" value="18075"/>
+      <details key="line" value="435"/>
+    </eAnnotations>
+    <eAnnotations source="positions.254" references="/0/generateElement/%/%.39">
+      <details key="start" value="173"/>
+      <details key="end" value="189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.255" references="/0/generateElement/%/%.40">
+      <details key="start" value="198"/>
+      <details key="end" value="205"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.256" references="/0/generateElement/aTwitterQA">
+      <details key="start" value="124"/>
+      <details key="end" value="146"/>
+      <details key="line" value="5"/>
+>>>>>>> 942a6597fc6ac38a80ce739092b2e75528faf005
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>
